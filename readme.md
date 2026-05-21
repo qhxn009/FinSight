@@ -11,7 +11,7 @@
 
 <p align="center">
   FinSight 基于券商 MCP 和智谱 GLM 大模型的 AI 对话分析助手，提供金融数据智能分析和图像识别两大核心能力<br>
-  **0费用**使用满血版大模型+A股数据，让用户通过自然语言即可获取专业金融数据分析与图像理解服务。
+  <strong style="color:red;font-size:1.1em">0费用</strong>使用满血版大模型+A股数据，让用户通过自然语言即可获取专业金融数据分析与图像理解服务。
 </p>
 
 ## 特性
@@ -76,9 +76,17 @@ FinSight/
 ### 前置条件
 
 - Python 3.10+
+- Git
 - 智谱 AI API Key（[免费申请](https://www.bigmodel.cn/invite?icode=%2F7GW43rLVlqOKpBa8XiSvGczbXFgPRGIalpycrEwJ28%3D)）
 - 券商 MCP Token（[免费申请](https://www.gf.com.cn/)）
 - Tavily API Key（[可选，用于联网搜索](https://www.tavily.com/)）
+
+### 下载项目
+
+```bash
+git clone https://github.com/qhxn009/FinSight.git
+cd FinSight
+```
 
 ### 安装依赖
 
@@ -149,7 +157,7 @@ data: [DONE]
 
 ## 错误码
 
-常见的错误提示（中日友好中文）：
+常见的错误提示：
 
 | 场景 | 提示 |
 |------|------|
@@ -161,11 +169,6 @@ data: [DONE]
 
 完整错误码列表见 [`doc/api-code.md`](doc/api-code.md)。
 
-## 帮助文档
-
-- [帮助文档](http://localhost:8000/static/help.html) — 功能说明、操作指南、常见问题
-- [模型介绍](http://localhost:8000/static/models.html) — 智谱全系模型概览（文本/视觉/图像/视频/音视频/向量）
-
 ## 开发参考
 
 项目 `doc/` 目录收录了以下参考资料：
@@ -176,6 +179,15 @@ data: [DONE]
 - [API 错误码](doc/api-code.md) — HTTP 状态码与业务错误码全集
 - [zai-sdk](doc/zai-sdk.md) — 智谱 Python SDK 安装与使用
 - [Tavily MCP](doc/tavilyMCP.md) — Tavily 联网搜索 MCP 配置
+
+## 帮助文档
+
+1.项目自带的 `help.html` 文件，可在线查看帮助文档。
+- [帮助文档](help.html) — 功能说明、操作指南、常见问题
+- [模型介绍](models.html) — 智谱全系模型概览（文本/视觉/图像/视频/音视频/向量）
+2.社区文档（适用于新手）：
+- [部署 FinSight 到云服务器](https://www.24krmb.com/thread-4618-1-1.html) — 如果你，学习云端部署，可以参考本教材
+- [上传 FinSight 到 GitHub](https://www.24krmb.com/thread-4617-1-1.html) — 如果你，学习Git与Github，可以参考本教材
 
 ## 致谢
 
