@@ -76,7 +76,7 @@ FinSight/
 ### 前置条件
 1.必要条件
 - Python 3.10+
-- 智谱 AI API Key（[免费申请](https://www.bigmodel.cn/invite?icode=%2F7GW43rLVlqOKpBa8XiSvGczbXFgPRGIalpycrEwJ28%3D)）
+- 智谱 AI API Key（[免费申请](https://www.bigmodel.cn/invite?icode=%2F7GW43rLVlqOKpBa8XiSvGczbXFgPRGIalpycrEwJ28%3D)）默认为免费模型，推荐使用 **GLM-5.1** 是智谱最新旗舰模型，代码能力大大增强，长程任务显著提升，能够在单次任务中持续、自主地工作长达 8 小时，完成从规划、执行到迭代优化的完整闭环，交付工程级成果。
 
 2.建议可选条件
 - 券商 MCP Token（[免费申请](https://www.gf.com.cn/)）
