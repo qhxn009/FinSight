@@ -74,10 +74,11 @@ FinSight/
 ## 快速开始
 
 ### 前置条件
-
+1.必要条件
 - Python 3.10+
-- Git
 - 智谱 AI API Key（[免费申请](https://www.bigmodel.cn/invite?icode=%2F7GW43rLVlqOKpBa8XiSvGczbXFgPRGIalpycrEwJ28%3D)）
+
+2.建议可选条件
 - 券商 MCP Token（[免费申请](https://www.gf.com.cn/)）
 - Tavily API Key（[可选，用于联网搜索](https://www.tavily.com/)）
 
