@@ -81,13 +81,11 @@ FinSight/
 ### 前置条件
 1.必要条件
 - Python 3.10+
-- 智谱 AI API Key（[免费申请](https://www.bigmodel.cn/invite?icode=%2F7GW43rLVlqOKpBa8XiSvGczbXFgPRGIalpycrEwJ28%3D)）
-> 默认为免费模型，均不会产生任何费用；如果你需要付费模型，对话功能推荐使用 **GLM-5.1** 是智谱最新旗舰模型，**代码能力目前国内最强**(截至2026年5月)，完成从规划、执行到迭代优化的完整闭环，交付工程级成果。图表解析功能推荐 **GLM-5V-Turbo** 是智谱首个多模态 Coding 基座模型。深度适配 Agent 工作流，能够与Agent 深度协同，完成”看懂环境→规划动作→执行任务”的完整闭环。
+- 智谱 AI API Key（[免费申请](https://www.bigmodel.cn/invite?icode=%2F7GW43rLVlqOKpBa8XiSvGczbXFgPRGIalpycrEwJ28%3D)）默认为免费模型，均不会产生任何费用；如果你需要付费模型，对话功能推荐使用 **GLM-5.1** 是智谱最新旗舰模型，**代码能力目前国内最强**(截至2026年5月)，完成从规划、执行到迭代优化的完整闭环，交付工程级成果。图表解析功能推荐 **GLM-5V-Turbo** 是智谱首个多模态 Coding 基座模型。深度适配 Agent 工作流，能够与Agent 深度协同，完成”看懂环境→规划动作→执行任务”的完整闭环。
 
 2.建议可选条件
 - 券商 MCP Token（[免费申请](https://www.gf.com.cn/)）
-- Tavily API Key（[可选，用于联网搜索](https://www.tavily.com/)）
-> Tavily 是一个专为 AI Agent 和 LLM 优化的搜索引擎 API。Tavily 是一个专为 AI 智能体（AI Agents）和大型语言模型（LLM）优化的实时搜索 API，旨在提供准确、最新且无幻觉的高质量搜索结果。直接把最相关的结构化内容喂给你的模型。
+- Tavily API Key（[可选，用于联网搜索](https://www.tavily.com/)）Tavily 是一个专为 AI Agent 和 LLM 优化的搜索引擎 API。Tavily 是一个专为 AI 智能体（AI Agents）和大型语言模型（LLM）优化的实时搜索 API，旨在提供准确、最新且无幻觉的高质量搜索结果。直接把最相关的结构化内容喂给你的模型。
 
 ### 下载项目
 
