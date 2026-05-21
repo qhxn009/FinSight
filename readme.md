@@ -1,4 +1,3 @@
-<p align="center"><img src="https://raw.githubusercontent.com/qhxn009/FinSight/main/app/static/assets/unicorn.svg" alt="FinSight" width="10%"></p>
 <h1 align="center">FinSight · 智见</h1>
 <h2 align="center"><strong>以智析数，洞见先机</strong></h2>
 <p align="center">
@@ -12,13 +11,13 @@
 
 <p align="center">
   FinSight 基于券商 MCP 和智谱 GLM 大模型的 AI 对话分析助手，提供金融数据智能分析和图像识别两大核心能力<br>
-  让用户通过自然语言即可获取专业金融数据分析与图像理解服务。
+  **0费用**使用满血版大模型+A股数据，让用户通过自然语言即可获取专业金融数据分析与图像理解服务。
 </p>
 
 ## 特性
 
-- **金融对话** — 基于智谱 GLM-4.7-Flash 大模型 + 券商 MCP 实时行情工具，支持龙虎榜分析、财务分析、热门 ETF 榜单、指数估值等多维度金融数据查询与专业解读
-- **图表分析** — 上传 K 线图、财报截图等金融图片，AI 通过 GLM-4V-Flash 视觉模型智能识别并给出专业分析
+- **金融对话** — 基于智谱大模型 + 券商 MCP 实时行情工具，支持龙虎榜分析、财务分析、热门 ETF 榜单、指数估值等多维度金融数据查询与专业解读
+- **图表分析** — 上传 K 线图、财报截图等金融图片，AI 通过 GLM 视觉模型智能识别并给出专业分析
 
 - **深度思考** — 支持开启深度思考模式，模型在回答前进行多步推理与逻辑分析，思考过程可折叠查看
 - **MCP 工具** — 自动检测券商 Token 有效性，智能启用/禁用四类金融数据工具
@@ -77,9 +76,9 @@ FinSight/
 ### 前置条件
 
 - Python 3.10+
-- 智谱 AI API Key（[免费申请](https://bigmodel.cn/)）
-- 券商 MCP Token
-- Tavily API Key（可选，用于联网搜索）
+- 智谱 AI API Key（[免费申请](https://www.bigmodel.cn/invite?icode=%2F7GW43rLVlqOKpBa8XiSvGczbXFgPRGIalpycrEwJ28%3D)）
+- 券商 MCP Token（[免费申请](https://www.gf.com.cn/)）
+- Tavily API Key（[可选，用于联网搜索](https://www.tavily.com/)）
 
 ### 安装依赖
 
@@ -180,7 +179,7 @@ data: [DONE]
 
 ## 致谢
 
-- [智谱 AI](https://bigmodel.cn/) — GLM 大模型与 zai-sdk
+- [智谱 AI](https://www.bigmodel.cn/invite?icode=%2F7GW43rLVlqOKpBa8XiSvGczbXFgPRGIalpycrEwJ28%3D) — GLM 大模型与 zai-sdk
 - [券商](https://www.gf.com.cn/) — MCP 金融数据服务
 - [24KRMB.COM](https://www.24krmb.com/) — 技术支持与社区
 
