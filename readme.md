@@ -1,4 +1,4 @@
-<p align="center"><img src="app/static/assets/unicorn.svg" alt="FinSight" width="10%"></p>
+<p align="center"><img src="https://raw.githubusercontent.com/qhxn009/FinSight/main/app/static/assets/unicorn.svg" alt="FinSight" width="10%"></p>
 <h1 align="center">FinSight · 智见</h1>
 <h2 align="center"><strong>以智析数，洞见先机</strong></h2>
 <p align="center">
