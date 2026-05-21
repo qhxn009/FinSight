@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FinSight - 帮助文档</title>
+<link rel="stylesheet" href="/static/assets/style.css">
+<link rel="stylesheet" href="/static/assets/models.css">
+<script src="/static/assets/theme.js"></script>
+<script src="/static/assets/scroll-nav.js"></script>
+<style>
+.api-section .api-endpoint{background:var(--code-bg);padding:10px 16px;border-radius:var(--radius-sm);font-family:'SF Mono',Consolas,'Courier New',monospace;font-size:14px;font-weight:600;margin-bottom:16px;border-left:4px solid var(--accent)}
+.api-section .api-desc{color:var(--text-secondary);margin-bottom:16px;font-size:14px}
+.api-section h4{font-size:14px;font-weight:600;margin:16px 0 8px;color:var(--text-primary)}
+.api-section pre{background:var(--code-bg);padding:12px;border-radius:var(--radius-sm);overflow-x:auto;margin:8px 0 16px;font-size:13px;line-height:1.5}
+.api-section pre code{background:none;padding:0;border-radius:0;font-size:inherit;font-family:'SF Mono',Consolas,'Courier New',monospace}
+.api-section code{background:var(--code-bg);padding:2px 6px;border-radius:3px;font-size:13px;font-family:'SF Mono',Consolas,'Courier New',monospace}
+.api-section table{width:100%;border-collapse:collapse;margin:8px 0 16px;font-size:13px;overflow-x:auto;display:block}
+.api-section th,.api-section td{border:1px solid var(--border-subtle);padding:8px 12px;text-align:left;white-space:nowrap}
+.api-section th{font-weight:600;color:var(--text-primary);background:var(--thinking-bg)}
+.api-section td{color:var(--text-secondary)}
+.api-section tr:nth-child(even) td{background:rgba(0,0,0,.02)}
+[data-theme="dark"] .api-section tr:nth-child(even) td{background:rgba(255,255,255,.03)}
+</style>
+</head>
+<body>
+<div class="app">
+<div class="sidebar-left" id="sidebarLeft">
+<div class="sidebar-header">
+<div class="logo"><div class="logo-icon"><img src="/static/assets/unicorn.svg"></div>
+<div class="logo-text">FinSight</div></div>
+<div class="sidebar-menu">
+</div>
+</div>
+<div class="sidebar-content">
+<div class="toc-list" id="tocList">
+
+<div class="toc-item" data-target="section-tools" onclick="scrollToSection('section-tools',this)">
+<span class="toc-item-text">项目介绍</span>
+</div>
+
+<div class="toc-item active" data-target="section-quickstart" onclick="scrollToSection('section-quickstart',this)">
+<span class="toc-item-text">快速开始</span>
+</div>
+
+<div class="toc-item" data-target="section-modes" onclick="scrollToSection('section-modes',this)">
+<span class="toc-item-text">API文档</span>
+</div>
+
+<div class="toc-item" data-target="section-ui" onclick="scrollToSection('section-ui',this)">
+<span class="toc-item-text">错误代码</span>
+</div>
+
+<div class="toc-item" data-target="section-notice" onclick="scrollToSection('section-notice',this)">
+<span class="toc-item-text">二次开发</span>
+</div>
+<div class="toc-item" data-target="section-tech" onclick="scrollToSection('section-tech',this)">
+<span class="toc-item-text">调用知识库</span>
+</div>
+</div>
+</div>
+<div class="sidebar-footer">
+<a href="https://github.com/qhxn009/FinSight" class="github-link" target="_blank">
+<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+GitHub
+</a>
+<a href="https://www.24krmb.com/" class="github-link" target="_blank">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+关于
+</a>
+</div>
+</div>
+
+<div class="chat-area">
+<div class="chat-topbar">
+<div class="topbar-left">
+<a href="/" class="toggle-btn" title="返回对话">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+</a>
+<div class="mode-indicator">
+<span>回到对话页面</span>
+</div>
+</div>
+<div class="topbar-right">
+<button class="toggle-btn" id="themeToggleBtn" onclick="toggleTheme()" title="亮色模式">
+<svg id="themeIconSun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+<svg id="themeIconMoon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+</button>
+</div>
+</div>
+
+<div class="chat-messages chat-messages-padding" id="chatMessages">
+
+<div class="container-center">
+
+<div class="hero-card">
+<div><h1 class="hero-title">FinSight 帮助文档</h1>
+<p class="hero-desc">以智析数，洞见先机 — 基于 AI 大模型与实时行情数据的智能金融分析助手<br>把昂贵的AI金融分析与图像识别能力，变成每一个股民都能免费开口问的开源工具。</p>
+</div></div>
+
+<div id="introduction" class="section">
+<div class="section-header">项目介绍</div>
+<div id="section-tools" class="section">
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px">
+<div class="feature-card">
+<h3 style="display:flex;align-items:center;gap:8px">免费</h3>
+<p style="font-size:13px;color:var(--text-secondary);line-height:1.5">免登陆、无费用、免费下载</p></div>
+<div class="feature-card">
+<h3 style="display:flex;align-items:center;gap:8px">开源</h3>
+<p style="font-size:13px;color:var(--text-secondary);line-height:1.5">虽有代码都免费开源</p></div>
+<div class="feature-card">
+<h3 style="display:flex;align-items:center;gap:8px">实时行情</h3>
+<p style="font-size:13px;color:var(--text-secondary);line-height:1.5">广发证券、通达信(待更新)</p></div>
+<div class="feature-card">
+<h3 style="display:flex;align-items:center;gap:8px">无费用</h3>
+<p style="font-size:13px;color:var(--text-secondary);line-height:1.5">使用不会诞生费用</p></div>
+</div>
+
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px">
+<div class="feature-card">
+<h3 style="display:flex;align-items:center;gap:8px">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;color:var(--accent)"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>金融对话</h3>
+<p style="font-size:13px;color:var(--text-secondary);line-height:1.5">默认模式。AI 结合广发证券 MCP 工具，提供实时龙虎榜、财务分析、ETF 榜单、指数估值等专业数据。</p>
+</div>
+
+<div class="feature-card">
+<h3 style="display:flex;align-items:center;gap:8px">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;color:var(--accent)"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+图表分析</h3>
+<p style="font-size:13px;color:var(--text-secondary);line-height:1.5">上传 K 线图、财报截图等金融图表图片，AI 将通过视觉模型识别并分析图表内容。</p>
+</div></div>
+
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px">
+<div class="feature-card">
+<h3 style="display:flex;align-items:center;gap:8px">财务分析 <span class="badge">gf_quant</span></h3>
+<p style="font-size:13px;color:var(--text-secondary);line-height:1.5">支持单个分析、对比分析。覆盖：上市日期、估值、盈利、现金流量表、利润表、资产负债表、资本结构、行业信息、行业均值、行业龙头、行业内市值相近的股票、行业内PE相近的股票、行业前二、申万行业名称等</p></div>
+
+<div class="feature-card">
+<h3 style="display:flex;align-items:center;gap:8px">热门 ETF <span class="badge">gf_etfrank</span></h3>
+<p style="font-size:13px;color:var(--text-secondary);line-height:1.5">查看当前市场热门 ETF 排行，追踪资金流向与板块热度。包括：涨跌榜、搜索榜、关注榜、换手榜、主力资金榜、净申购榜、溢价率榜、特色榜等多维度统计</p></div>
+
+<div class="feature-card">
+<h3 style="display:flex;align-items:center;gap:8px">龙虎榜 <span class="badge">gf_lhb</span></h3>
+<p style="font-size:13px;color:var(--text-secondary);line-height:1.5">查询沪深两市龙虎榜数据，了解主力资金动向与热门个股买卖席位。包括上榜统计、营业部排名、资金流向等;可以查询当日和历史数据；</p></div>
+
+<div class="feature-card">
+<h3 style="display:flex;align-items:center;gap:8px">指数估值 <span class="badge">gf_windmill</span></h3>
+<p style="font-size:13px;color:var(--text-secondary);line-height:1.5">查询主要指数的估值水平（PE/PB 百分位），辅助判断市场高低估。支持：宽基、行业、主题指数估值分位与ETF联动分析</p></div></div>
+
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px">
+<div class="feature-card">
+<h3 style="display:flex;align-items:center;gap:8px">深度思考</h3>
+<p style="font-size:13px;color:var(--text-secondary);line-height:1.5">支持开启深度思考模式，模型在回答前进行多步推理与逻辑分析，思考过程可折叠查看</p></div>
+<div class="feature-card">
+<h3 style="display:flex;align-items:center;gap:8px">MCP工具</h3>
+<p style="font-size:13px;color:var(--text-secondary);line-height:1.5">自动检测券商 Token 有效性，智能启用/禁用四类金融数据工具</p></div>
+<div class="feature-card">
+<h3 style="display:flex;align-items:center;gap:8px">流式响应</h3>
+<p style="font-size:13px;color:var(--text-secondary);line-height:1.5">基于 SSE 的流式传输，实时展示思考过程与回答内容</p></div>
+<div class="feature-card">
+<h3 style="display:flex;align-items:center;gap:8px">开箱即用</h3>
+<p style="font-size:13px;color:var(--text-secondary);line-height:1.5">纯前端无框架依赖，响应式设计，桌面与移动端均可流畅使用</p></div>
+</div>
+
+
+
+<div id="section-quickstart" class="section">
+<div class="section-header">快速开始</div>
+<div class="section-desc-box"><p class="section-desc">本指南将帮助您快速上手 FinSight，从下载项目到发起第一次 API 调用，只需几分钟即可完成。</p></div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px">
+<div class="feature-card">
+<h3>项目下载安装</h3><ul>
+<li>执行<code>pip install -r requirements.txt</code>安装依赖</li>
+ <li>配置环境变量<code>cp .env.example .env</code>编辑<strong>`.env` </strong> 文件，填入你的Tavily、GLM、广发证券<strong>API Key</strong></li> 
+<li>启动服务<code>python -m uvicorn app.main:app --host 0.0.0.0 --port 8000</code></li>
+<li>访问<code>http://localhost:8000</code>即可使用服务</li></ul></div>
+<div class="feature-card"><h3>基本操作流程</h3><ul>
+<li>在底部输入框中输入您的问题，点击发送或按 <code>Enter</code> 键。<code>Shift + Enter</code> 换行。</li>
+<li>AI 会自动调用相关金融数据工具进行分析</li>
+<li>思考过程可点击 <strong>「思考过程」</strong> 折叠面板查看</li>
+<li>点击 <strong>「新建对话」</strong> 开始新的分析会话</li>
+<li>对话历史自动保存在本地，刷新页面不会丢失</li></ul></div>
+<div class="feature-card"><h3>错误代码</h3><ul>
+<li><strong>左侧边栏</strong>：对话列表管理，点击 <code> ☰ </code>按钮展开/收起</li>
+<li><strong>右侧边栏</strong>：功能卡片与快捷操作，点击 ≡ 按钮展开/收起</li>
+<li>在平板和手机端，侧边栏自动收起为浮层模式</li>
+<li>点击顶部工具栏的 ☀️/🌙 图标切换亮色与暗色模式</li>
+<li>主题偏好自动保存到本地，下次打开自动恢复</li></ul></div>
+<div class="feature-card"><h3>图片上传</h3><ul>
+<li>点击输入框左侧的 📷 按钮选择图片</li>
+<li>上传图片后自动切换到「图表分析」模式</li>
+<li>点击图片预览区的 ✕ 按钮可移除已选图片</li></ul>
+</div></div></div>
+
+<div id="section-modes" class="section">
+<div class="section-header">API文档</div>
+<div class="api-section">
+<div class="api-endpoint">POST /api/chat/stream</div>
+<div class="api-desc">SSE 流式对话接口。</div>
+<h4>请求体</h4>
+<pre><code>{
+  "messages": [
+    {"role": "user", "content": "分析今日龙虎榜数据"}
+  ],
+  "mode": "finance",
+  "image_url": null,
+  "thinking": false
+}</code></pre>
+<table>
+<thead><tr><th>参数</th><th>类型</th><th>默认值</th><th>说明</th></tr></thead>
+<tbody>
+<tr><td><code>messages</code></td><td><code>array</code></td><td>—</td><td>对话消息列表</td></tr>
+<tr><td><code>mode</code></td><td><code>string</code></td><td><code>"finance"</code></td><td><code>"finance"</code> 金融对话 / <code>"vision"</code> 图表分析</td></tr>
+<tr><td><code>image_url</code></td><td><code>string</code></td><td><code>null</code></td><td>图片 base64 或 URL（vision 模式）</td></tr>
+<tr><td><code>thinking</code></td><td><code>boolean</code></td><td><code>false</code></td><td>是否启用深度思考</td></tr>
+</tbody>
+</table>
+<h4>SSE 事件格式</h4>
+<pre><code>data: {"type": "thinking", "content": "思考过程..."}
+data: {"type": "content", "content": "回答内容..."}
+data: {"type": "error", "content": "错误信息"}
+data: [DONE]</code></pre>
+</div>
+</div>
+
+<div id="section-ui" class="section">
+<div class="section-header">错误代码</div>
+<div class="api-section">
+<div class="api-desc">调用智谱AI 开放平台 API 时，接收到的响应码由两部分组成：外层是 HTTP 状态码，内层是响应体正文中的定义的业务错误码，提供了更具体的错误描述。</div>
+<h4>HTTP 状态错误码</h4>
+<table>
+<thead><tr><th>状态码</th><th>原因</th><th>解决方法</th></tr></thead>
+<tbody>
+<tr><td>200</td><td>业务处理成功</td><td>—</td></tr>
+<tr><td>400</td><td>参数错误</td><td>检查接口参数是否正确</td></tr>
+<tr><td>400</td><td>文件内容异常</td><td>检查 jsonl 文件内容是否符合要求</td></tr>
+<tr><td>401</td><td>鉴权失败或 Token 超时</td><td>确认 API KEY 和鉴权 token 是否正确生成</td></tr>
+<tr><td>429</td><td>接口请求并发超额</td><td>调整请求频率或联系商务扩大并发数</td></tr>
+<tr><td>429</td><td>上传文件频率过快</td><td>短暂等待后重新请求</td></tr>
+<tr><td>429</td><td>账户余额已用完</td><td>进行账户充值以确保余额充足</td></tr>
+<tr><td>429</td><td>账户异常</td><td>账户存违规行为，请联系平台客服或<a href="mailto:service@zhipuai.cn">service@zhipuai.cn</a>解除相关锁定</td></tr>
+<tr><td>429</td><td>终端账号异常</td><td>终端用户存在违规行为，账号已被锁定</td></tr>
+<tr><td>435</td><td>文件大小超过 100MB</td><td>使用小于 100MB 的 jsonl 文件或分批上传</td></tr>
+<tr><td>500</td><td>服务器处理请求时发生错误</td><td>稍后重试或联系客服</td></tr>
+</tbody>
+</table>
+<h4>业务错误码</h4>
+<table>
+<thead><tr><th>错误分类</th><th>错误码</th><th>错误信息</th></tr></thead>
+<tbody>
+<tr><td>基础错误</td><td>500</td><td>内部错误</td></tr>
+<tr><td>身份验证错误</td><td>1000</td><td>身份验证失败</td></tr>
+<tr><td></td><td>1001</td><td>Header 中未收到 Authentication 参数，无法进行身份验证</td></tr>
+<tr><td></td><td>1002</td><td>Authentication Token 非法，请确认 Authentication Token 正确传递</td></tr>
+<tr><td></td><td>1003</td><td>Authentication Token 已过期，请重新生成/获取</td></tr>
+<tr><td></td><td>1004</td><td>通过 Authentication Token 的验证失败</td></tr>
+<tr><td></td><td>1100</td><td>账户读写</td></tr>
+<tr><td>账户错误</td><td>1110</td><td>您的账户当前处于非活动状态。请检查账户信息</td></tr>
+<tr><td></td><td>1111</td><td>您的账户不存在</td></tr>
+<tr><td></td><td>1112</td><td>您的账户已被锁定，请联系客服解锁</td></tr>
+<tr><td></td><td>1113</td><td>您的账户已欠费，请充值后重试</td></tr>
+<tr><td></td><td>1120</td><td>无法成功访问您的账户，请稍后重试</td></tr>
+<tr><td></td><td>1121</td><td>账户存违规行为，账号已被锁定</td></tr>
+<tr><td>API 调用错误</td><td>1200</td><td>API 调用错误</td></tr>
+<tr><td></td><td>1210</td><td>API 调用参数有误，请检查文档</td></tr>
+<tr><td></td><td>1211</td><td>模型不存在，请检查模型代码</td></tr>
+<tr><td></td><td>1212</td><td>当前模型不支持 <code>${method}</code> 调用方式</td></tr>
+<tr><td></td><td>1213</td><td>未正常接收到 <code>${field}</code> 参数</td></tr>
+<tr><td></td><td>1214</td><td><code>${field}</code> 参数非法。请检查文档</td></tr>
+<tr><td></td><td>1215</td><td><code>${field1}</code> 与 <code>${field2}</code> 不能同时设置，请检查文档</td></tr>
+<tr><td></td><td>1220</td><td>您无权访问 <code>${API_name}</code></td></tr>
+<tr><td></td><td>1221</td><td>API <code>${API_name}</code> 已下线</td></tr>
+<tr><td></td><td>1222</td><td>API <code>${API_name}</code> 不存在</td></tr>
+<tr><td></td><td>1230</td><td>API 调用流程出错</td></tr>
+<tr><td></td><td>1231</td><td>您已有请求：<code>${request_id}</code></td></tr>
+<tr><td></td><td>1234</td><td>网络错误，错误id：<code>${error_id}</code>，请联系客服</td></tr>
+<tr><td></td><td>1261</td><td>Prompt 超长</td></tr>
+<tr><td>API 策略阻止错误</td><td>1300</td><td>API 调用被策略阻止</td></tr>
+<tr><td></td><td>1301</td><td>系统检测到输入或生成内容可能包含不安全或敏感内容，请您避免输入易产生敏感内容的提示语，感谢您的配合</td></tr>
+<tr><td></td><td>1302</td><td>您的账户已达到速率限制，请您控制请求频率</td></tr>
+<tr><td></td><td>1304</td><td>该 API 已达今日调用次数限额，如有更多需求，请联系客服购买</td></tr>
+<tr><td></td><td>1305</td><td>该模型当前访问量过大，请您稍后再试</td></tr>
+<tr><td></td><td>1308</td><td>已达到 <code>${number}</code> <code>${unit}</code> 的使用上限。您的限额将在 <code>${next_flush_time}</code> 重置</td></tr>
+<tr><td></td><td>1309</td><td>您的 GLM Coding Plan 套餐已到期，暂无法使用，前往官方续订后即可恢复 <a href="https://bigmodel.cn/claude-code" target="_blank">https://bigmodel.cn/claude-code</a></td></tr>
+<tr><td></td><td>1310</td><td>您已达到每周/每月使用上限，您的限额将在 <code>${next_flush_time}</code> 重置</td></tr>
+<tr><td></td><td>1311</td><td>当前订阅套餐暂未开放<code>${model_name}</code>权限</td></tr>
+<tr><td></td><td>1312</td><td>该模型当前访问量过大，请您稍后再试，或切换其他模型如 <code>${model_name}</code> 等</td></tr>
+<tr><td></td><td>1313</td><td>您的账户当前使用模式不符合公平使用策略，请求频率已受到限制。详情请参阅《条款与协议-订阅及自动续费协议》，如需恢复请前往个人中心-编程套餐总览-顶部申请解除限制</td></tr>
+</tbody>
+</table>
+<h4>错误响应示例</h4>
+<div class="api-desc">以下是 curl 请求的响应报文，其中 401 是 HTTP 状态码，1002 是业务错误码。</div>
+<pre><code>* We are completely uploaded and fine
+&lt; HTTP/2 401
+&lt; date: Wed, 20 Mar 2024 03:06:05 GMT
+&lt; content-type: application/json
+&lt; set-cookie: acw_tc=76b20****a0e42;path=/;HttpOnly;Max-Age=1800
+&lt; server: nginx/1.21.6
+&lt; vary: Origin
+&lt; vary: Access-Control-Request-Method
+&lt; vary: Access-Control-Request-Headers
+*
+* Connection #0 to host open.bigmodel.cn left intact
+{"error":{"code":"1002","message":"Authorization Token非法，请确认Authorization Token正确传递。"}}</code></pre>
+<div class="api-desc"><strong>注：</strong>使用流式（SSE）调用时，如果 API 在推理过程中异常终止，不会返回上述错误码，而是在响应体的 <code>finish_reason</code> 参数中返回异常原因，详情请参考 <code>finish_reason</code> 的参数说明。</div>
+</div>
+</div>
+
+<div id="section-notice" class="section">
+<div class="section-header">二次开发</div>
+<div class="api-section">
+
+<h4>项目架构速览</h4>
+<pre><code>FinSight/
+│
+├── app/main.py              # FastAPI 入口：路由挂载 + 静态文件
+├── app/core/config.py       # 环境变量配置（换厂商、加配置从这里开始）
+├── app/core/glm_client.py   # ★ 核心：LLM 调用 + MCP 工具 + 错误处理
+├── app/api/chat.py          # API 路由层（薄，只做参数校验和分发）
+│
+├── app/static/
+│   ├── index.html           # 主对话页面（所有交互逻辑在 HTML 内）
+│   ├── models.html          # 模型文档页（纯展示）
+│   ├── help.html            # 帮助文档页（纯展示）
+│   └── assets/
+│       ├── style.css        # 全局样式
+│       ├── models.css       # 模型页专用样式
+│       ├── theme.js         # 明暗主题切换
+│       ├── scroll-nav.js    # 文档页导航检测
+│       ├── marked.min.js    # Markdown 渲染
+│       └── purify.min.js    # XSS 过滤
+│
+├── doc/                     # 开发参考资料（外部文档）
+└── requirements.txt</code></pre>
+
+<h4>开发环境搭建</h4>
+<div class="api-desc"><strong>基础环境</strong></div>
+<pre><code># 克隆项目
+git clone https://github.com/qhxn009/FinSight.git
+cd FinSight
+
+# Python 虚拟环境
+python3 -m venv venv
+source venv/bin/activate
+
+# 安装依赖
+pip install -r requirements.txt
+
+# 如果需要热重载调试，安装 watchdog（可选）
+pip install watchdog</code></pre>
+
+<div class="api-desc"><strong>配置文件</strong></div>
+<pre><code>cp .env.example .env</code></pre>
+<div class="api-desc"><code>.env</code> 填入 API Key。开发时建议打开调试日志：</div>
+<pre><code># 在 .env 中添加
+LOG_LEVEL=DEBUG</code></pre>
+<div class="api-desc">然后修改 <code>app/core/glm_client.py</code> 顶部，添加：</div>
+<pre><code>logging.basicConfig(level=os.getenv("LOG_LEVEL", "INFO"))</code></pre>
+
+<div class="api-desc"><strong>启动开发服务器</strong></div>
+<pre><code># 方式一：直接运行（推荐，自带 reload）
+python -m uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+
+# 方式二：从 main.py 入口
+python app/main.py</code></pre>
+<div class="api-desc"><code>--reload</code> 模式下，修改 Python 代码会自动重启，但修改前端静态文件（HTML/CSS/JS）需要手动刷新浏览器。</div>
+
+<h4>核心模块说明</h4>
+
+<div class="api-desc"><strong>app/core/config.py — 配置管理</strong></div>
+<pre><code>class Settings:
+    GLM_API_KEY: str = os.getenv("GLM_API_KEY", "")
+    GFZQ_TOKEN: str = os.getenv("GFZQ_TOKEN", "")
+
+    def validate(self):
+        # 启动时校验必需配置
+        ...</code></pre>
+<div class="api-desc"><strong>二次开发要点：</strong></div>
+<ul>
+<li>新增配置项：在 <code>Settings</code> 类中添加属性，在 <code>.env</code> 中添加对应变量</li>
+<li><code>validate()</code> 方法只校验启动必需项，可选配置不要放这里</li>
+<li>换 LLM 厂商：添加新的 API Key 字段（如 <code>OPENAI_API_KEY</code>），保留旧的做兼容</li>
+</ul>
+
+<div class="api-desc"><strong>app/core/glm_client.py — LLM 客户端核心</strong></div>
+<div class="api-desc">这是项目中最关键的模块，也是二次开发最常改动的文件。</div>
+<table>
+<thead><tr><th>函数/变量</th><th>职责</th></tr></thead>
+<tbody>
+<tr><td><code>SYSTEM_PROMPT_FINANCE_WITH_TOOLS</code></td><td>带工具的金融对话系统提示词</td></tr>
+<tr><td><code>SYSTEM_PROMPT_FINANCE_NO_TOOLS</code></td><td>无工具时的系统提示词</td></tr>
+<tr><td><code>SYSTEM_PROMPT_VISION</code></td><td>图像分析系统提示词</td></tr>
+<tr><td><code>MCP_SERVERS</code></td><td>广发证券 MCP 服务地址列表</td></tr>
+<tr><td><code>_is_valid_token()</code></td><td>Token 有效性检查</td></tr>
+<tr><td><code>_build_mcp_tools()</code></td><td>构建 MCP 工具列表（格式依赖 Zhipu SDK）</td></tr>
+<tr><td><code>client</code></td><td>模块级 LLM 客户端单例</td></tr>
+<tr><td><code>mcp_tools / has_mcp_tools</code></td><td>模块级工具状态</td></tr>
+<tr><td><code>stream_finance_chat()</code></td><td>金融对话流式生成器</td></tr>
+<tr><td><code>stream_vision_chat()</code></td><td>图像分析流式生成器</td></tr>
+<tr><td><code>_sse_event()</code></td><td>SSE 格式化</td></tr>
+<tr><td><code>_friendly_error()</code></td><td>错误码转中文提示</td></tr>
+<tr><td><code>ERROR_CODE_MAP</code></td><td>智谱业务错误码映射</td></tr>
+</tbody>
+</table>
+
+<div class="api-desc"><strong>数据流：</strong></div>
+<pre><code>用户输入 → chat.py (校验参数) → glm_client.py (构建请求)
+    → Zhipu SDK → 智谱 API
+    → SDK 返回流式 chunk → yield SSE 事件 → StreamingResponse → 前端</code></pre>
+
+<div class="api-desc"><strong>app/api/chat.py — API 路由</strong></div>
+<div class="api-desc">当前只有一个端点：</div>
+<table>
+<thead><tr><th>端点</th><th>方法</th><th>说明</th></tr></thead>
+<tbody>
+<tr><td><code>/api/chat/stream</code></td><td>POST</td><td>SSE 流式对话，支持 finance/vision 两种模式</td></tr>
+</tbody>
+</table>
+
+<div class="api-desc"><strong>请求体结构：</strong></div>
+<pre><code>{
+  "messages": [{"role": "user", "content": "..."}],
+  "mode": "finance",
+  "image_url": null,
+  "thinking": false
+}</code></pre>
+
+<div class="api-desc"><strong>app/static/index.html — 前端单页应用</strong></div>
+<div class="api-desc">所有交互逻辑都在一个 HTML 文件中（无前端框架）：</div>
+<table>
+<thead><tr><th>区域</th><th>说明</th></tr></thead>
+<tbody>
+<tr><td>左侧边栏</td><td>Logo、模式切换、导航菜单、对话列表</td></tr>
+<tr><td>中间对话区</td><td>消息流、欢迎页、输入框</td></tr>
+<tr><td>右侧边栏</td><td>功能介绍卡片、快捷操作按钮</td></tr>
+<tr><td>底部工具栏</td><td>图片上传、深度思考开关、发送按钮</td></tr>
+</tbody>
+</table>
+
+<div class="api-desc"><strong>关键 JS 函数：</strong></div>
+<table>
+<thead><tr><th>函数</th><th>职责</th></tr></thead>
+<tbody>
+<tr><td><code>switchMode(mode)</code></td><td>切换 finance/vision 模式</td></tr>
+<tr><td><code>sendMessage()</code></td><td>核心：组装请求 → fetch SSE → 流式渲染</td></tr>
+<tr><td><code>handleImageUpload()</code></td><td>图片上传与 base64 编码</td></tr>
+<tr><td><code>toggleThinkingMode()</code></td><td>深度思考开关</td></tr>
+<tr><td><code>addStreamingAiMessage()</code></td><td>创建流式消息 DOM 容器</td></tr>
+<tr><td><code>renderMarkdown()</code></td><td>marked + DOMPurify 渲染</td></tr>
+<tr><td><code>newConversation()</code></td><td>新建对话</td></tr>
+<tr><td>本地存储</td><td>对话记录保存在 localStorage</td></tr>
+</tbody>
+</table>
+
+<div class="api-desc"><strong>SSE 事件处理（sendMessage 核心逻辑）：</strong></div>
+<pre><code>fetch POST /api/chat/stream
+  → reader 逐行读取
+  → 解析 data: JSON
+  → type=thinking → 写入思考区（可折叠）
+  → type=content → marked 渲染到消息区
+  → type=error   → 红色显示错误
+  → [DONE]       → 结束</code></pre>
+
+<h4>常见二次开发场景</h4>
+
+<div class="api-desc"><strong>场景一：更换 LLM 提供商</strong></div>
+<div class="api-desc">以切换到 OpenAI 为例：</div>
+<div class="api-desc"><strong>1. 修改 requirements.txt</strong></div>
+<pre><code># 移除 zai-sdk，添加 openai
+openai>=1.0.0</code></pre>
+
+<div class="api-desc"><strong>2. 修改 app/core/config.py</strong></div>
+<pre><code>class Settings:
+    LLM_API_KEY: str = os.getenv("LLM_API_KEY", "")  # 通用命名
+    LLM_BASE_URL: str = os.getenv("LLM_BASE_URL", "https://api.openai.com/v1")
+    LLM_MODEL: str = os.getenv("LLM_MODEL", "gpt-4o")
+    VISION_MODEL: str = os.getenv("VISION_MODEL", "gpt-4o")
+    ...</code></pre>
+
+<div class="api-desc"><strong>3. 新增 app/core/llm_client.py（替代 glm_client.py）</strong></div>
+<pre><code>from openai import OpenAI
+
+client = OpenAI(api_key=settings.LLM_API_KEY, base_url=settings.LLM_BASE_URL)
+
+def stream_finance_chat(messages: list, thinking_enabled: bool = False):
+    ...
+    response = client.chat.completions.create(
+        model=settings.LLM_MODEL,
+        messages=full_messages,
+        stream=True,
+        # thinking 改为 OpenAI 的方式
+        # ...
+    )
+    for chunk in response:
+        delta = chunk.choices[0].delta
+        # reasoning_content → OpenAI 返回的是 delta.reasoning
+        ...</code></pre>
+
+<div class="api-desc"><strong>4. 修改 app/api/chat.py 中的 import</strong></div>
+<pre><code>from app.core.llm_client import stream_finance_chat, stream_vision_chat</code></pre>
+
+<div class="api-desc"><strong>5. 前端调整（如需）</strong></div>
+<div class="api-desc">OpenAI 的 <code>reasoning</code> 字段不同于 Zhipu 的 <code>reasoning_content</code>，SSE 事件格式保持一致即可。</div>
+<div class="api-desc"><strong>要点：</strong></div>
+<ul>
+<li>MCP 工具（<code>type: "mcp"</code>）是 Zhipu SDK 特有功能。如果新厂商不支持原生 MCP，需要改为 Function Calling 方式：将每个 MCP 工具声明为 <code>function</code> 类型，在本地写函数调用 MCP 服务获取数据，再将结果传回模型</li>
+<li>可参考 <code>doc/zai-sdk.md</code> 了解当前 SDK 的用法差异</li>
+</ul>
+
+<div class="api-desc"><strong>场景二：新增数据工具（MCP）</strong></div>
+<div class="api-desc"><strong>1. 在 MCP_SERVERS 列表中添加新服务</strong></div>
+<pre><code># app/core/glm_client.py
+MCP_SERVERS = [
+    ...,
+    {
+        "server_label": "gf_news",          # 工具标签
+        "server_url": "https://.../mcp",    # MCP 服务地址
+    },
+]</code></pre>
+
+<div class="api-desc"><strong>2. 更新系统提示词</strong></div>
+<div class="api-desc">在 <code>SYSTEM_PROMPT_FINANCE_WITH_TOOLS</code> 中告知模型新增的工具能力。</div>
+
+<div class="api-desc"><strong>3. 前端添加快捷入口（可选）</strong></div>
+<div class="api-desc">在 <code>index.html</code> 的右侧边栏或快捷操作区添加对应功能按钮。</div>
+
+<div class="api-desc"><strong>场景三：新增聊天模式</strong></div>
+<div class="api-desc">目前只有 <code>finance</code> 和 <code>vision</code> 两种模式。以新增一个 <code>coding</code> 编程助手模式为例：</div>
+
+<div class="api-desc"><strong>1. 后端添加新模式处理</strong></div>
+<pre><code># app/core/glm_client.py
+SYSTEM_PROMPT_CODING = "你是 FinSight 编程助手..."
+
+def stream_coding_chat(messages: list):
+    # 类似 stream_finance_chat，但使用不同的模型和参数
+    ...</code></pre>
+
+<div class="api-desc"><strong>2. API 层添加路由</strong></div>
+<pre><code># app/api/chat.py
+if request.mode == "coding":
+    generator = stream_coding_chat(messages)</code></pre>
+
+<div class="api-desc"><strong>3. 前端添加模式切换按钮</strong></div>
+<pre><code>&lt;!-- index.html --&gt;
+&lt;button class="mode-btn" data-mode="coding" onclick="switchMode('coding')"&gt;
+  💻 编程助手
+&lt;/button&gt;</code></pre>
+<pre><code>function switchMode(mode) {
+  ...
+  modeLabel.textContent = mode === 'coding' ? '编程助手' : '...';
+}</code></pre>
+
+<div class="api-desc"><strong>场景四：修改或新增 API 端点</strong></div>
+<div class="api-desc"><strong>1. 新增路由文件</strong></div>
+<pre><code># app/api/feedback.py
+from fastapi import APIRouter
+
+router = APIRouter(prefix="/api/feedback", tags=["feedback"])
+
+@router.post("/submit")
+async def submit_feedback(...):
+    ...</code></pre>
+
+<div class="api-desc"><strong>2. 在 main.py 中注册</strong></div>
+<pre><code># app/main.py
+from app.api.feedback import router as feedback_router
+app.include_router(feedback_router)</code></pre>
+
+<div class="api-desc"><strong>场景五：修改前端界面</strong></div>
+<div class="api-desc"><strong>样式变量（style.css）：</strong></div>
+<div class="api-desc">主题色、间距等全局变量集中在 <code>:root</code> 和 <code>[data-theme="dark"]</code> 中：</div>
+<pre><code>:root {
+  --theme: rgb(239, 75, 88);        /* 主题色 */
+  --bg-main: rgb(255, 255, 255);     /* 背景色 */
+  --text-primary: rgb(38, 18, 8);    /* 主文字色 */
+  --sidebar-width: 260px;            /* 侧边栏宽度 */
+  --radius-lg: 1rem;                 /* 圆角 */
+}</code></pre>
+<div class="api-desc"><strong>修改主题色：</strong>只需改 <code>--theme</code> 一个变量，所有相关元素自动跟随。</div>
+<div class="api-desc"><strong>断点：</strong>响应式在 1024px 和 768px 两个断点切换。</div>
+<div class="api-desc"><strong>前端无框架依赖，直接修改 HTML/CSS/JS 即可生效。</strong></div>
+
+<div class="api-desc"><strong>场景六：支持联网搜索</strong></div>
+<div class="api-desc">当前前端已有联网搜索按钮（第 119-121 行），但后端未实现。可参考 <code>doc/tavilyMCP.md</code> 配置 Tavily MCP，在 LLM 调用时作为工具传入，或在 Python 层直接调用 Tavily API。</div>
+
+<h4>开发约定</h4>
+
+<div class="api-desc"><strong>代码风格</strong></div>
+<ul>
+<li><strong>后端</strong>：保持现有风格——无注释（遵循项目惯例），使用 <code>logger</code> 而非 <code>print</code></li>
+<li><strong>前端</strong>：原生 JS，无框架，DOM 操作为主</li>
+</ul>
+
+<div class="api-desc"><strong>SSE 事件格式</strong></div>
+<div class="api-desc">所有流式事件必须遵循统一格式，方便前端解析：</div>
+<table>
+<thead><tr><th>type</th><th>content 含义</th></tr></thead>
+<tbody>
+<tr><td><code>thinking</code></td><td>模型的思考/推理过程</td></tr>
+<tr><td><code>content</code></td><td>最终回答文本</td></tr>
+<tr><td><code>error</code></td><td>错误信息</td></tr>
+</tbody>
+</table>
+<pre><code>yield _sse_event({"type": "content", "content": "..."})
+yield _sse_done()  # data: [DONE]</code></pre>
+
+<div class="api-desc"><strong>错误处理</strong></div>
+<ul>
+<li>通过 <code>_friendly_error()</code> 将错误码转为中文</li>
+<li>连接断开类错误静默处理（只打 warning 日志）</li>
+<li>其他错误 yield <code>error</code> 事件到前端</li>
+</ul>
+
+<div class="api-desc"><strong>新增文件规范</strong></div>
+<pre><code>app/
+├── core/       # 核心逻辑：LLM 客户端、配置、工具类
+├── api/        # API 路由：只做参数校验和分发
+├── static/     # 前端文件
+└── models/     # Pydantic 数据模型（如果多了可以拆分）</code></pre>
+
+<h4>调试技巧</h4>
+
+<div class="api-desc"><strong>查看 SSE 原始数据</strong></div>
+<div class="api-desc">浏览器开发者工具 → Network → 找到 <code>/api/chat/stream</code> 请求 → Response 面板可以看到实时涌出的 SSE 数据。</div>
+<div class="api-desc">或者用命令行模拟：</div>
+<pre><code>curl -N -X POST http://localhost:8000/api/chat/stream \
+  -H "Content-Type: application/json" \
+  -d '{"messages":[{"role":"user","content":"你好"}],"mode":"finance"}'</code></pre>
+
+<div class="api-desc"><strong>模拟 MCP 工具调用</strong></div>
+<div class="api-desc">在 <code>.env</code> 中填入无效的 <code>GFZQ_TOKEN</code>，系统会自动降级为无工具模式，模型纯靠自身知识回答，方便调试 LLM 本身。</div>
+
+<div class="api-desc"><strong>查看后端日志</strong></div>
+<pre><code>uvicorn 运行时终端会输出所有 logger 信息，重点关注：
+
+INFO:FinSight initialized: MCP tools enabled/disabled
+INFO:Calling GLM API: model=glm-4.7-flash, tools=yes/no</code></pre>
+
+<div class="api-desc"><strong>前端调试</strong></div>
+<div class="api-desc"><code>index.html</code> 中有几个全局变量可以直接在 Console 中操作：</div>
+<pre><code>messages        // 当前对话消息数组
+currentMode     // 当前模式：'finance' | 'vision'
+thinkingEnabled // 深度思考开关
+conversations   // 全部对话列表</code></pre>
+
+<div class="api-desc"><strong>常用问题排查</strong></div>
+<table>
+<thead><tr><th>现象</th><th>排查方向</th></tr></thead>
+<tbody>
+<tr><td>页面白屏</td><td>检查终端是否有 Python 报错；检查 <code>static/</code> 路径是否正确</td></tr>
+<tr><td>API 返回 422</td><td>请求体格式不对，检查 <code>ChatRequest</code> 模型定义</td></tr>
+<tr><td>SSE 连接断开</td><td>智谱 API Key 是否有效、账户是否欠费、网络是否稳定</td></tr>
+<tr><td>工具调用失败</td><td><code>GFZQ_TOKEN</code> 是否有效、广发证券 MCP 服务是否可用</td></tr>
+<tr><td>前端不渲染</td><td>检查 Console 是否有 JS 错误；检查 SSE 事件格式是否正确</td></tr>
+<tr><td>图片上传无反应</td><td>检查图片大小是否过大；检查 <code>glm-4v-flash</code> 模型是否可用</td></tr>
+</tbody>
+</table>
+
+</div>
+</div>
+
+<div id="section-tech" class="section">
+<div class="section-header">调用知识库</div>
+<div class="api-section">
+<div class="api-desc">通过在大语言模型生成答案之前，先从知识库中检索相关知识，然后将相关知识作为背景信息输入给大模型，有效地提升内容的准确性和相关性。</div>
+<h4>构建知识库</h4>
+<div class="api-desc">用于管理知识文件，支持上传多个文件，并通过知识库 ID 后进行关联调用。知识库最大容量为 1G。</div>
+<div style="margin: 12px 0;">
+<img src="https://cdn.bigmodel.cn/markdown/1775703614408image.png?attname=image.png" alt="知识库构建" style="max-width:100%;border-radius:var(--radius-sm);border:1px solid var(--border-subtle)">
+</div>
+<h4>对话调用关联知识库</h4>
+<div class="api-desc">创建知识库后，您获得一个知识库 ID。调用模型服务时，传入知识库 ID，使大模型能获取相关内容以响应用户查询。</div>
+<div class="api-desc"><strong>调用示例</strong></div>
+<div class="api-desc"><strong>安装 SDK</strong></div>
+<pre><code># 安装最新版本
+pip install zai-sdk
+
+# 或指定版本
+pip install zai-sdk==0.2.2</code></pre>
+<div class="api-desc"><strong>验证安装</strong></div>
+<pre><code>import zai
+print(zai.__version__)</code></pre>
+<pre><code>from zai import ZhipuAiClient
+
+client = ZhipuAiClient(api_key="your-api-key") # 请填写您自己的 APIKey
+response = client.chat.completions.create(
+    model="glm-4.6",  # 填写需要调用的模型名称
+    messages=[
+        {"role": "user", "content": "你好！你叫什么名字"},
+    ],
+    tools=[
+            {
+                "type": "retrieval",
+                "retrieval": {
+                    "knowledge_id": "your knowledge id",
+                    "prompt_template": "从文档\n\"\"\"\n{{knowledge}}\n\"\"\"\n中找问题\n\"\"\"\n{{question}}\n\"\"\"\n的答案，找到答案就仅使用文档语句回答问题，找不到答案就用自身知识回答并且告诉用户该信息不是来自文档。\n不要复述问题，直接开始回答。"
+                }
+            }
+            ],
+    stream=True,
+)
+for chunk in response:
+    print(chunk.choices[0].delta.content, end='', flush=True)</code></pre>
+</div>
+</div>
+
+<!-- 后期
+<p align="center">
+  <a href="https://github.com/qhxn009/FinSight/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License"></a>
+  <img src="https://img.shields.io/badge/Python-3.10+-green.svg" alt="Python">
+  <img src="https://img.shields.io/badge/FastAPI-0.115+-009688.svg" alt="FastAPI">
+  <img src="https://img.shields.io/badge/GLM--4.7--Flash-智谱AI-7571f9.svg" alt="GLM">
+</p>
+修改 -->
+
+<div class="footer-info">
+FinSight · 由 <a href="https://www.24krmb.com/" target="_blank" class="footer-link">24KRMB.COM</a> 提供技术支持 · <a href="https://github.com/qhxn009/FinSight" target="_blank" class="footer-link">GitHub</a>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

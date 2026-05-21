@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FinSight - models文档</title>
+<link rel="stylesheet" href="/static/assets/style.css">
+<link rel="stylesheet" href="/static/assets/models.css">
+<script src="/static/assets/theme.js"></script>
+<script src="/static/assets/scroll-nav.js"></script>
+</head>
+<body>
+<div class="app">
+<div class="sidebar-left" id="sidebarLeft">
+<div class="sidebar-header">
+<div class="logo"><div class="logo-icon"><img src="/static/assets/unicorn.svg"></div>
+<div class="logo-text">FinSight</div></div>
+<div class="sidebar-menu">
+</div>
+</div>
+<div class="sidebar-content">
+<div class="toc-list" id="tocList">
+
+<div class="toc-item active" data-target="section-quickstart" onclick="scrollToSection('section-quickstart',this)">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+<span class="toc-item-text">文本模型</span>
+</div>
+
+<div class="toc-item" data-target="section-modes" onclick="scrollToSection('section-modes',this)">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 21h15a2 2 0 0 0 1.84-2.75l-3.5-7A1.99 1.99 0 0 0 13.17 9H6"/><circle cx="12" cy="12" r="3"/></svg>
+<span class="toc-item-text">视觉模型</span>
+</div>
+<div class="toc-item" data-target="section-tools" onclick="scrollToSection('section-tools',this)">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+<span class="toc-item-text">图像生成模型</span>
+</div>
+<div class="toc-item" data-target="section-ui" onclick="scrollToSection('section-ui',this)">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><polyline points="8 21 12 17 16 21"/><line x1="12" y1="21" x2="12" y2="17"/></svg>
+<span class="toc-item-text">视频生成模型</span>
+</div>
+<div class="toc-item" data-target="section-notice" onclick="scrollToSection('section-notice',this)">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+<span class="toc-item-text">音视频模型</span>
+</div>
+<div class="toc-item" data-target="section-tech" onclick="scrollToSection('section-tech',this)">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg>
+<span class="toc-item-text">向量模型</span>
+</div>
+<div class="toc-item" data-target="section-other" onclick="scrollToSection('section-other',this)">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="2"/></svg>
+<span class="toc-item-text">其他模型</span>
+</div>
+<div class="toc-item" data-target="section-free" onclick="scrollToSection('section-free',this)">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z"/><path d="M12 12.75a3 3 0 100-6 3 3 0 000 6z"/><path d="M12 16.338a4.822 4.822 0 00-3.78 4.885 4.822 4.822 0 003.78-4.885z"/></svg>
+<span class="toc-item-text">免费模型</span>
+</div>
+</div>
+</div>
+<div class="sidebar-footer">
+<a href="https://github.com/qhxn009/FinSight" class="github-link" target="_blank">
+<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+GitHub
+</a>
+<a href="https://www.24krmb.com/" class="github-link" target="_blank">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+关于
+</a>
+</div>
+</div>
+
+<div class="chat-area">
+<div class="chat-topbar">
+<div class="topbar-left">
+<a href="/" class="toggle-btn" title="返回对话">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+</a>
+<div class="mode-indicator">
+<span>回到对话页面</span>
+</div>
+</div>
+<div class="topbar-right">
+<button class="toggle-btn" id="themeToggleBtn" onclick="toggleTheme()" title="亮色模式">
+<svg id="themeIconSun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+<svg id="themeIconMoon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+</button>
+</div>
+</div>
+
+<div class="chat-messages chat-messages-padding" id="chatMessages">
+<div class="container-center">
+<div class="hero-card">
+<h1 class="hero-title">GLM 模型介绍</h1>
+<p class="hero-desc">智谱大模型介绍，帮助用户快速构建高效通用的“一站式模型即服务” AI 开发。</p></div>
+
+<div id="section-quickstart" class="section">
+
+<div class="section-header">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="section-icon"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+文本模型</div>
+<div class="section-desc-box"><p class="section-desc">文本模型是一类专注于处理和生成自然语言的模型，涵盖了语言理解与推理能力，能够自动处理海量文本数据并进行逻辑推导。智谱的文本模型结合了强大的语言模型和推理模型，使得系统不仅能理解和生成文本内容，还能进行高层次的推理和判断。</p>
+</div>
+
+<table>
+<tr><td>模型</td><td>定位</td><td>特点</td><td>上下文</td><td>最大输出</td></tr>
+<tr><td>GLM-5.1</td><td>最新旗舰</td><td>Coding 能力对齐 Claude Opus 4.6<br>长程任务显著提升，可自主工作长达 8 小时</td><td>200K</td><td>128K</td></tr>
+<tr><td>GLM-5</td><td>高智能基座</td><td>编程能力对齐Claude Opus 4.5<br>擅长 Agentic 长程规划与执行</td><td>200K</td><td>128K</td></tr>
+<tr><td>GLM-5-Turbo</td><td>龙虾增强基座</td><td>龙虾任务核心需求专项优化<br>复杂长任务执行连续性好</td><td>200K</td><td>128K</td></tr>
+<tr><td>GLM-4.7</td><td>高智能模型</td><td>通用对话、推理与智能体能力上实现全面升级<br>编程更强、更稳、审美更好</td><td>200K</td><td>128K</td></tr>
+<tr><td>GLM-4.7-FlashX</td><td>轻量高速</td><td>小尺寸，强能力<br>适用于中文写作、翻译、长文本、情感/角色扮演等通用场景</td><td>200K</td><td>128K</td></tr>
+<tr><td>GLM-4.6</td><td>超强性能</td><td>上下文提升至200K<br>高级编码能力、强大推理以及工具调用能力</td><td>200K</td><td>128K</td></tr>
+<tr><td>GLM-4.5-Air</td><td>高性价比</td><td>在推理、编码和智能体任务上表现强劲</td><td>128K</td><td>96K</td></tr>
+<tr><td>GLM-4.5-AirX</td><td>高性价比-极速版</td><td>推理速度快，且价格适中<br>适用于时效性有较强要求的场景</td><td>128K</td><td>96K</td></tr>
+<tr><td>GLM-4-Long</td><td>超长输入</td><td>支持高达 1M 的上下文长度<br>能够理解和回应复杂的查询<br>为处理超长文本和记忆型任务设计</td><td>1M</td><td>4K</td></tr>
+<tr><td>GLM-4-FlashX-250414</td><td>高速低价</td><td>Flash 增强版本<br>超快推理速度<br>更高并发保障</td><td>128K</td><td>16K</td></tr>
+<tr><td>GLM-4.7-Flash</td><td>免费模型</td><td>最新基座模型的普惠版本</td><td>200K</td><td>128K</td></tr>
+<tr><td>GLM-4.5-Flash（即将下线）</td><td>免费模型</td><td>支持深度思考模式<br>支持最长 128K 的上下文处理</td><td>128K</td><td>96K</td></tr>
+<tr><td>GLM-4-Flash-250414</td><td>免费模型</td><td>超长上下文处理能力<br>多语言支持<br>支持外部工具调用</td><td>128K</td><td>16K</td></tr>
+</table>
+</div>
+
+<div id="section-modes" class="section">
+
+<div class="section-header">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="section-icon"><path d="M2 21h15a2 2 0 0 0 1.84-2.75l-3.5-7A1.99 1.99 0 0 0 13.17 9H6"/><circle cx="12" cy="12" r="3"/></svg>
+视觉模型</div>
+
+<div class="section-desc-box"><p class="section-desc">视觉模型是一类能处理图像或视频等视觉信息的模型，广泛应用于识别、分析与决策任务。其中，视觉理解模型侧重于看懂图像内容，如识别物体、场景和关系；而视觉推理模型进一步具备看图思考的能力，能结合视觉与语言信息完成逻辑判断、因果分析和多步推理，常用于图文问答、图像描述生成、多模态对齐等复杂任务。</p></div>
+
+<table>
+<tr><th>模型<th>定位<th>特点<th>上下文<th>最大输出
+<tr><td>GLM-5V-Turbo<td>多模态 Coding 基座<td>- 兼顾视觉理解与 Coding 能力<br>- 复杂视觉推理更准确<br>- 超长上下文<br>- 深度适配 Agent 工作流<td>200K<td>128K
+<tr><td>GLM-4.6V<td>视觉推理<td>- 视觉推理能力<br>- 原生支持工具调用<br>- 长上下文<br>- 前端代码复刻效果提升<td>128K<td>32K
+<tr><td>GLM-OCR<td>轻量图文解析<td>- 性能SOTA<br>- 高精度、高效率<br>- 支持多种常见复杂文档解析<td>输入:<br>- 单图 ≤ 10 MB，PDF ≤ 50 MB<br>- 最大支持100页<td>/
+<tr><td>AutoGLM-Phone<td>手机智能助理框架<td>- 支持用自然语言自动完成 App 操作任务<br>- 支持完整操作指令集<td>20K<td>2048
+<tr><td>GLM-4.1V-Thinking-FlashX<td>轻量视觉推理<td>- 视觉推理能力<br>- 复杂场景理解<br>- 多步骤分析<br>- 高并发<td>64K<td>16K
+<tr><td>GLM-4.6V-Flash<td>免费模型<td>- 视觉推理能力<br>- 支持工具调用<br>- 可灵活开关思考模式<td>128K<td>32K
+<tr><td>GLM-4.1V-Thinking-Flash<td>免费模型<td>- 视觉推理能力<br>- 复杂场景理解<br>- 多步骤分析<td>64K<td>16K
+<tr><td>GLM-4V-Flash<td>免费模型<td>- 图像理解<br>- 多语言支持<td>16K<td>
+</table></div>
+
+<div id="section-tools" class="section">
+<div class="section-header">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="section-icon"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+图像生成模型</div>
+<div class="section-desc-box"><p class="section-desc">图像生成模型是一类通过学习海量图像数据，实现从文本生成高质量图片的模型，广泛应用于视觉内容创作、游戏美术、产品设计、医学影像合成等领域。</p></div>
+<table>
+<tr><th>模型<th>定位<th>特点<th>多分辨率
+<tr><td>GLM-Image<td>旗舰图像生成<td>- 在复杂指令遵循与知识密集场景上更强<br>- 文字渲染开源 SOTA，汉字尤其出色<td>支持
+<tr><td>CogView-4<td>图像生成<td>- 高质量图像生成<br>- 风格多样化<br>- 细节丰富<td>支持
+<tr><td>CogView-3-Flash<td>免费模型<td>- 创意丰富多样<br>- 推理速度快<td>支持
+</table></div>
+
+<div id="section-ui" class="section">
+<div class="section-header">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="section-icon"><rect x="2" y="3" width="20" height="14" rx="2"/><polyline points="8 21 12 17 16 21"/><line x1="12" y1="21" x2="12" y2="17"/></svg>
+视频生成模型</div>
+<div class="section-desc-box"><p class="section-desc">视频生成模型是一类通过学习时序视觉数据，从文本、图像或其他视频素材生成动态视频内容的模型，广泛应用于影视制作、虚拟人、动画生成、数字营销等领域。</p></div>
+<table>
+<tr><th>模型<th>定位<th>特点<th>多模态支持<th>多分辨率
+<tr><td>CogVideoX-3<td>高智能旗舰<td>- 主观清晰度大幅提升<br>- 更好的指令遵循、物理真实模拟<br>- 现实、3D风格场景表现提升<br>- 新增首尾帧生成功能<td>图像、文本、首尾帧<td>支持
+<tr><td>Vidu Q1<td>质量较优<td>- 影视级的画质清晰度<br>- 精准解决画面崩坏<br>- 多艺术形态的风格<br>- 行业标杆级转场流畅度<td>图像、文本、首尾帧<td>不支持
+<tr><td>Vidu 2<td>高速低价<td>- 速度优、性价比优<br>- 语义增强的首尾帧衔接<br>- 多参考图的一致性强化<td>图像、参考、首尾帧<td>不支持
+<tr><td>CogVideoX-Flash<td>免费模型<td>- 沉浸式AI音效<br>- 4K 高清画质呈现<br>- 10 秒视频时长拓展<br>- 60fps 高帧率输出<td>图像、文本<td>支持
+</table></div>
+
+<div id="section-notice" class="section">
+<div class="section-header">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="section-icon"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>音视频模型</div>
+
+<div class="section-desc-box">
+<p class="section-desc">音视频模型是一类处理音频与视频信号的多模态模型，能够理解、生成或编辑视听内容，广泛应用于虚拟人、语音驱动动画、视频配音与剪辑、跨模态检索等场景。</p></div>
+<table>
+<tr><th>模型<th>定位<th>特点<th>多模态支持
+<tr><td>GLM-TTS<td>语音合成模型<td>- 超拟人语音合成，情感表达增强<br>- 非流式与流式接口<td>文本
+<tr><td>GLM-TTS-Clone<td>音色克隆模型<td>- 3秒音频即可生成音色<br>- 支持普通话及轻口音<br>- 细腻的情感表达<td>文本、音频
+<tr><td>GLM-ASR-2512<td>语音识别<td>- 字符错误率（CER）仅为 0.0717<br>- 支持用户自定义词汇<br>- 支持多种主流语言和方言<td>音频
+<tr><td>GLM-Realtime<td>实时音视频<td>- 能够提供实时的视频通话功能，通话记忆时长长达2分钟<br>- 具有跨文本、音频和视频进行实时推理的能力<td>视频、音频、文本
+<tr><td>GLM-4-Voice<td>语音模型<td>- 直接理解和生成中英文语音，实现实时语音对话<br>- 根据用户指令灵活调整语音的情感、语调、语速和方言等特性<td>文本、音频
+</table></div>
+
+<div id="section-tech" class="section">
+<div class="section-header">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="section-icon"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg>向量模型</div>
+<div class="section-desc-box"><p class="section-desc">向量模型用于将高维的离散数据转换为低维的连续向量，捕捉数据的语义特征和关系。您可以使用我们的向量模型构建语义检索增强、聚类、主题建模和分类等功能。</p></div>
+<table>
+<tr><th>模型<th>定位<th>上下文
+<tr><td>Embedding-3<td>V3<td>8K
+<tr><td>Embedding-2<td>V2<td>8K
+</table></div>
+
+<div id="section-other" class="section">
+<div class="section-header">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="section-icon"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="2"/></svg>其他模型</div>
+<table>
+<tr><th>模型<th>定位<th>特点<th>上下文<th>最大输出
+<tr><td>CharGLM-4<td>拟人模型<td>适用于情感陪伴和虚拟角色<td>8K<td>4K
+<tr><td>Emohaa<td>心理模型<td>具备专业咨询能力，帮助用户理解情感并应对情绪问题<td>8K<td>4k
+<tr><td>CodeGeeX-4<td>代码模型<td>适用于代码自动补全任务<td>128K<td>32k
+<tr><td>Rerank<td>重排序模型<td>计算文本之间的 score 值，对召回结果进行重排序<td>4K<td>-
+</table></div>
+
+<div id="section-free" class="section">
+<div class="section-header">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="section-icon"><path d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z"/><path d="M12 12.75a3 3 0 100-6 3 3 0 000 6z"/><path d="M12 16.338a4.822 4.822 0 00-3.78 4.885 4.822 4.822 0 003.78-4.885z"/></svg>免费模型</div>
+<div class="section-desc-box"><p class="section-desc">以下是所有免费可用的模型汇总，适合学习、开发测试和小规模应用场景。</p></div>
+<table>
+<tr><th>模型<th>类型<th>特点<th>上下文<th>最大输出
+<tr><td>GLM-4.7-Flash<td>文本模型<td>最新基座模型的普惠版本<td>200K<td>128K
+<tr><td>GLM-4.5-Flash（即将下线）<td>文本模型<td>支持深度思考模式<br>支持最长 128K 的上下文处理<td>128K<td>96K
+<tr><td>GLM-4-Flash-250414<td>文本模型<td>超长上下文处理能力<br>多语言支持<br>支持外部工具调用<td>128K<td>16K
+<tr><td>GLM-4.6V-Flash<td>视觉模型<td>视觉推理能力<br>支持工具调用<br>可灵活开关思考模式<td>128K<td>32K
+<tr><td>GLM-4.1V-Thinking-Flash<td>视觉模型<td>视觉推理能力<br>复杂场景理解<br>多步骤分析<td>64K<td>16K
+<tr><td>GLM-4V-Flash<td>视觉模型<td>图像理解<br>多语言支持<td>16K<td>
+<tr><td>CogView-3-Flash<td>图像生成<td>创意丰富多样<br>推理速度快<td>支持<td>
+<tr><td>CogVideoX-Flash<td>视频生成<td>沉浸式AI音效<br>4K 高清画质呈现<br>10 秒视频时长拓展<br>60fps 高帧率输出<td>图像、文本<td>支持
+</table></div>
+
+<div class="footer-info">
+FinSight · 由 <a href="https://www.24krmb.com/" target="_blank" class="footer-link">24KRMB.COM</a> 提供技术支持 · <a href="https://github.com/qhxn009/FinSight" target="_blank" class="footer-link">GitHub</a></div>
+
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

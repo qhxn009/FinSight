@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FinSight - 智能金融分析助手 - 24KRMB.COM提供技术支持</title>
+<link rel="stylesheet" href="/static/assets/style.css">
+<script src="/static/assets/marked.min.js"></script>
+<script src="/static/assets/purify.min.js"></script>
+<script src="/static/assets/theme.js"></script>
+</head>
+<body>
+<div class="app">
+<div class="mobile-overlay" id="mobileOverlay" onclick="toggleLeftSidebar()"></div>
+<div class="right-sidebar-backdrop" id="rightSidebarBackdrop" onclick="toggleRightSidebar()"></div>
+<div class="sidebar-left" id="sidebarLeft">
+<div class="sidebar-header">
+<div class="logo"><div class="logo-icon"><img src="/static/assets/unicorn.svg"></div>
+<div class="logo-text">FinSight</div></div>
+<div class="mode-switcher">
+<button class="mode-btn active" data-mode="finance" onclick="switchMode('finance')">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+金融对话
+</button>
+<button class="mode-btn" data-mode="vision" onclick="switchMode('vision')">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+图表分析
+</button>
+</div>
+<div class="sidebar-menu">
+<a href="https://www.24krmb.com/forum.php?mod=forumdisplay&fid=156&filter=typeid&typeid=194" class="sidebar-menu-item" target="_blank">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+AI Skill
+</a>
+<a href="https://www.24krmb.com/forum.php?mod=forumdisplay&fid=156&filter=typeid&typeid=72" class="sidebar-menu-item" target="_blank">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+AI MCP
+</a>
+</div>
+<div class="sidebar-menu">
+<a href="#" class="sidebar-menu-item">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+Datasets
+</a>
+<a href="/static/models.html" class="sidebar-menu-item">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14v6"/><path d="M22 14v6"/><path d="M10 22h4"/></svg>Models</a>
+</div>
+</div>
+<div class="sidebar-content">
+<button class="new-chat-btn" onclick="newConversation()">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+新建对话
+</button>
+<div class="conversation-list" id="conversationList"></div>
+</div>
+<div class="sidebar-footer">
+<a href="https://github.com/qhxn009/FinSight" class="github-link" target="_blank">
+<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+GitHub
+</a>
+<a href="/static/help.html" class="github-link">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+帮助
+</a>
+<a href="https://www.24krmb.com/" class="github-link" target="_blank">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+关于
+</a>
+</div>
+</div>
+<div class="chat-area">
+<div class="chat-topbar">
+<div class="topbar-left">
+<button class="toggle-btn" onclick="toggleLeftSidebar()" title="切换侧边栏">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+</button>
+<div class="mode-indicator">
+<div class="mode-dot"></div>
+<span id="modeLabel">金融对话</span>
+</div>
+</div>
+<div class="topbar-right">
+<button class="toggle-btn" id="themeToggleBtn" onclick="toggleTheme()" title="亮色模式">
+<svg id="themeIconSun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+<svg id="themeIconMoon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+</button>
+<button class="toggle-btn" onclick="toggleRightSidebar()" title="切换功能面板">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="15" y1="3" x2="15" y2="21"/></svg>
+</button>
+</div>
+</div>
+<div class="chat-messages" id="chatMessages">
+<div class="welcome-area" id="welcomeArea">
+<div class="welcome-title">FinSight</div>
+<div class="welcome-subtitle">以智析数，洞见先机</div>
+</div>
+</div>
+<div class="chat-input-area">
+<div class="image-preview-area" id="imagePreview">
+<img class="image-preview-thumb" id="imageThumb" src="" alt="">
+<span class="image-preview-name" id="imageName"></span>
+<button class="image-remove-btn" onclick="removeImage()">✕</button>
+</div>
+<div class="input-wrapper">
+<textarea id="chatInput" rows="3" placeholder="有什么我能帮您的？" onkeydown="handleKeyDown(event)" oninput="autoResize(this)"></textarea>
+<div class="input-toolbar">
+
+<div class="input-toolbar-left">
+<button class="input-tool-btn" onclick="document.getElementById('fileInput').click()" title="上传图片">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <!-- 向上的箭头 -->
+    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+    <!-- 箭头杆和头 -->
+    <polyline points="17 8 12 3 7 8"/>
+    <line x1="12" y1="3" x2="12" y2="15"/>
+  </svg>
+</button>
+
+<button class="input-tool-btn" id="webSearchBtn" onclick="toggleWebSearch()" title="联网搜索">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+</button>
+
+<button class="input-tool-btn" title="数据库">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+  <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+  <line x1="6" y1="6" x2="6.01" y2="6"></line>
+  <line x1="6" y1="18" x2="6.01" y2="18"></line>
+</svg>
+</button>
+<button class="input-tool-btn" id="thinkingBtn" onclick="toggleThinkingMode()" title="深度思考">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.98-3A2.5 2.5 0 0 1 9.5 2Z"/>
+    <path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.98-3A2.5 2.5 0 0 0 14.5 2Z"/>
+  </svg>
+</button>
+</div>
+<div class="input-toolbar-right">
+<button class="send-btn-round" id="sendBtn" onclick="sendMessage()" title="发送">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+</button>
+</div>
+</div>
+</div>
+<input type="file" id="fileInput" accept="image/*" style="display:none" onchange="handleImageUpload(event)">
+</div>
+</div>
+<div class="sidebar-right" id="sidebarRight">
+<div class="right-sidebar-header">
+<h3>功能介绍</h3>
+</div>
+<div class="right-sidebar-content">
+  <div class="feature-card">
+<div class="feature-card-title">图表分析</div>
+<div class="feature-card-desc">上传K线图、经济数据走势、财务图表等图片，智能识别并给出专业解读与分析建议</div>
+</div>
+<div class="feature-card">
+<div class="feature-card-title">财务分析</div>
+<div class="feature-card-desc">深度剖析企业财报，支持单个公司分析与多公司对比</div>
+</div>
+<div class="feature-card">
+<div class="feature-card-title">龙虎榜分析</div>
+<div class="feature-card-desc">解读市场资金流向与游资动向，洞察主力操盘意图，支持当日及历史数据</div>
+</div>
+<div class="feature-card">
+<div class="feature-card-title">热门ETF榜单</div>
+<div class="feature-card-desc">追踪市场热点，涵盖涨跌榜、搜索榜、关注榜、换手榜、主力资金榜、净申购榜、溢价率榜等</div>
+</div>
+<div class="feature-card">
+<div class="feature-card-title">指数估值</div>
+<div class="feature-card-desc">评估宽基、行业、主题指数估值水平，寻找高性价比入场时机，ETF联动分析</div>
+</div>
+</div>
+<div class="quick-actions">
+<h4>快捷操作</h4>
+<button class="quick-action-btn" onclick="sendPrompt('根据最新的财报，深度对比分析**贵州茅台 600519**和**中际旭创 300308**的财务数据：包括但不限于：上市日期、估值、盈利、现金流量表、利润表、资产负债表、资本结构、行业信息、行业均值、行业龙头、行业内市值相近的股票、行业内PE相近的股票、行业前二、申万行业名称等。其次做深度的对比总结。最后，给与不同类型投资者专业的建议；')">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+财务对比分析
+</button>
+<button class="quick-action-btn" onclick="sendPrompt('深度分析当前热门ETF榜单。包括但不限于：涨跌榜、搜索榜、关注榜、换手榜、主力资金榜、净申购榜、溢价率榜、特色榜等多维度统计分析，最后做总结')">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+当前热门ETF榜单
+</button>
+<button class="quick-action-btn" onclick="sendPrompt('深度分析**今天**的龙虎榜数据，包括但不限于上榜统计、营业部排名、资金流向等数据')">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+今日市场龙虎榜概览
+</button>
+
+<button class="quick-action-btn" onclick="sendPrompt('深度分析**当前**市场中：宽基、行业、主题指数估值分位与ETF联动分析，并且做出总结，最后给出不同类型投资者完整的投资方案')">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+指数估值与ETF联动分析
+</button>
+
+</div>
+</div>
+</div>
+</div>
+<script>
+let currentMode = 'finance';
+let messages = [];
+let isStreaming = false;
+let uploadedImage = null;
+let uploadedImageName = '';
+let conversations = [];
+let currentConversationId = null;
+let thinkingEnabled = false;
+let webSearchEnabled = false;
+const chatMessages = document.getElementById('chatMessages');
+const welcomeArea = document.getElementById('welcomeArea');
+const chatInput = document.getElementById('chatInput');
+const sendBtn = document.getElementById('sendBtn');
+const modeLabel = document.getElementById('modeLabel');
+const imagePreview = document.getElementById('imagePreview');
+const imageThumb = document.getElementById('imageThumb');
+const imageName = document.getElementById('imageName');
+const conversationList = document.getElementById('conversationList');
+
+const STORAGE_KEY = 'finsight-conversations';
+const MAX_CONVERSATIONS = 50;
+
+function _loadConversations() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (raw) {
+      const data = JSON.parse(raw);
+      if (Array.isArray(data)) return data.slice(0, MAX_CONVERSATIONS);
+    }
+  } catch (e) {}
+  return [];
+}
+
+function _saveConversations() {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(conversations.slice(0, MAX_CONVERSATIONS)));
+  } catch (e) {}
+}
+
+function _createConversation(title) {
+  const id = 'conv-' + Date.now();
+  const conv = { id, title, mode: currentMode, messages: [] };
+  conversations.unshift(conv);
+  currentConversationId = id;
+  _saveConversations();
+  renderConversationList();
+}
+function renderConversationList() {
+  conversationList.innerHTML = '';
+  conversations.forEach(function(conv) {
+    const item = document.createElement('div');
+    item.className = 'conversation-item' + (conv.id === currentConversationId ? ' active' : '');
+    item.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><span class="conversation-item-text">' + escapeHtml(conv.title) + '</span><button class="conversation-delete-btn" onclick="event.stopPropagation();deleteConversation(\'' + conv.id + '\')" title="删除对话"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>';
+    item.onclick = function() { _switchConversation(conv.id); };
+    conversationList.appendChild(item);
+  });
+}
+function deleteConversation(id) {
+  if (isStreaming) return;
+  conversations = conversations.filter(function(c) { return c.id !== id; });
+  if (id === currentConversationId) {
+    currentConversationId = null;
+    messages = [];
+    chatMessages.innerHTML = '';
+    chatMessages.appendChild(welcomeArea);
+    welcomeArea.style.display = 'flex';
+  }
+  _saveConversations();
+  renderConversationList();
+}
+function _switchConversation(id) {
+  if (isStreaming) return;
+  if (id === currentConversationId) return;
+  const conv = conversations.find(function(c) { return c.id === id; });
+  if (!conv) return;
+  currentConversationId = id;
+  messages = (conv.messages || []).slice();
+  if (conv.mode) switchMode(conv.mode);
+  _renderMessages();
+  renderConversationList();
+}
+function _renderMessages() {
+  chatMessages.innerHTML = '';
+  if (messages.length === 0) {
+    chatMessages.appendChild(welcomeArea);
+    welcomeArea.style.display = 'flex';
+    return;
+  }
+  welcomeArea.style.display = 'none';
+  for (let i = 0; i < messages.length; i++) {
+    const msg = messages[i];
+    if (msg.role === 'user') {
+      addMessage('user', escapeHtml(msg.content));
+    } else if (msg.role === 'assistant') {
+      addMessage('ai', renderMarkdown(msg.content));
+    }
+  }
+  scrollToBottom();
+}
+function _syncCurrentMessages() {
+  if (!currentConversationId) return;
+  const conv = conversations.find(function(c) { return c.id === currentConversationId; });
+  if (conv) {
+    conv.messages = messages.slice();
+    _saveConversations();
+  }
+}
+function toggleLeftSidebar() {
+  const sb = document.getElementById('sidebarLeft');
+  const overlay = document.getElementById('mobileOverlay');
+  sb.classList.toggle('collapsed');
+  if (window.innerWidth <= 1024) {
+    overlay.classList.toggle('visible', !sb.classList.contains('collapsed'));
+  }
+}
+(function() {
+  conversations = _loadConversations();
+  renderConversationList();
+  if (window.innerWidth <= 1024) {
+    document.getElementById('sidebarLeft').classList.add('collapsed');
+  }
+  if (window.innerWidth <= 1024) {
+    document.getElementById('sidebarRight').classList.add('collapsed');
+  }
+})();
+function toggleRightSidebar() {
+  const sb = document.getElementById('sidebarRight');
+  const backdrop = document.getElementById('rightSidebarBackdrop');
+  sb.classList.toggle('collapsed');
+  if (window.innerWidth <= 1024) {
+    backdrop.classList.toggle('visible', !sb.classList.contains('collapsed'));
+  }
+}
+function switchMode(mode) {
+  currentMode = mode;
+  document.querySelectorAll('.mode-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.mode === mode);
+  });
+  modeLabel.textContent = mode === 'finance' ? '金融对话' : '图表分析';
+  chatInput.placeholder = mode === 'finance' ? '输入您的问题...' : '描述图片或输入问题...';
+}
+function toggleThinkingMode() {
+  thinkingEnabled = !thinkingEnabled;
+  var btn = document.getElementById('thinkingBtn');
+  btn.classList.toggle('active', thinkingEnabled);
+  btn.title = thinkingEnabled ? '深度思考：已开启' : '深度思考';
+}
+function toggleWebSearch() {
+  webSearchEnabled = !webSearchEnabled;
+  var btn = document.getElementById('webSearchBtn');
+  btn.classList.toggle('active', webSearchEnabled);
+  btn.title = webSearchEnabled ? '联网搜索：已开启' : '联网搜索';
+}
+function newConversation() {
+  _syncCurrentMessages();
+  messages = [];
+  currentConversationId = null;
+  chatMessages.innerHTML = '';
+  chatMessages.appendChild(welcomeArea);
+  welcomeArea.style.display = 'flex';
+  chatInput.value = '';
+  chatInput.style.height = 'auto';
+  removeImage();
+  renderConversationList();
+}
+function autoResize(el) {
+  el.style.height = 'auto';
+  el.style.height = Math.min(el.scrollHeight, 150) + 'px';
+}
+function handleKeyDown(e) {
+  if (e.key === 'Enter' && !e.shiftKey) {
+    e.preventDefault();
+    sendMessage();
+  }
+}
+function sendPrompt(text) {
+  chatInput.value = text;
+  sendMessage();
+}
+function handleImageUpload(e) {
+  const file = e.target.files[0];
+  if (!file) return;
+  if (!file.type.startsWith('image/')) return;
+  uploadedImageName = file.name;
+  const reader = new FileReader();
+  reader.onload = function(ev) {
+    uploadedImage = ev.target.result;
+    imageThumb.src = uploadedImage;
+    imageName.textContent = uploadedImageName;
+    imagePreview.classList.add('has-image');
+    if (currentMode !== 'vision') {
+      switchMode('vision');
+    }
+  };
+  reader.readAsDataURL(file);
+  e.target.value = '';
+}
+function removeImage() {
+  uploadedImage = null;
+  uploadedImageName = '';
+  imageThumb.src = '';
+  imageName.textContent = '';
+  imagePreview.classList.remove('has-image');
+}
+function addMessage(role, content, thinking) {
+  if (welcomeArea.style.display !== 'none') {
+    welcomeArea.style.display = 'none';
+  }
+  const msgEl = document.createElement('div');
+  msgEl.className = 'message ' + role;
+  let thinkingHtml = '';
+  if (thinking) {
+    const thinkId = 'think-' + Date.now() + Math.random().toString(36).slice(2, 6);
+    thinkingHtml = '<div class="thinking-section">' +
+      '<button class="thinking-toggle" onclick="toggleThinking(\'' + thinkId + '\', this)">' +
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>' +
+      '🤔思考过程</button>' +
+      '<div class="thinking-content" id="' + thinkId + '">' + escapeHtml(thinking) + '</div></div>';
+  }
+  var actionsHtml = '';
+  if (role === 'ai') {
+    actionsHtml = '<div class="message-actions">' +
+      '<button class="message-action-btn" onclick="copyMessage(this)" title="复制">' +
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>' +
+      '<span>复制</span></button>' +
+      '<button class="message-action-btn" onclick="regenerateMessage()" title="重新生成">' +
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>' +
+      '<span>重新生成</span></button></div>';
+  }
+  msgEl.innerHTML = '<div class="message-body">' +
+    thinkingHtml +
+    '<div class="message-content">' + content + '</div>' +
+    actionsHtml + '</div>';
+  chatMessages.appendChild(msgEl);
+  scrollToBottom();
+  return msgEl;
+}
+function addStreamingAiMessage() {
+  if (welcomeArea.style.display !== 'none') {
+    welcomeArea.style.display = 'none';
+  }
+  const msgEl = document.createElement('div');
+  msgEl.className = 'message ai';
+  const thinkId = 'think-' + Date.now() + Math.random().toString(36).slice(2, 6);
+  msgEl.innerHTML = '<div class="message-body">' +
+    '<div class="thinking-section" id="' + thinkId + '-section" style="display:none">' +
+    '<button class="thinking-toggle" onclick="toggleThinking(\'' + thinkId + '\', this)">' +
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>' +
+    '🤔思考过程</button>' +
+    '<div class="thinking-content" id="' + thinkId + '"></div></div>' +
+    '<div class="message-content" id="' + thinkId + '-content"><div class="typing-indicator"><span></span><span></span><span></span></div></div>' +
+    '<div class="message-actions" id="' + thinkId + '-actions" style="display:none">' +
+    '<button class="message-action-btn" onclick="copyMessage(this)" title="复制">' +
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>' +
+    '<span>复制</span></button>' +
+    '<button class="message-action-btn" onclick="regenerateMessage()" title="重新生成">' +
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>' +
+    '<span>重新生成</span></button>' +
+    '<span class="message-token-info" id="' + thinkId + '-token" style="display:none"></span></div></div>';
+  chatMessages.appendChild(msgEl);
+  scrollToBottom();
+  return { el: msgEl, thinkId: thinkId };
+}
+function toggleThinking(id, btn) {
+  const el = document.getElementById(id);
+  if (el) {
+    el.classList.toggle('visible');
+    btn.classList.toggle('open');
+  }
+}
+function escapeHtml(text) {
+  const div = document.createElement('div');
+  div.textContent = text;
+  return div.innerHTML;
+}
+function scrollToBottom() {
+  requestAnimationFrame(() => {
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+  });
+}
+async function _streamResponse(imageUrl) {
+  isStreaming = true;
+  sendBtn.disabled = true;
+  const { el, thinkId } = addStreamingAiMessage();
+  const contentEl = document.getElementById(thinkId + '-content');
+  const thinkingSectionEl = document.getElementById(thinkId + '-section');
+  const thinkingContentEl = document.getElementById(thinkId);
+  const tokenInfoEl = document.getElementById(thinkId + '-token');
+  let fullContent = '';
+  let fullThinking = '';
+  let inThinking = false;
+  try {
+    const response = await fetch('/api/chat/stream', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        messages: messages,
+        mode: currentMode,
+        image_url: imageUrl || null,
+        thinking: thinkingEnabled,
+        web_search: webSearchEnabled
+      })
+    });
+    if (!response.ok) {
+      contentEl.textContent = '请求失败，请稍后重试。';
+      isStreaming = false;
+      sendBtn.disabled = false;
+      return;
+    }
+    const reader = response.body.getReader();
+    const decoder = new TextDecoder();
+    let buffer = '';
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      buffer += decoder.decode(value, { stream: true });
+      const lines = buffer.split('\n');
+      buffer = lines.pop() || '';
+      for (const line of lines) {
+        const trimmed = line.trim();
+        if (!trimmed || !trimmed.startsWith('data:')) continue;
+        const data = trimmed.slice(5).trim();
+        if (data === '[DONE]') continue;
+        try {
+          const parsed = JSON.parse(data);
+          if (parsed.type === 'thinking') {
+            inThinking = true;
+            fullThinking += parsed.content || '';
+            thinkingSectionEl.style.display = 'block';
+            thinkingContentEl.textContent = fullThinking;
+          } else if (parsed.type === 'content') {
+            inThinking = false;
+            fullContent += parsed.content || '';
+            contentEl.innerHTML = renderMarkdown(fullContent);
+          } else if (parsed.type === 'usage') {
+            if (parsed.usage && tokenInfoEl) {
+              var u = parsed.usage;
+              tokenInfoEl.innerHTML = '输入 ' + u.prompt_tokens + ' · 输出 ' + u.completion_tokens + ' · 共计 ' + u.total_tokens + ' tokens';
+              tokenInfoEl.style.display = 'block';
+            }
+          } else if (parsed.type === 'error') {
+            inThinking = false;
+            fullContent += parsed.content || '';
+            contentEl.innerHTML = '<span style="color:var(--error)">' + escapeHtml(parsed.content || '未知错误') + '</span>';
+          } else if (parsed.content) {
+            if (inThinking) {
+              fullThinking += parsed.content;
+              thinkingSectionEl.style.display = 'block';
+              thinkingContentEl.textContent = fullThinking;
+            } else {
+              fullContent += parsed.content;
+              contentEl.innerHTML = renderMarkdown(fullContent);
+            }
+          }
+          scrollToBottom();
+        } catch (e) {}
+      }
+    }
+    if (!fullContent && !fullThinking) {
+      contentEl.textContent = '😜未收到有效回复，请稍后重试。';
+    }
+  } catch (err) {
+    contentEl.textContent = '🧐 网络错误，请检查连接后重试。';
+  }
+  messages.push({ role: 'assistant', content: fullContent });
+  _syncCurrentMessages();
+  var actionsEl = document.getElementById(thinkId + '-actions');
+  if (actionsEl) actionsEl.style.display = 'flex';
+  isStreaming = false;
+  sendBtn.disabled = false;
+}
+async function sendMessage() {
+  const text = chatInput.value.trim();
+  if (!text && !uploadedImage) return;
+  if (isStreaming) return;
+  const userContent = text || '(图片)';
+  messages.push({ role: 'user', content: userContent });
+  if (!currentConversationId) {
+    _createConversation(userContent.slice(0, 20) + (userContent.length > 20 ? '...' : ''));
+  } else {
+    _syncCurrentMessages();
+  }
+  addMessage('user', escapeHtml(userContent));
+  chatInput.value = '';
+  chatInput.style.height = 'auto';
+  const imageUrl = uploadedImage;
+  removeImage();
+  await _streamResponse(imageUrl);
+}
+function copyMessage(btn) {
+  var messageBody = btn.closest('.message-body');
+  var contentEl = messageBody.querySelector('.message-content');
+  var text = contentEl.innerText || contentEl.textContent;
+  navigator.clipboard.writeText(text).then(function() {
+    var span = btn.querySelector('span');
+    span.textContent = '已复制';
+    btn.classList.add('copied');
+    setTimeout(function() {
+      span.textContent = '复制';
+      btn.classList.remove('copied');
+    }, 2000);
+  });
+}
+function regenerateMessage() {
+  if (isStreaming) return;
+  if (messages.length < 2) return;
+  var lastMsg = messages[messages.length - 1];
+  if (lastMsg.role !== 'assistant') return;
+  messages.pop();
+  var allMessages = document.querySelectorAll('.message');
+  if (allMessages.length > 0) {
+    allMessages[allMessages.length - 1].remove();
+  }
+  _syncCurrentMessages();
+  _streamResponse(null);
+}
+function renderMarkdown(text) {
+  if (typeof marked !== 'undefined' && typeof DOMPurify !== 'undefined') {
+    marked.setOptions({
+      breaks: true,
+      gfm: true
+    });
+    return DOMPurify.sanitize(marked.parse(text));
+  }
+  return escapeHtml(text);
+}
+chatInput.addEventListener('input', function() {
+  sendBtn.disabled = isStreaming;
+});
+window.addEventListener('resize', function() {
+  if (window.innerWidth > 1024) {
+    document.getElementById('mobileOverlay').classList.remove('visible');
+    document.getElementById('rightSidebarBackdrop').classList.remove('visible');
+    document.getElementById('sidebarLeft').classList.remove('collapsed');
+  }
+});
+</script>
+</body>
+</html>
