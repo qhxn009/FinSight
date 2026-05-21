@@ -80,7 +80,7 @@ FinSight/
 
 2.建议可选条件
 - 券商 MCP Token（[免费申请](https://www.gf.com.cn/)）
-- Tavily API Key（[可选，用于联网搜索](https://www.tavily.com/)）
+- Tavily API Key（[可选，用于联网搜索](https://www.tavily.com/)）Tavily 是一个专为 AI Agent 和 LLM 优化的搜索引擎 API。Tavily 是一个专为 AI 智能体（AI Agents）和大型语言模型（LLM）优化的实时搜索 API，旨在提供准确、最新且无幻觉的高质量搜索结果。直接把最相关的结构化内容喂给你的模型。
 
 ### 下载项目
 
