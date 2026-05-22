@@ -19,6 +19,7 @@
 - **0费用** — 使用满血版大模型+A股数据
 - **开箱即用** — 纯前端无框架依赖，响应式设计，桌面与移动端均可流畅使用
 - **资料完善** — 从使用帮助，二次开发，都有详细的介绍页面和文档；不藏着掖着，完全公开
+- **社区支持** — 在我们的官方社区可以进行学习，交流，提问
 - **轻量** — **新手都可以完成二次开发**，毕竟项目没有太多代码，更没有复杂的东西，项目代码占比：HTML(76.6%)、CSS(13.4%)、Python(8.5%)、JavaScript(1.5%)
 
 ## 功能特性
@@ -81,7 +82,7 @@ FinSight/
 ### 前置条件
 1.必要条件
 - Python 3.10+
-- 智谱 AI API Key（[免费申请](https://www.bigmodel.cn/invite?icode=%2F7GW43rLVlqOKpBa8XiSvGczbXFgPRGIalpycrEwJ28%3D)）默认为免费模型，均不会产生任何费用；如果你需要付费模型，对话功能推荐使用 **GLM-5.1** 是智谱最新旗舰模型，**代码能力目前国内最强**(截至2026年5月)，完成从规划、执行到迭代优化的完整闭环，交付工程级成果。图表解析功能推荐 **GLM-5V-Turbo** 是智谱首个多模态 Coding 基座模型。深度适配 Agent 工作流，能够与Agent 深度协同，完成”看懂环境→规划动作→执行任务”的完整闭环。
+- 智谱 AI API Key（[免费申请](https://www.bigmodel.cn/invite?icode=%2F7GW43rLVlqOKpBa8XiSvGczbXFgPRGIalpycrEwJ28%3D)）默认为免费模型，均不会产生任何费用；如果你需要付费模型，对话功能推荐使用 **GLM-5.1** 是智谱最新旗舰模型，**代码能力目前国内最强**(截至2026年5月)，完成从规划、执行到迭代优化的完整闭环，交付工程级成果。图表解析功能推荐 **GLM-5V-Turbo** 是智谱首个多模态 Coding 基座模型。深度适配 Agent 工作流，能够与Agent 深度协同，完成"看懂环境→规划动作→执行任务"的完整闭环。
 
 2.建议可选条件
 - 券商 MCP Token（[免费申请](https://www.gf.com.cn/)）
@@ -188,7 +189,6 @@ data: [DONE]
 
 ## 帮助文档
 
-
 - 项目自带的 `help.html` 文件，可在线查看帮助文档,覆盖：功能说明、操作指南、常见问题。
 - 项目自带的 `models.html` 文件— 智谱全系模型概览（文本/视觉/图像/视频/音视频/向量）
 - [部署 FinSight 到云服务器](https://www.24krmb.com/thread-4618-1-1.html) — 如果你，学习云端部署，可以参考本教材
@@ -198,7 +198,7 @@ data: [DONE]
 ## 致谢
 
 - [智谱 AI](https://www.bigmodel.cn/invite?icode=%2F7GW43rLVlqOKpBa8XiSvGczbXFgPRGIalpycrEwJ28%3D) — GLM 大模型与 zai-sdk
-- [券商](https://www.gf.com.cn/) — MCP 金融数据服务
+- [广发证券](https://www.gf.com.cn/) — MCP 金融数据服务
 - [24KRMB.COM](https://www.24krmb.com/) — 技术支持与社区
 
 ## 许可证
