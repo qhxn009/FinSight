@@ -10,7 +10,7 @@
 </p>
 
 <p align="center">
-  FinSight 基于券商 MCP 和 GLM 大模型的 AI 对话分析助手，提供股市数据智能分析、图表识别分析、图片生成，3大核心能力<br>
+  FinSight 提供股市数据智能分析、图表识别分析、图片生成，3大核心能力<br>
   <strong style="color:red;font-size:1.1em">0费用</strong>使用满血版大模型+A股数据，让用户通过自然语言即可获取专业金融数据分析与图像理解服务。
 </p>
 
