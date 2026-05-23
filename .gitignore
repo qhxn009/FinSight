@@ -12,12 +12,16 @@ __pycache__/
 # IDE 配置（可选）
 .idea/
 .vscode/
+.trae/
 *.swp
 *.swo
 
 # 其他
+.gitignore
 *.egg-info/
 dist/
 build/
 Backup/
 doc/二次开发.md
+doc/升级记录.md 
+GitHub.md

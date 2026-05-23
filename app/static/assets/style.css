@@ -55,8 +55,8 @@ html {-ms-overflow-style: none}
 .logo{display:flex;align-items:center;gap:10px;margin-bottom:20px}
 .logo-icon{width:32px;height:32px;border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;font-size:1rem;font-weight:700;color:var(--bg-card);font-family:inherit}
 .logo-text{font-size:21px;font-weight:600;font-family:Georgia,Constantia,Constantia;color:var(--theme);letter-spacing:-.3px;-webkit-background-clip:text;background-clip:text}
-.mode-switcher{display:flex;gap:6px;border-radius:var(--radius-md);padding:4px}
-.mode-btn{flex:1;display:flex;align-items:center;justify-content:center;gap:6px;padding:8px 12px;border:none;border-radius:var(--radius-sm);background:var(--bg-secondary);color:var(--text-secondary);font-size:14px;font-family:inherit;cursor:pointer;transition:all var(--transition);white-space:nowrap}
+.mode-switcher{display:flex;flex-wrap:wrap;gap:6px;border-radius:var(--radius-md);padding:4px}
+.mode-btn{width:calc(50% - 3px);display:flex;align-items:center;justify-content:center;gap:6px;padding:8px 12px;border:none;border-radius:var(--radius-sm);background:var(--bg-secondary);color:var(--text-secondary);font-size:14px;font-family:inherit;cursor:pointer;transition:all var(--transition);white-space:nowrap}
 .mode-btn:hover{color:var(--bg-card);background:var(--accent)}
 .mode-btn.active{color:var(--accent)}
 .mode-btn svg{width:1rem;height:1rem;flex-shrink:0}
