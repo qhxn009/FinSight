@@ -42,8 +42,8 @@ app/core/glm_client.py → 核心层：LLM 调用 + MCP 工具 + 错误处理（
 app/api/chat.py      → API 层：参数校验与分发（薄层）
 app/static/          → 前端层：纯原生实现
 ```
-
 **数据流**：
+
 ```
 用户输入 → chat.py (校验) → glm_client.py (构建请求)
   → Zhipu SDK → 智谱 API → MCP 工具调用
@@ -64,25 +64,28 @@ MCP 工具
 
 ```
 FinSight/
+├── requirements.txt         # Python 依赖
+├── .env.example             # 环境变量模板
+├── .env                     # 环境变量（不提交到 git）
 ├── app/
 │   ├── main.py              # FastAPI 入口，挂载路由与静态文件
 │   ├── core/
-│   │   ├── config.py        # 环境变量配置管理（GLM_API_KEY, GFZQ_TOKEN）
-│   │   └── glm_client.py    # GLM 客户端封装（金融对话 + 图像识别 + MCP集成 + 深度思考）
+│   │   ├── config.py        # 环境变量配置管理
+│   │   └── glm_client.py    # GLM 客户端封装
 │   ├── api/
-│   │   └── chat.py          # SSE 流式 API 端点 /api/chat/stream
+│   │   └── chat.py          # SSE 流式 API 端点
 │   └── static/
 │       ├── index.html       # 主前端页面
 │       ├── help.html        # 帮助文档页面
 │       ├── models.html      # 智谱模型介绍页面
 │       ├── assets/
-│       │   ├── style.css    # 全局样式（明暗主题、响应式）
+│       │   ├── style.css    # 全局样式
 │       │   ├── models.css   # models.html 专用样式
-│       │   ├── theme.js     # 主题切换（三个页面共用）
+│       │   ├── theme.js     # 主题切换
 │       │   ├── scroll-nav.js# 文档页面导航滚动自动检测
 │       │   ├── marked.min.js# Markdown 解析渲染
 │       │   ├── purify.min.js# XSS 防护
-│       │   └── unicorn.svg  # Logo 图标
+│       │   └── unicorn.svg  # Logo 图标（可替换）
 ├── doc/                     # 开发参考文档
 │   ├── thinking.md          # 深度思考功能说明
 │   ├── thinking-mode.md     # GLM 思考模式详解
@@ -90,21 +93,23 @@ FinSight/
 │   ├── api-code.md          # API 错误码参考
 │   ├── zai-sdk.md           # zai-sdk 使用手册
 │   └── tavilyMCP.md         # Tavily MCP 配置指南
-├── .env                     # 环境变量（不提交到 git）
-├── .env.example             # 环境变量模板
-├── requirements.txt         # Python 依赖
 └── readme.md                # 本文档
 ```
 
 ## 快速开始
 
 ### 前置条件
+
 1.必要条件
+
 - Python 3.10+
+
 - 智谱 AI API Key（[免费申请](https://www.bigmodel.cn/invite?icode=%2F7GW43rLVlqOKpBa8XiSvGczbXFgPRGIalpycrEwJ28%3D)）默认为免费模型，均不会产生任何费用；如果你需要付费模型，对话功能推荐使用 **GLM-5.1** 是智谱最新旗舰模型，**代码能力目前国内最强**(截至2026年5月)，完成从规划、执行到迭代优化的完整闭环，交付工程级成果。图表解析功能推荐 **GLM-5V-Turbo** 是智谱首个多模态 Coding 基座模型。深度适配 Agent 工作流，能够与Agent 深度协同，完成"看懂环境→规划动作→执行任务"的完整闭环。
 
 2.建议可选条件
+
 - 券商 MCP Token（[免费申请](https://www.gf.com.cn/)）
+
 - Tavily API Key（[可选，用于联网搜索](https://www.tavily.com/)）Tavily 是一个专为 AI Agent 和 LLM 优化的搜索引擎 API。Tavily 是一个专为 AI 智能体（AI Agents）和大型语言模型（LLM）优化的实时搜索 API，旨在提供准确、最新且无幻觉的高质量搜索结果。直接把最相关的结构化内容喂给你的模型。
 
 ### 下载项目
@@ -141,7 +146,9 @@ TAVILY_API_KEY=your-tavily-api-key-here
 ```bash
 python -m uvicorn app.main:app --host 0.0.0.0 --port 8000
 ```
+
 或
+
 ```bash
 python3 -m uvicorn app.main:app --host 0.0.0.0 --port 8000
 ```
@@ -178,7 +185,7 @@ SSE 流式对话接口。
 
 **SSE 事件格式：**
 
-```
+```json
 data: {"type": "thinking", "content": "思考过程..."}
 data: {"type": "content", "content": "回答内容..."}
 data: {"type": "error", "content": "错误信息"}
@@ -204,6 +211,7 @@ data: [DONE]
 两个端点：
 
 **`POST /api/chat/stream`** — SSE 流式对话，支持 5 个参数：
+
 - `messages`：对话消息列表
 - `mode`：`finance`（金融对话）或 `vision`（图表分析）
 - `image_url`：图片 base64 或 URL
@@ -211,20 +219,19 @@ data: [DONE]
 - `web_search`：是否启用联网搜索
 
 **`POST /api/chat/image/generate`** — 图片生成（同步 JSON 响应），支持 2 个参数：
+
 - `prompt`：图片描述文本（必填）
 - `size`：图片尺寸，默认 `1024x1024`
 
 ### 3. `app/static/index.html` — 前端单页应用
 
 纯原生实现，约 590 行，包含：
+
 - **左侧边栏**：Logo、4 种模式切换（金融对话/图表分析/图片生成/视频生成）、对话列表管理
 - **中间对话区**：消息流、SSE 流式渲染、Markdown 渲染（marked + DOMPurify）
 - **右侧边栏**：功能介绍卡片 + 快捷操作按钮
 - **对话持久化**：localStorage 存储，最多 50 个会话
 - **主题切换**：明暗双主题，支持 View Transitions API 动画
-
----
-
 
 ## 开发参考
 
@@ -248,7 +255,6 @@ data: [DONE]
 | 内容安全 | 输入或生成内容可能包含不安全或敏感内容 |
 
 完整错误码列表见 [`doc/api-code.md`](doc/api-code.md)。
-
 
 ## 帮助文档
 
