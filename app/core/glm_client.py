@@ -1,6 +1,7 @@
 import json
 import logging
 import re
+import requests
 from zai import ZhipuAiClient
 from app.core.config import settings
 logger = logging.getLogger(__name__)
@@ -115,7 +116,7 @@ ERROR_CODE_MAP = {
     "1308": "已达到使用上限，请等待配额重置后重试",
     "1309": "套餐已到期，请前往智谱官网续订",
     "1310": "已达到周/月使用上限，请等待配额重置",
-    "1311": "当前套餐暂无该模型权限，请升级套餐",
+    "1311": "当前套餐暂无该模型权限，请到智谱官方升级套餐",
     "1312": "模型访问量过大，请稍后重试或切换其他模型",
     "1313": "请求频率受公平使用策略限制，请降低频率后重试",
 }
@@ -252,3 +253,23 @@ def stream_vision_chat(messages: list, image_url: str = None, web_search: bool =
             logger.error(f"Vision chat error: {e}")
             yield _sse_event({"type": "error", "content": _friendly_error(err_str)})
     yield _sse_done()
+
+def generate_image(prompt: str, size: str = "1024x1024") -> dict:
+    try:
+        response = requests.post(
+            "https://open.bigmodel.cn/api/paas/v4/images/generations",
+            headers={
+                "Authorization": f"Bearer {settings.GLM_API_KEY}",
+            },
+            json={"model": "cogview-3-flash", "prompt": prompt, "size": size},
+            timeout=120,
+        )
+        if response.status_code != 200:
+            err_body = response.text
+            logger.error(f"Image generation API error: status={response.status_code}, body={err_body}")
+            return {"error": _friendly_error(err_body)}
+        data = response.json()["data"]
+        return {"url": data[0]["url"]}
+    except Exception as e:
+        logger.error(f"Image generation error: {e}")
+        return {"error": _friendly_error(str(e))}

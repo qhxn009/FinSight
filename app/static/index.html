@@ -83,6 +83,15 @@
 <button class="input-tool-btn" id="webSearchBtn" onclick="toggleWebSearch()" title="联网搜索"><i class="fa-solid fa-globe"style="font-size:1rem;"></i></button>
 <button class="input-tool-btn" title="知识库"><i class="fa fa-graduation-cap" style="font-size:1rem;"></i></button>
 <button class="input-tool-btn" id="thinkingBtn" onclick="toggleThinkingMode()" title="深度思考"><i class="fa-solid fa-brain"style="font-size:1rem;"></i></button>
+<select id="imageSizeSelect" class="image-size-select" style="display:none" title="图片尺寸">
+<option value="1024x1024">1024×1024</option>
+<option value="768x1344">768×1344</option>
+<option value="864x1152">864×1152</option>
+<option value="1344x768">1344×768</option>
+<option value="1152x864">1152×864</option>
+<option value="1440x720">1440×720</option>
+<option value="720x1440">720×1440</option>
+</select>
 </div>
 
 <div class="input-toolbar-right">
@@ -120,14 +129,13 @@
 <div class="feature-card-title">指数估值</div>
 <div class="feature-card-desc">评估宽基、行业、主题指数估值水平，寻找高性价比入场时机，ETF联动分析</div>
 </div>
-
 <div class="feature-card">
 <div class="feature-card-title">投资决策</div>
 <div class="feature-card-desc">根据不同类型的投资者提供不同的投资决策</div>
 </div>
 
 </div>
-<div class="quick-actions">
+<div class="quick-actions" id="quickActionsFinance">
 <h4>快捷操作</h4>
 <button class="quick-action-btn" onclick="sendPrompt('根据最新的财报，深度对比分析**贵州茅台 600519**和**中际旭创 300308**的财务数据：包括但不限于：上市日期、估值、盈利、现金流量表、利润表、资产负债表、资本结构、行业信息、行业均值、行业龙头、行业内市值相近的股票、行业内PE相近的股票、行业前二、申万行业名称等。其次做深度的对比总结。最后，给与不同类型投资者专业的建议；')">
 <i class="fa-solid fa-coins"></i>财务对比分析
@@ -138,12 +146,27 @@
 <button class="quick-action-btn" onclick="sendPrompt('深度分析**今天**的龙虎榜数据，包括但不限于上榜统计、营业部排名、资金流向等数据')">
 <i class="fa-solid fa-trophy"></i>今日市场龙虎榜概览
 </button>
-
 <button class="quick-action-btn" onclick="sendPrompt('深度分析**当前**市场中：宽基、行业、主题指数估值分位与ETF联动分析，并且做出总结，最后给出不同类型投资者完整的投资方案')">
 <i class="fa-solid fa-star-half-stroke"></i>指数估值与ETF联动分析
 </button>
-
 </div>
+
+<div class="quick-actions" id="quickActionsImage" style="display:none">
+<h4>快捷操作</h4>
+<button class="quick-action-btn" onclick="sendPrompt('生成一张投资理财主题的信息图，包含金币、增长曲线、饼图等元素，扁平化设计风格')">
+<i class="fa-solid fa-piggy-bank"></i>投资理财信息图
+</button>
+<button class="quick-action-btn" onclick="sendPrompt('生成一张股票市场走势创意展示图，包含K线图元素和上涨趋势箭头，配色专业大气')">
+<i class="fa-solid fa-chart-line"></i>A股走势概念图
+</button>
+<button class="quick-action-btn" onclick="sendPrompt('生成一张金融科技主题插画，融合数据流、区块链节点和城市天际线，科技感十足')">
+<i class="fa-solid fa-microchip"></i>金融科技插画
+</button>
+<button class="quick-action-btn" onclick="sendPrompt('生成一张未来智慧金融中心的场景图，高楼大厦中全息数据投影，蓝色科技光效')">
+<i class="fa-solid fa-city"></i>未来金融中心
+</button>
+</div>
+
 </div>
 </div>
 </div>
@@ -286,8 +309,16 @@ function switchMode(mode) {
   document.querySelectorAll('.mode-btn').forEach(btn => {
     btn.classList.toggle('active', btn.dataset.mode === mode);
   });
-  modeLabel.textContent = mode === 'finance' ? '金融对话' : '图表分析';
-  chatInput.placeholder = mode === 'finance' ? '输入您的问题...' : '描述图片或输入问题...';
+  var modeLabels = {finance: '金融对话', vision: '图表分析', image: '图片生成', video: '视频生成'};
+  var modePlaceholders = {finance: '输入您的问题...', vision: '描述图片或输入问题...', image: '描述你想生成的图片...', video: '描述你想生成的视频...'};
+  modeLabel.textContent = modeLabels[mode] || '金融对话';
+  chatInput.placeholder = modePlaceholders[mode] || '有什么我能帮您的？';
+  var sizeSelect = document.getElementById('imageSizeSelect');
+  if (sizeSelect) sizeSelect.style.display = mode === 'image' ? 'inline-block' : 'none';
+  var financeActions = document.getElementById('quickActionsFinance');
+  var imageActions = document.getElementById('quickActionsImage');
+  if (financeActions) financeActions.style.display = mode === 'image' ? 'none' : 'block';
+  if (imageActions) imageActions.style.display = mode === 'image' ? 'block' : 'none';
 }
 function toggleThinkingMode() {
   thinkingEnabled = !thinkingEnabled;
@@ -428,6 +459,44 @@ function scrollToBottom() {
     chatMessages.scrollTop = chatMessages.scrollHeight;
   });
 }
+async function _generateImage() {
+  isStreaming = true;
+  sendBtn.disabled = true;
+  const { el, thinkId } = addStreamingAiMessage();
+  const contentEl = document.getElementById(thinkId + '-content');
+  var lastUserMsg = messages[messages.length - 1];
+  var prompt = lastUserMsg ? lastUserMsg.content : '';
+  var sizeSelect = document.getElementById('imageSizeSelect');
+  var selectedSize = sizeSelect ? sizeSelect.value : '1024x1024';
+  try {
+    const response = await fetch('/api/chat/image/generate', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ prompt: prompt, size: selectedSize })
+    });
+    const data = await response.json();
+    if (data.error) {
+      contentEl.innerHTML = '<span style="color:var(--error)">' + escapeHtml(data.error) + '</span>';
+      messages.push({ role: 'assistant', content: '图片生成失败：' + data.error });
+    } else if (data.url) {
+      contentEl.innerHTML = '<img src="' + escapeHtml(data.url) + '" alt="生成的图片" style="max-width:100%;border-radius:var(--radius-md);cursor:pointer" onclick="window.open(this.src)">';
+      messages.push({ role: 'assistant', content: data.url });
+    } else {
+      contentEl.textContent = '未收到有效图片，请稍后重试。';
+      messages.push({ role: 'assistant', content: '未收到有效图片' });
+    }
+  } catch (err) {
+    contentEl.innerHTML = '<span style="color:var(--error)">网络错误，请检查连接后重试。</span>';
+    messages.push({ role: 'assistant', content: '图片生成网络错误' });
+  }
+  _syncCurrentMessages();
+  var actionsEl = document.getElementById(thinkId + '-actions');
+  if (actionsEl) actionsEl.style.display = 'flex';
+  isStreaming = false;
+  sendBtn.disabled = false;
+  scrollToBottom();
+}
+
 async function _streamResponse(imageUrl) {
   isStreaming = true;
   sendBtn.disabled = true;
@@ -535,7 +604,11 @@ async function sendMessage() {
   chatInput.style.height = 'auto';
   const imageUrl = uploadedImage;
   removeImage();
-  await _streamResponse(imageUrl);
+  if (currentMode === 'image') {
+    await _generateImage();
+  } else {
+    await _streamResponse(imageUrl);
+  }
 }
 function copyMessage(btn) {
   var messageBody = btn.closest('.message-body');

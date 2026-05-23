@@ -132,6 +132,9 @@ to{opacity:1;transform:translateY(0)}
 .input-tool-btn:active{transform:scale(.92)}
 .input-tool-btn.active{color:var(--theme);background:rgba(117,113,249,.08)}
 .input-tool-btn svg{width:20px;height:20px}
+.image-size-select{height:32px;padding:0 8px;border:1px solid var(--border-subtle);border-radius:var(--radius-sm);background:var(--bg-main);color:var(--text-secondary);font-size:12px;font-family:inherit;cursor:pointer;outline:none;transition:all var(--transition)}
+.image-size-select:hover{border-color:var(--accent)}
+.image-size-select:focus{border-color:var(--accent)}
 .send-btn-round{width:34px;height:34px;display:flex;align-items:center;justify-content:center;border:none;border-radius:50%;background:var(--bg-main);color:var(--theme);cursor:pointer;transition:all var(--transition)}
 .send-btn-round:hover:not(:disabled){background:var(--accent);color:var(--bg-main)}
 .send-btn-round:active:not(:disabled){transform:scale(0.94)}

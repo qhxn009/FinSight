@@ -2,7 +2,7 @@ from fastapi import APIRouter, Request
 from fastapi.responses import StreamingResponse
 from pydantic import BaseModel
 from typing import Optional
-from app.core.glm_client import stream_finance_chat, stream_vision_chat
+from app.core.glm_client import stream_finance_chat, stream_vision_chat, generate_image
 router = APIRouter(prefix="/api/chat", tags=["chat"])
 class ChatMessage(BaseModel):
     role: str
@@ -14,6 +14,17 @@ class ChatRequest(BaseModel):
     image_url: Optional[str] = None
     thinking: bool = False
     web_search: bool = False
+
+class ImageGenerateRequest(BaseModel):
+    prompt: str
+    size: str = "1024x1024"
+
+@router.post("/image/generate")
+async def image_generate(request: ImageGenerateRequest):
+    result = generate_image(prompt=request.prompt, size=request.size)
+    if "error" in result:
+        return {"error": result["error"]}
+    return {"url": result["url"]}
 
 @router.post("/stream")
 async def chat_stream(request: ChatRequest):
