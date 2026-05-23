@@ -1,12 +1,13 @@
 <h1 align="center">FinSight · 智见</h1>
 <h2 align="center"><strong>以智析数，洞见先机</strong></h2>
 <p align="center">
-  <a href="https://github.com/qhxn009/FinSight/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License"></a>
   <img src="https://img.shields.io/badge/Python-3.10+-green.svg" alt="Python">
   <img src="https://img.shields.io/badge/FastAPI-0.115+-009688.svg" alt="FastAPI">
-  <img src="https://img.shields.io/badge/GLM--4.7--Flash-智谱AI-7571f9.svg" alt="GLM">
-  <img src="https://img.shields.io/badge/MCP-券商-FF6B35.svg" alt="券商MCP">
+  <img src="https://img.shields.io/badge/GLM-智谱AI-7571f9.svg" alt="GLM">
+  <img src="https://img.shields.io/badge/Z.ai SDK-智谱AI-7571f9.svg" alt="Z.ai SDK">
+  <img src="https://img.shields.io/badge/MCP-广发证券-FF6B35.svg" alt="券商MCP">
   <img src="https://img.shields.io/badge/SSE-Streaming-brightgreen.svg" alt="SSE">
+  <a href="https://github.com/qhxn009/FinSight/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License"></a>
 </p>
 
 <p align="center">
