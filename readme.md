@@ -185,7 +185,7 @@ SSE 流式对话接口。
 
 **SSE 事件格式：**
 
-```json
+```
 data: {"type": "thinking", "content": "思考过程..."}
 data: {"type": "content", "content": "回答内容..."}
 data: {"type": "error", "content": "错误信息"}
