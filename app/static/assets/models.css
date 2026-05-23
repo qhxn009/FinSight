@@ -1,7 +1,4 @@
-.sidebar-left{
-    width: 200px;
-    min-width: 200px;
-}
+.sidebar-left{width: 200px;min-width: 200px}
 .toc-list{margin-top:12px;padding:0 4px}
 .toc-item{display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:var(--radius-sm);cursor:pointer;transition:all var(--transition);margin-bottom:2px;font-size:13px;color:var(--text-secondary);border:1px solid transparent}
 .toc-item:hover{background:var(--bg-hover);color:var(--text-primary)}
@@ -14,13 +11,9 @@ td, th {border: 1px solid var(--border-color);text-align: left;padding: 8px}
 th{background-color:var(--bg-card);font-weight:600}
 tr:nth-child(even) {background-color:var(--bg-card)}
 .container-center{margin:0 auto;width:100%}
-
 .hero-card{text-align:center;margin-bottom:40px;padding:40px 20px;background:var(--bg-card);border-radius:var(--radius-lg);border:none}
 .hero-title{font-size:1.8rem;font-weight:600;color:var(--text-primary);margin-bottom:8px;font-family:Georgia,Constantia,Constantia}
 .hero-desc{font-size:1rem;color:var(--text-secondary);line-height:1.6}
-
-
-
 .section{margin-bottom:32px}
 .section-header{display:flex;align-items:center;gap:10px;font-size:1.1rem;font-weight:600;color:var(--text-primary);margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid var(--border-subtle)}
 .section-icon{width:20px;height:20px;color:var(--accent);flex-shrink:0}

@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>FinSight - 智能金融分析助手 - 24KRMB.COM提供技术支持</title>
 <link rel="stylesheet" href="/static/assets/style.css">
+<link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
 <script src="/static/assets/marked.min.js"></script>
 <script src="/static/assets/purify.min.js"></script>
 <script src="/static/assets/theme.js"></script>
@@ -18,71 +19,41 @@
 <div class="logo"><div class="logo-icon"><img src="/static/assets/unicorn.svg"></div>
 <div class="logo-text">FinSight</div></div>
 <div class="mode-switcher">
-<button class="mode-btn active" data-mode="finance" onclick="switchMode('finance')">
-<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-金融对话
-</button>
-<button class="mode-btn" data-mode="vision" onclick="switchMode('vision')">
-<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-图表分析
-</button>
+<button class="mode-btn active" data-mode="finance" onclick="switchMode('finance')"><i class="fa fa-comments"></i>金融对话</button>
+<button class="mode-btn" data-mode="vision" onclick="switchMode('vision')"><i class="fa fa-bar-chart"></i>图表分析</button>
 </div>
 <div class="sidebar-menu">
-<a href="https://www.24krmb.com/forum.php?mod=forumdisplay&fid=156&filter=typeid&typeid=194" class="sidebar-menu-item" target="_blank">
-<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-AI Skill
-</a>
-<a href="https://www.24krmb.com/forum.php?mod=forumdisplay&fid=156&filter=typeid&typeid=72" class="sidebar-menu-item" target="_blank">
-<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-AI MCP
-</a>
+<a href="https://www.24krmb.com/forum.php?mod=forumdisplay&fid=156&filter=typeid&typeid=194" class="sidebar-menu-item" target="_blank"><i class="fa fa-cube"></i>AI Skill</a>
+<a href="https://www.24krmb.com/forum.php?mod=forumdisplay&fid=156&filter=typeid&typeid=72" class="sidebar-menu-item" target="_blank"><i class="fa-solid fa-cubes"></i>AI MCP</a>
 </div>
 <div class="sidebar-menu">
-<a href="#" class="sidebar-menu-item">
-<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
-Datasets
-</a>
-<a href="/static/models.html" class="sidebar-menu-item">
-<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14v6"/><path d="M22 14v6"/><path d="M10 22h4"/></svg>Models</a>
+<a href="https://www.24krmb.com/forum.php?mod=forumdisplay&fid=156&filter=typeid&typeid=74" class="sidebar-menu-item" target="_blank"><i class="fa fa-database"></i>Datasets</a>
+<a href="/static/models.html" class="sidebar-menu-item"><i class="fa-solid fa-brain"></i>Models</a>
 </div>
 </div>
 <div class="sidebar-content">
-<button class="new-chat-btn" onclick="newConversation()">
-<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-新建对话
-</button>
+<button class="new-chat-btn" onclick="newConversation()"><i class="fa-solid fa-plus"></i>新建对话</button>
 <div class="conversation-list" id="conversationList"></div>
 </div>
 <div class="sidebar-footer">
-<a href="https://github.com/qhxn009/FinSight" class="github-link" target="_blank">
-<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-GitHub
-</a>
-<a href="/static/help.html" class="github-link">
-<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
-帮助
-</a>
-<a href="https://www.24krmb.com/" class="github-link" target="_blank">
-<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
-关于
-</a>
+<a href="https://github.com/qhxn009/FinSight" class="github-link" target="_blank"><i class="fa-brands fa-github"></i>GitHub</a>
+<a href="/static/help.html" class="github-link"><i class="fa-solid fa-circle-question"title="点击查看说明"></i>帮助</a>
+<a href="https://www.24krmb.com/" class="github-link" target="_blank"><i class="fa-solid fa-circle-info" title="关于24KRMB.COM"></i>关于</a>
 </div>
 </div>
 <div class="chat-area">
 <div class="chat-topbar">
 <div class="topbar-left">
-<button class="toggle-btn" onclick="toggleLeftSidebar()" title="切换侧边栏">
-<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-</button>
+<button class="toggle-btn" onclick="toggleLeftSidebar()" title="切换侧边栏"><i class="fa-solid fa-sliders" style="font-size:1rem;"></i></button>
 <div class="mode-indicator">
-<div class="mode-dot"></div>
+<i class="fa-solid fa-fan fa-spin" style="color: var(--success)"></i>
 <span id="modeLabel">金融对话</span>
 </div>
 </div>
 <div class="topbar-right">
 <button class="toggle-btn" id="themeToggleBtn" onclick="toggleTheme()" title="亮色模式">
-<svg id="themeIconSun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-<svg id="themeIconMoon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+<i id="themeIconSun" class="fa-regular fa-sun" style="font-size:1rem;"></i>
+<i id="themeIconMoon" class="fa-solid fa-moon" style="font-size:1rem;"></i>
 </button>
 <button class="toggle-btn" onclick="toggleRightSidebar()" title="切换功能面板">
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="15" y1="3" x2="15" y2="21"/></svg>
@@ -106,40 +77,17 @@ GitHub
 <div class="input-toolbar">
 
 <div class="input-toolbar-left">
-<button class="input-tool-btn" onclick="document.getElementById('fileInput').click()" title="上传图片">
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <!-- 向上的箭头 -->
-    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-    <!-- 箭头杆和头 -->
-    <polyline points="17 8 12 3 7 8"/>
-    <line x1="12" y1="3" x2="12" y2="15"/>
-  </svg>
-</button>
-
-<button class="input-tool-btn" id="webSearchBtn" onclick="toggleWebSearch()" title="联网搜索">
-<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-</button>
-
-<button class="input-tool-btn" title="数据库">
-<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-  <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
-  <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
-  <line x1="6" y1="6" x2="6.01" y2="6"></line>
-  <line x1="6" y1="18" x2="6.01" y2="18"></line>
-</svg>
-</button>
-<button class="input-tool-btn" id="thinkingBtn" onclick="toggleThinkingMode()" title="深度思考">
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.98-3A2.5 2.5 0 0 1 9.5 2Z"/>
-    <path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.98-3A2.5 2.5 0 0 0 14.5 2Z"/>
-  </svg>
-</button>
+<button class="input-tool-btn" onclick="document.getElementById('fileInput').click()" title="上传图片"><i class="fa fa-upload" style="font-size:1rem;"></i></button>
+<button class="input-tool-btn" id="webSearchBtn" onclick="toggleWebSearch()" title="联网搜索"><i class="fa-solid fa-globe"style="font-size:1rem;"></i></button>
+<button class="input-tool-btn" title="知识库"><i class="fa fa-graduation-cap" style="font-size:1rem;"></i></button>
+<button class="input-tool-btn" id="thinkingBtn" onclick="toggleThinkingMode()" title="深度思考"><i class="fa-solid fa-brain"style="font-size:1rem;"></i></button>
 </div>
+
 <div class="input-toolbar-right">
-<button class="send-btn-round" id="sendBtn" onclick="sendMessage()" title="发送">
-<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
-</button>
+<button class="send-btn-round" title="语音"><i class="fa-solid fa-microphone"style="font-size:1rem;"></i></button>
+<button class="send-btn-round" id="sendBtn" onclick="sendMessage()" title="发送"><i class="fa-solid fa-arrow-up"style="font-size:1rem;"></i></button>
 </div>
+
 </div>
 </div>
 <input type="file" id="fileInput" accept="image/*" style="display:none" onchange="handleImageUpload(event)">
@@ -170,25 +118,27 @@ GitHub
 <div class="feature-card-title">指数估值</div>
 <div class="feature-card-desc">评估宽基、行业、主题指数估值水平，寻找高性价比入场时机，ETF联动分析</div>
 </div>
+
+<div class="feature-card">
+<div class="feature-card-title">投资决策</div>
+<div class="feature-card-desc">根据不同类型的投资者提供不同的投资决策</div>
+</div>
+
 </div>
 <div class="quick-actions">
 <h4>快捷操作</h4>
 <button class="quick-action-btn" onclick="sendPrompt('根据最新的财报，深度对比分析**贵州茅台 600519**和**中际旭创 300308**的财务数据：包括但不限于：上市日期、估值、盈利、现金流量表、利润表、资产负债表、资本结构、行业信息、行业均值、行业龙头、行业内市值相近的股票、行业内PE相近的股票、行业前二、申万行业名称等。其次做深度的对比总结。最后，给与不同类型投资者专业的建议；')">
-<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
-财务对比分析
+<i class="fa-solid fa-coins"></i>财务对比分析
 </button>
 <button class="quick-action-btn" onclick="sendPrompt('深度分析当前热门ETF榜单。包括但不限于：涨跌榜、搜索榜、关注榜、换手榜、主力资金榜、净申购榜、溢价率榜、特色榜等多维度统计分析，最后做总结')">
-<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-当前热门ETF榜单
+<i class="fa-solid fa-fire"></i>当前热门ETF榜单
 </button>
 <button class="quick-action-btn" onclick="sendPrompt('深度分析**今天**的龙虎榜数据，包括但不限于上榜统计、营业部排名、资金流向等数据')">
-<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-今日市场龙虎榜概览
+<i class="fa-solid fa-trophy"></i>今日市场龙虎榜概览
 </button>
 
 <button class="quick-action-btn" onclick="sendPrompt('深度分析**当前**市场中：宽基、行业、主题指数估值分位与ETF联动分析，并且做出总结，最后给出不同类型投资者完整的投资方案')">
-<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
-指数估值与ETF联动分析
+<i class="fa-solid fa-star-half-stroke"></i>指数估值与ETF联动分析
 </button>
 
 </div>
@@ -248,7 +198,7 @@ function renderConversationList() {
   conversations.forEach(function(conv) {
     const item = document.createElement('div');
     item.className = 'conversation-item' + (conv.id === currentConversationId ? ' active' : '');
-    item.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><span class="conversation-item-text">' + escapeHtml(conv.title) + '</span><button class="conversation-delete-btn" onclick="event.stopPropagation();deleteConversation(\'' + conv.id + '\')" title="删除对话"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>';
+    item.innerHTML = '<i class="fa-solid fa-clock-rotate-left"></i><span class="conversation-item-text">' + escapeHtml(conv.title) + '</span><button class="conversation-delete-btn" onclick="event.stopPropagation();deleteConversation(\'' + conv.id + '\')" title="删除对话"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>';
     item.onclick = function() { _switchConversation(conv.id); };
     conversationList.appendChild(item);
   });
@@ -419,10 +369,10 @@ function addMessage(role, content, thinking) {
   if (role === 'ai') {
     actionsHtml = '<div class="message-actions">' +
       '<button class="message-action-btn" onclick="copyMessage(this)" title="复制">' +
-      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>' +
+      '<i class="fa-regular fa-copy"></i>' +
       '<span>复制</span></button>' +
       '<button class="message-action-btn" onclick="regenerateMessage()" title="重新生成">' +
-      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>' +
+      '<i class="fa-solid fa-rotate-left"></i>' +
       '<span>重新生成</span></button></div>';
   }
   msgEl.innerHTML = '<div class="message-body">' +

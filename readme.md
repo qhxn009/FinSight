@@ -122,6 +122,10 @@ TAVILY_API_KEY=your-tavily-api-key-here
 ```bash
 python -m uvicorn app.main:app --host 0.0.0.0 --port 8000
 ```
+或
+```bash
+python3 -m uvicorn app.main:app --host 0.0.0.0 --port 8000
+```
 
 ### 访问服务
 
