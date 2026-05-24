@@ -271,6 +271,7 @@ data: [DONE]
 - 项目自带的 `help.html` 文件，可在线查看帮助文档,覆盖：功能说明、操作指南、常见问题。
 - 项目自带的 `models.html` 文件— 智谱全系模型概览（文本/视觉/图像/视频/音视频/向量）
 - [部署 FinSight 到云服务器](https://www.24krmb.com/thread-4618-1-1.html) — 如果你，学习云端部署，可以参考本教材
+- [通过宝塔面板部署 FinSight 到云服务器](https://www.24krmb.com/thread-4622-1-1.html) — 本教程将指导你通过宝塔面板将 FinSight 部署到云服务器上，实现公网访问。
 - [上传 FinSight 到 GitHub](https://www.24krmb.com/thread-4617-1-1.html) — 如果你，学习Git与Github，可以参考本教材
 - [Git版本控制介绍](https://www.24krmb.com/thread-4619-1-1.html) — 如果你，学习Git与Github，可以参考本教材
 
