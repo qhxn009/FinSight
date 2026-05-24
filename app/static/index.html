@@ -93,6 +93,22 @@
 <option value="1440x720">1440×720</option>
 <option value="720x1440">720×1440</option>
 </select>
+<button class="input-tool-btn" id="videoFrameBtn" style="display:none" onclick="document.getElementById('videoFrameInput').click()" title="上传首帧图片"><i class="fa-solid fa-image" style="font-size:1rem;"></i></button>
+<select id="videoSizeSelect" class="image-size-select" style="display:none" title="视频分辨率">
+<option value="1920x1080">1920×1080</option>
+<option value="1080x1920">1080×1920</option>
+<option value="1024x1024">1024×1024</option>
+<option value="1280x960">1280×960</option>
+<option value="960x1280">960×1280</option>
+<option value="720x480">720×480</option>
+<option value="2048x1080">2048×1080</option>
+<option value="3840x2160">3840×2160</option>
+</select>
+<select id="videoFpsSelect" class="image-size-select" style="display:none" title="帧率">
+<option value="30">30 FPS</option>
+<option value="60">60 FPS</option>
+</select>
+<button class="input-tool-btn" id="videoAudioBtn" style="display:none" onclick="toggleVideoAudio()" title="AI音效：关"><i class="fa-solid fa-volume-xmark" style="font-size:1rem;"></i></button>
 </div>
 
 <div class="input-toolbar-right">
@@ -103,6 +119,7 @@
 </div>
 </div>
 <input type="file" id="fileInput" accept="image/*" style="display:none" onchange="handleImageUpload(event)">
+<input type="file" id="videoFrameInput" accept="image/*" style="display:none" onchange="handleVideoFrameUpload(event)">
 </div>
 </div>
 <div class="sidebar-right" id="sidebarRight">
@@ -139,6 +156,10 @@
 <div class="feature-card-title">图片生成</div>
 <div class="feature-card-desc">输入文字描述即可生成图片。能够显著提升 PPT 制作的效率。</div>
 </div>
+<div class="feature-card">
+<div class="feature-card-title">视频生成</div>
+<div class="feature-card-desc">输入文字描述即可生成视频，支持上传首帧图片进行图生视频，可调节分辨率、帧率和AI音效</div>
+</div>
 
 </div>
 <div class="quick-actions" id="quickActionsFinance">
@@ -172,6 +193,21 @@
 <i class="fa-solid fa-city"></i>未来金融中心
 </button>
 </div>
+<div class="quick-actions" id="quickActionsVideo" style="display:none">
+<h4>快捷操作</h4>
+<button class="quick-action-btn" onclick="sendPrompt('一只可爱的小猫在阳光下玩耍，毛茸茸的，温暖治愈')">
+<i class="fa-solid fa-cat"></i>萌宠视频
+</button>
+<button class="quick-action-btn" onclick="sendPrompt('股票交易大厅大屏幕上数字跳动，交易员忙碌的场景，专业金融氛围')">
+<i class="fa-solid fa-chart-line"></i>金融场景
+</button>
+<button class="quick-action-btn" onclick="sendPrompt('未来科技城市全景，飞行汽车穿梭在高楼之间，霓虹灯光闪烁')">
+<i class="fa-solid fa-city"></i>未来城市
+</button>
+<button class="quick-action-btn" onclick="sendPrompt('大海日出延时摄影，金色阳光洒在波光粼粼的海面上，壮丽自然风光')">
+<i class="fa-solid fa-sun"></i>自然风光
+</button>
+</div>
 
 </div>
 </div>
@@ -186,6 +222,8 @@ let conversations = [];
 let currentConversationId = null;
 let thinkingEnabled = false;
 let webSearchEnabled = false;
+let videoAudioEnabled = false;
+let videoFrameImage = null;
 const chatMessages = document.getElementById('chatMessages');
 const welcomeArea = document.getElementById('welcomeArea');
 const chatInput = document.getElementById('chatInput');
@@ -319,12 +357,22 @@ function switchMode(mode) {
   var modePlaceholders = {finance: '输入您的问题...', vision: '描述图片或输入问题...', image: '描述你想生成的图片...', video: '描述你想生成的视频...'};
   modeLabel.textContent = modeLabels[mode] || '金融对话';
   chatInput.placeholder = modePlaceholders[mode] || '有什么我能帮您的？';
-  var sizeSelect = document.getElementById('imageSizeSelect');
-  if (sizeSelect) sizeSelect.style.display = mode === 'image' ? 'inline-block' : 'none';
+  var imgSel = document.getElementById('imageSizeSelect');
+  var vidFrameBtn = document.getElementById('videoFrameBtn');
+  var vidSizeSel = document.getElementById('videoSizeSelect');
+  var vidFpsSel = document.getElementById('videoFpsSelect');
+  var vidAudioBtn = document.getElementById('videoAudioBtn');
+  if (imgSel) imgSel.style.display = mode === 'image' ? 'inline-block' : 'none';
+  if (vidFrameBtn) vidFrameBtn.style.display = mode === 'video' ? 'inline-flex' : 'none';
+  if (vidSizeSel) vidSizeSel.style.display = mode === 'video' ? 'inline-block' : 'none';
+  if (vidFpsSel) vidFpsSel.style.display = mode === 'video' ? 'inline-block' : 'none';
+  if (vidAudioBtn) vidAudioBtn.style.display = mode === 'video' ? 'inline-flex' : 'none';
   var financeActions = document.getElementById('quickActionsFinance');
   var imageActions = document.getElementById('quickActionsImage');
-  if (financeActions) financeActions.style.display = mode === 'image' ? 'none' : 'block';
+  var videoActions = document.getElementById('quickActionsVideo');
+  if (financeActions) financeActions.style.display = (mode === 'finance' || mode === 'vision') ? 'block' : 'none';
   if (imageActions) imageActions.style.display = mode === 'image' ? 'block' : 'none';
+  if (videoActions) videoActions.style.display = mode === 'video' ? 'block' : 'none';
 }
 function toggleThinkingMode() {
   thinkingEnabled = !thinkingEnabled;
@@ -388,6 +436,33 @@ function removeImage() {
   imageThumb.src = '';
   imageName.textContent = '';
   imagePreview.classList.remove('has-image');
+}
+function toggleVideoAudio() {
+  videoAudioEnabled = !videoAudioEnabled;
+  var btn = document.getElementById('videoAudioBtn');
+  var icon = btn.querySelector('i');
+  if (videoAudioEnabled) {
+    icon.className = 'fa-solid fa-volume-high';
+    btn.title = 'AI音效：开';
+    btn.classList.add('active');
+  } else {
+    icon.className = 'fa-solid fa-volume-xmark';
+    btn.title = 'AI音效：关';
+    btn.classList.remove('active');
+  }
+}
+function handleVideoFrameUpload(e) {
+  const file = e.target.files[0];
+  if (!file || !file.type.startsWith('image/')) return;
+  const reader = new FileReader();
+  reader.onload = function(ev) {
+    videoFrameImage = ev.target.result;
+    imageThumb.src = videoFrameImage;
+    imageName.textContent = '首帧: ' + file.name;
+    imagePreview.classList.add('has-image');
+  };
+  reader.readAsDataURL(file);
+  e.target.value = '';
 }
 function addMessage(role, content, thinking) {
   if (welcomeArea.style.display !== 'none') {
@@ -495,6 +570,55 @@ async function _generateImage() {
     contentEl.innerHTML = '<span style="color:var(--error)">网络错误，请检查连接后重试。</span>';
     messages.push({ role: 'assistant', content: '图片生成网络错误' });
   }
+  _syncCurrentMessages();
+  var actionsEl = document.getElementById(thinkId + '-actions');
+  if (actionsEl) actionsEl.style.display = 'flex';
+  isStreaming = false;
+  sendBtn.disabled = false;
+  scrollToBottom();
+}
+
+async function _generateVideo() {
+  isStreaming = true;
+  sendBtn.disabled = true;
+  const { el, thinkId } = addStreamingAiMessage();
+  const contentEl = document.getElementById(thinkId + '-content');
+  var lastUserMsg = messages[messages.length - 1];
+  var prompt = lastUserMsg ? lastUserMsg.content : '';
+  var sizeSelect = document.getElementById('videoSizeSelect');
+  var fpsSelect = document.getElementById('videoFpsSelect');
+  var params = {
+    prompt: prompt,
+    size: sizeSelect ? sizeSelect.value : '1920x1080',
+    quality: 'speed',
+    fps: fpsSelect ? parseInt(fpsSelect.value) : 30,
+    with_audio: videoAudioEnabled,
+    image_url: videoFrameImage || null
+  };
+  contentEl.innerHTML = '<div style="color:var(--text-auxiliary)"><i class="fa-solid fa-spinner fa-spin"></i> 视频生成中，这可能需要几分钟，请耐心等待...</div>';
+  try {
+    const response = await fetch('/api/chat/video/generate', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(params)
+    });
+    const data = await response.json();
+    if (data.error) {
+      contentEl.innerHTML = '<span style="color:var(--error)">' + escapeHtml(data.error) + '</span>';
+      messages.push({ role: 'assistant', content: '视频生成失败：' + data.error });
+    } else if (data.url) {
+      var videoHtml = '<video poster="' + escapeHtml(data.cover_url || '') + '" src="' + escapeHtml(data.url) + '" controls style="max-width:100%;border-radius:var(--radius-md)"></video>';
+      contentEl.innerHTML = videoHtml;
+      messages.push({ role: 'assistant', content: data.url });
+    } else {
+      contentEl.textContent = '未收到有效视频，请稍后重试。';
+      messages.push({ role: 'assistant', content: '未收到有效视频' });
+    }
+  } catch (err) {
+    contentEl.innerHTML = '<span style="color:var(--error)">网络错误，请检查连接后重试。</span>';
+    messages.push({ role: 'assistant', content: '视频生成网络错误' });
+  }
+  videoFrameImage = null;
   _syncCurrentMessages();
   var actionsEl = document.getElementById(thinkId + '-actions');
   if (actionsEl) actionsEl.style.display = 'flex';
@@ -612,6 +736,8 @@ async function sendMessage() {
   removeImage();
   if (currentMode === 'image') {
     await _generateImage();
+  } else if (currentMode === 'video') {
+    await _generateVideo();
   } else {
     await _streamResponse(imageUrl);
   }

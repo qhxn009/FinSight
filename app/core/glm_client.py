@@ -2,6 +2,7 @@ import json
 import logging
 import re
 import requests
+import time
 from zai import ZhipuAiClient
 from app.core.config import settings
 logger = logging.getLogger(__name__)
@@ -272,4 +273,70 @@ def generate_image(prompt: str, size: str = "1024x1024") -> dict:
         return {"url": data[0]["url"]}
     except Exception as e:
         logger.error(f"Image generation error: {e}")
+        return {"error": _friendly_error(str(e))}
+
+def _poll_async_result(task_id: str, max_wait: int = 600, interval: int = 5) -> dict:
+    url = f"https://open.bigmodel.cn/api/paas/v4/async-result/{task_id}"
+    headers = {"Authorization": f"Bearer {settings.GLM_API_KEY}"}
+    start = time.time()
+    while time.time() - start < max_wait:
+        time.sleep(interval)
+        try:
+            resp = requests.get(url, headers=headers, timeout=(10, 60))
+            if resp.status_code != 200:
+                logger.warning(f"Poll async result status: {resp.status_code}")
+                continue
+            data = resp.json()
+            status = data.get("task_status", "")
+            if status == "SUCCESS":
+                return data
+            if status == "FAIL":
+                return {"error": "视频生成失败，请修改描述后重试"}
+        except requests.exceptions.ReadTimeout:
+            logger.warning(f"Poll async result read timeout, retrying... ({int(time.time() - start)}s elapsed)")
+            continue
+        except Exception as e:
+            logger.warning(f"Poll async result error: {e}")
+            continue
+    return {"error": "视频生成超时，请稍后重试"}
+
+def generate_video(prompt: str, quality: str = "speed", with_audio: bool = False, size: str = "1920x1080", fps: int = 30, image_url: str = None) -> dict:
+    try:
+        payload = {
+            "model": "cogvideox-flash",
+            "prompt": prompt,
+            "quality": quality,
+            "with_audio": with_audio,
+            "size": size,
+            "fps": fps,
+        }
+        if image_url:
+            payload["image_url"] = image_url
+        response = requests.post(
+            "https://open.bigmodel.cn/api/paas/v4/videos/generations",
+            headers={
+                "Authorization": f"Bearer {settings.GLM_API_KEY}",
+                "Content-Type": "application/json",
+            },
+            json=payload,
+            timeout=60,
+        )
+        if response.status_code != 200:
+            err_body = response.text
+            logger.error(f"Video generation API error: status={response.status_code}, body={err_body}")
+            return {"error": _friendly_error(err_body)}
+        resp_data = response.json()
+        task_id = resp_data.get("id")
+        if not task_id:
+            return {"error": "未获取到任务ID，请稍后重试"}
+        result = _poll_async_result(task_id)
+        if "error" in result:
+            return result
+        video_result = result.get("video_result", [])
+        if not video_result:
+            return {"error": "视频生成结果为空，请稍后重试"}
+        video = video_result[0]
+        return {"url": video.get("url", ""), "cover_url": video.get("cover_image_url", "")}
+    except Exception as e:
+        logger.error(f"Video generation error: {e}")
         return {"error": _friendly_error(str(e))}
