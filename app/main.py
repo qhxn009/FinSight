@@ -11,6 +11,9 @@ STATIC_DIR = Path(__file__).resolve().parent / "static"
 @app.get("/")
 async def root():
     return FileResponse(STATIC_DIR / "index.html")
+@app.get("/favicon.ico")
+async def favicon():
+    return FileResponse(STATIC_DIR / "favicon.ico")
 app.mount("/static", StaticFiles(directory=str(STATIC_DIR)), name="static")
 if __name__ == "__main__":
     import uvicorn
