@@ -121,6 +121,8 @@ const modelData = [
 {name: "yike-storyboard", type: "skill", sub: "office", logo: "aly.png", modalities: ["实现从小说/剧本到分镜的完整 AI 视频创作工作流"], url:"https://github.com/aliyun/alibabacloud-aiops-skills/tree/master/skills/mediaservices/yike/alibabacloud-yike-storyboard"},
 {name: "video-editing-skills", type: "skill", sub: "office", logo: "liangali.jpeg", modalities: ["提供 vlog 剪辑工作流"], url:"https://github.com/liangali/video-editing-skills"},
 {name: "故事齿轮", type: "skill", sub: "office", logo: "ChatAndBuild.jpeg", modalities: ["通过引导式创意协作，开发故事、世界观、角色和叙事结构。"], url:"https://github.com/chatandbuild/chatchat-skills/tree/main/skills/Lifestyle/story-cog"},
+{name: "clawhub-github", type: "skill", sub: "office", logo: "clawhub.jpeg", modalities: ["OpenClaw 官方 SKILL 仓库","MIT"], url:"https://github.com/openclaw/clawhub"},
+{name: "Claw Hub", type: "skill", sub: "office", logo: "clawd.png", modalities: ["clawhub 官方网站"], url:"https://clawhub.ai/"},
 {name: "video-editor", type: "skill", sub: "office", logo: "aly.png", modalities: ["无需安装 ffmpeg 的视频编辑工具"], url:"https://github.com/aliyun/alibabacloud-aiops-skills/tree/master/skills/mediaservices/ice/alibabacloud-video-editor"},
 {name: "local-image-generation", type: "skill", sub: "office", logo: "intel.png", modalities: ["生成一张图片，创建一幅画，绘制一些东西"], url:"https://clawhub.ai/juan-oy/local-image-gen-aipc"},
 {name: "cli-guidance", type: "skill", sub: "office", logo: "aly.png", modalities: ["指导用户使用阿里云 CLI 命令行工具管理阿里云资源"], url:"https://github.com/aliyun/alibabacloud-aiops-skills/tree/master/skills/developertools/solutions/alibabacloud-cli-guidance"},
