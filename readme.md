@@ -89,10 +89,10 @@ FinSight/
 │   └── static/
 │       ├── index.html       # 主前端页面
 │       ├── help.html        # 帮助文档页面
+│       ├── tools.html       # skill,mcp,models,Datasets,tools,agent
 │       ├── models.html      # 智谱模型介绍页面
 │       ├── assets/
 │       │   ├── style.css    # 全局样式
-│       │   ├── models.css   # models.html 专用样式
 │       │   ├── theme.js     # 主题切换
 │       │   ├── scroll-nav.js# 文档页面导航滚动自动检测
 │       │   ├── marked.min.js# Markdown 解析渲染
