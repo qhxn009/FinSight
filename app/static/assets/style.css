@@ -101,17 +101,9 @@ html {-ms-overflow-style: none}
 .mode-indicator{display:flex;align-items:center;gap:6px;font-size:13px}
 .chat-messages{flex:1;overflow-y:auto;padding:20px;padding-top:0;display:flex;flex-direction:column}
 .welcome-area{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 20px}
-.welcome-title{font-size:3.5rem;font-weight:600;margin-bottom:8px;text-align:center;font-family: Georgia, Constantia, Constantia;
-background-image: linear-gradient(90deg, var(--theme), #f0f4ff 20%, #0c9);
-background-size: 200% 200%;
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: transparent;
-    animation: hero-gradient-shift 6s ease infinite;
-    display: inline-block;
-}
-.welcome-subtitle{font-size:2rem;color:var(--theme);margin-bottom:32px;text-align:center;font-family: 华文行楷}
+.welcome-title {font-size: 3rem;font-weight: 600;margin-bottom: 8px;text-align: center;font-family: Georgia, Constantia, Constantia;background-image: linear-gradient(45deg, var(--theme) 0%, var(--theme) 45%, #00cc99 55%, #00cc99 100%);background-size: 200% 200%;background-clip: text;-webkit-background-clip: text;-webkit-text-fill-color: transparent;color: transparent;animation: hero-gradient-shift 6s ease infinite;display: inline-block}
+@keyframes hero-gradient-shift {0% {background-position: 0% 50%}50% {background-position: 100% 50%}100% {background-position: 0% 50%}}
+.welcome-subtitle{font-size:1.6rem;color:var(--theme);margin-bottom:32px;text-align:center;font-family: 华文行楷}
 .message{display:flex;gap:12px;margin-bottom:20px;animation:msgAppear .3s ease-out;max-width:100%}
 @keyframes msgAppear{from{opacity:0;transform:translateY(10px)}
 to{opacity:1;transform:translateY(0)}
