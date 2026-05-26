@@ -19,9 +19,14 @@
 <script src="/static/assets/marked.min.js"></script>
 <script src="/static/assets/purify.min.js"></script>
 <script src="/static/assets/theme.js"></script>
+<style>
+  .chat-topbar{backdrop-filter: blur(5px);-webkit-backdrop-filter: blur(5px);}
+</style>
 </head>
 <body>
+  <div class="page-stars"></div><div class="page-nebula"></div>
 <div class="app">
+
 <div class="mobile-overlay" id="mobileOverlay" onclick="toggleLeftSidebar()"></div>
 <div class="right-sidebar-backdrop" id="rightSidebarBackdrop" onclick="toggleRightSidebar()"></div>
 <div class="sidebar-left" id="sidebarLeft">
@@ -85,7 +90,7 @@
 <button class="image-remove-btn" onclick="removeImage()">✕</button>
 </div>
 <div class="input-wrapper">
-<textarea id="chatInput" rows="3" placeholder="有什么我能帮您的？" onkeydown="handleKeyDown(event)" oninput="autoResize(this)"></textarea>
+<textarea id="chatInput" rows="3" placeholder="请输入，Enter键发送，Shift+Enter键换行" onkeydown="handleKeyDown(event)" oninput="autoResize(this)"></textarea>
 <div class="input-toolbar">
 
 <div class="input-toolbar-left">
@@ -365,7 +370,7 @@ function switchMode(mode) {
   var modeLabels = {finance: '金融对话', vision: '图表分析', image: '图片生成', video: '视频生成'};
   var modePlaceholders = {finance: '输入您的问题...', vision: '描述图片或输入问题...', image: '描述你想生成的图片...', video: '描述你想生成的视频...'};
   modeLabel.textContent = modeLabels[mode] || '金融对话';
-  chatInput.placeholder = modePlaceholders[mode] || '有什么我能帮您的？';
+  chatInput.placeholder = modePlaceholders[mode] || '请输入，Enter键发送，Shift+Enter键换行';
   var imgSel = document.getElementById('imageSizeSelect');
   var vidFrameBtn = document.getElementById('videoFrameBtn');
   var vidSizeSel = document.getElementById('videoSizeSelect');
