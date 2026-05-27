@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="_图层_2" viewBox="0 0 95.54 66.59">
+<defs>
+    <linearGradient id="linear-gradient" x1="47.74" x2="95.54" y1="-11.11" y2="35.93" gradientTransform="rotate(.46 -2789.557 -4832.838)" gradientUnits="userSpaceOnUse">
+        <stop offset="0" stop-color="#00a0e2"/>
+        <stop offset=".45" stop-color="#0083c9"/>
+        <stop offset="1" stop-color="#004892"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="27.08" x2="27.08" y1="54.38" y2="23.36" gradientUnits="userSpaceOnUse">
+        <stop offset="0" stop-color="#ea5504"/>
+        <stop offset=".5" stop-color="#e60012"/>
+        <stop offset="1" stop-color="#e60012"/>
+    </linearGradient>
+    <linearGradient xlink:href="#linear-gradient-2" id="linear-gradient-3" x1="36.25" x2="70.09" y1="-33.37" y2="-33.46" gradientTransform="rotate(.15 -16551.236 -287.732)"/>
+    <linearGradient xlink:href="#linear-gradient-2" id="linear-gradient-4" x1="25.83" x2="66.66" y1="-14.51" y2="-14.62" gradientTransform="rotate(.15 -16551.236 -287.732)"/>
+    <style>.cls-2{fill-rule:evenodd}.cls-2,.cls-6{stroke-width:0;fill:#004892}</style>
+</defs>
+<g id="_图层_1-2">
+    <path d="m58.31 35.51-8.83-.09C46.75 59.63 29.9 65.17 20.02 61.2 8.39 56.53 7.01 41.28 11.48 29.21 21.44 2.32 43.52 1.72 43.52 1.72s0-.04.03-.11C40.4.59 37.05.03 33.56 0 15.17-.15.15 14.64 0 33.03c-.15 18.39 14.64 33.41 33.03 33.56 18.27.15 33.21-14.44 33.55-32.65-1.02 1.02-2.75 1.57-8.27 1.57Z" style="fill:url(#linear-gradient);fill-rule:evenodd;stroke-width:0"/>
+    <path d="M21.71 55.85c-4.06-.01-5.53-.9-5.55-.92 0 0 1.82-.93 3.89-9.88.82-3.51 2.39-10.3 2.48-10.82 1.84-10.24 15.1-12.63 15.23-12.65l.24-.04-.05.24s-.42 4.09-2.03 12.35l-2.86 12.42c-1.17 5.11-3.37 7.62-7.58 8.83-1.11.32-2.38.48-3.76.48Z" style="stroke-width:0;fill:url(#linear-gradient-2)"/>
+    <path d="M32.73 16.64c0-.12 1.03-12.59 11.37-12.51 0 0 17.96.14 20.6.17 6.16.05 6.92-.87 6.92-.87s-.04 5.55-3.22 8.98c-1.74 1.87-4.21 2.69-7.33 2.68-5.05-.01-17.51-.14-21.03-.17-6.66-.05-7.33 1.72-7.33 1.72Z" style="stroke-width:0;fill:url(#linear-gradient-3)"/>
+    <path d="m21.7 37.86 1.09-4.8c.75-3.41 1.96-12.55 13.17-12.46 0 0 25.15.2 26.19.21 5.88.05 6.44-.96 6.44-.96s1.32 12.56-11.1 12.46c-3.16-.03-21.92-.17-24.23-.20-9.73-.08-11.56 5.74-11.56 5.74Z" style="stroke-width:0;fill:url(#linear-gradient-4)"/>
+</g>
+</svg>
