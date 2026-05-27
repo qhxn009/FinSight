@@ -121,24 +121,24 @@ const modelData = [
 {name: "假新闻检测", type: "skill", sub: "office", logo: "NanjingHJLP.png", modalities: ["假新闻/谣言辨真"], url:"https://github.com/NanjingHJLP/hjlp-skills/tree/main/skills/fake-news-detector"},
 {name: "简历助手", type: "skill", sub: "office", logo: "NanjingHJLP.png", modalities: ["润色、定制、导出、评分中文/英文简历"], url:"https://github.com/NanjingHJLP/hjlp-skills/tree/main/skills/resume-assistant"},
 {name: "people-catchall", type: "skill", sub: "office", logo: "Chipagosfinest.jpg", modalities: ["将人员/人力资源请求路由至正确的专家"], url:"https://github.com/chipagosfinest/enterprise-team/tree/main/enterprise-team/skills/people-catchall"},
-{name: "yike-storyboard", type: "skill", sub: "office", logo: "aly.svg", modalities: ["实现从小说/剧本到分镜的完整 AI 视频创作工作流"], url:"https://github.com/aliyun/alibabacloud-aiops-skills/tree/master/skills/mediaservices/yike/alibabacloud-yike-storyboard"},
+{name: "yike-storyboard", type: "skill", sub: "office", logo: "AlibabaCloud.svg", modalities: ["实现从小说/剧本到分镜的完整 AI 视频创作工作流"], url:"https://github.com/aliyun/alibabacloud-aiops-skills/tree/master/skills/mediaservices/yike/alibabacloud-yike-storyboard"},
 {name: "video-editing-skills", type: "skill", sub: "office", logo: "liangali.jpeg", modalities: ["提供 vlog 剪辑工作流"], url:"https://github.com/liangali/video-editing-skills"},
 {name: "故事齿轮", type: "skill", sub: "office", logo: "ChatAndBuild.jpeg", modalities: ["通过引导式创意协作，开发故事、世界观、角色和叙事结构。"], url:"https://github.com/chatandbuild/chatchat-skills/tree/main/skills/Lifestyle/story-cog"},
 {name: "clawhub-github", type: "skill", sub: "office", logo: "clawhub.jpeg", modalities: ["OpenClaw 官方 SKILL 仓库","MIT"], url:"https://github.com/openclaw/clawhub"},
 {name: "Claw Hub", type: "skill", sub: "office", logo: "clawd.png", modalities: ["clawhub 官方网站"], url:"https://clawhub.ai/"},
-{name: "video-editor", type: "skill", sub: "office", logo: "aly.svg", modalities: ["无需安装 ffmpeg 的视频编辑工具"], url:"https://github.com/aliyun/alibabacloud-aiops-skills/tree/master/skills/mediaservices/ice/alibabacloud-video-editor"},
+{name: "video-editor", type: "skill", sub: "office", logo: "AlibabaCloud.svg", modalities: ["无需安装 ffmpeg 的视频编辑工具"], url:"https://github.com/aliyun/alibabacloud-aiops-skills/tree/master/skills/mediaservices/ice/alibabacloud-video-editor"},
 {name: "local-image-generation", type: "skill", sub: "office", logo: "intel.png", modalities: ["生成一张图片，创建一幅画，绘制一些东西"], url:"https://clawhub.ai/juan-oy/local-image-gen-aipc"},
-{name: "cli-guidance", type: "skill", sub: "office", logo: "aly.svg", modalities: ["指导用户使用阿里云 CLI 命令行工具管理阿里云资源"], url:"https://github.com/aliyun/alibabacloud-aiops-skills/tree/master/skills/developertools/solutions/alibabacloud-cli-guidance"},
-{name: "ram-permission-diagnose", type: "skill", sub: "office", logo: "aly.svg", modalities: ["阿里云 RAM 权限诊断与修复助手"], url:"https://github.com/aliyun/alibabacloud-aiops-skills/tree/master/skills/developertools/solutions/alibabacloud-ram-permission-diagnose"},
-{name: "dataworks-workspace-manage", type: "skill", sub: "office", logo: "aly.svg", modalities: ["DataWorks 工作空间生命周期管理技能"], url:"https://github.com/aliyun/alibabacloud-aiops-skills/tree/master/skills/analyticscomputing/dide/alibabacloud-dataworks-workspace-manage"},
+{name: "cli-guidance", type: "skill", sub: "office", logo: "AlibabaCloud.svg", modalities: ["指导用户使用阿里云 CLI 命令行工具管理阿里云资源"], url:"https://github.com/aliyun/alibabacloud-aiops-skills/tree/master/skills/developertools/solutions/alibabacloud-cli-guidance"},
+{name: "ram-permission-diagnose", type: "skill", sub: "office", logo: "AlibabaCloud.svg", modalities: ["阿里云 RAM 权限诊断与修复助手"], url:"https://github.com/aliyun/alibabacloud-aiops-skills/tree/master/skills/developertools/solutions/alibabacloud-ram-permission-diagnose"},
+{name: "dataworks-workspace-manage", type: "skill", sub: "office", logo: "AlibabaCloud.svg", modalities: ["DataWorks 工作空间生命周期管理技能"], url:"https://github.com/aliyun/alibabacloud-aiops-skills/tree/master/skills/analyticscomputing/dide/alibabacloud-dataworks-workspace-manage"},
 {name: "fintech-engineer", type: "skill", sub: "fintech", logo: "404kidwiz.jpg", modalities: ["精通金融科技系统、复式记账账本设计、高精度数学运算和监管合规"], url:"https://github.com/404kidwiz/claude-supercode-skills/tree/main/fintech-engineer-skill"},
 {name: "agent-fintech-engineer", type: "skill", sub: "fintech", logo: "diegosouzapw.jpeg", modalities: ["金融系统、监管合规和安全交易处理的金融科技专家工程师"], url:"https://github.com/diegosouzapw/awesome-omni-skill/tree/main/skills/data-ai/agent-fintech-engineer"},
-{name: "dataworks-datastudio-develop", type: "skill", sub: "frontend", logo: "aly.svg", modalities: ["DataWorks 数据开发技能"], url:"https://github.com/aliyun/alibabacloud-aiops-skills/tree/master/skills/analyticscomputing/dide/alibabacloud-dataworks-datastudio-develop"},
+{name: "dataworks-datastudio-develop", type: "skill", sub: "frontend", logo: "AlibabaCloud.svg", modalities: ["DataWorks 数据开发技能"], url:"https://github.com/aliyun/alibabacloud-aiops-skills/tree/master/skills/analyticscomputing/dide/alibabacloud-dataworks-datastudio-develop"},
 {name: "alipay-payment-integration", type: "skill", sub: "frontend", logo: "alipay.png", modalities: ["支付宝开放平台支付产品接入最佳实践"], url:"https://open.alipay.com/"},
 {name: "find-skills", type: "skill", sub: "frontend", logo: "Nodejs.svg", modalities: ["无需KEY", "帮助用户查找技能"], url: "https://github.com/vercel-labs/skills"},
 {name: "Create Skill", type: "skill", sub: "frontend", logo: "VsCode.svg", modalities: ["无需KEY", "创建技能的分步指导"], url: "https://github.com/chatandbuild/chatchat-skills/tree/main/skills/documentation/createskill"},
-{name: "find-skills", type: "skill", sub: "frontend", logo: "aly.svg", modalities: ["查找阿里云代理技能时使用此技能"], url:"https://github.com/aliyun/alibabacloud-aiops-skills/tree/master/skills/developertools/solutions/alibabacloud-find-skills"},
-{name: "emas-apm-query", type: "skill", sub: "frontend", logo: "aly.svg", modalities: ["阿里云 EMAS APM问题排查技能"], url:"https://github.com/aliyun/alibabacloud-aiops-skills/tree/master/skills/entcmc/emas/alibabacloud-emas-apm-query"},
+{name:"find-skills",type:"skill",sub:"frontend",logo:"AlibabaCloud.svg",modalities: ["查找阿里云代理技能时使用此技能"], url:"https://github.com/aliyun/alibabacloud-aiops-skills/tree/master/skills/developertools/solutions/alibabacloud-find-skills"},
+{name: "emas-apm-query", type: "skill", sub: "frontend", logo: "AlibabaCloud.svg", modalities: ["阿里云 EMAS APM问题排查技能"], url:"https://github.com/aliyun/alibabacloud-aiops-skills/tree/master/skills/entcmc/emas/alibabacloud-emas-apm-query"},
 {name: "全栈开发工程师", type: "skill", sub: "frontend", logo: "ChatAndBuild.jpeg", modalities: ["规划并实现全栈功能，并进行端到端的质量检查。"], url:"https://github.com/chatandbuild/chatchat-skills/tree/main/skills/Development/fullstack-developer"},
 {name: "web-design-reviewer", type: "skill", sub: "frontend", logo: "ChatAndBuild.jpeg", modalities: ["编写并改进 Web 设计评审文档"], url:"https://github.com/chatandbuild/chatchat-skills/tree/main/skills/documentation/web-design-reviewer"},
 {name:"DianJin-Fin-PRM",type:"models",sub:"fin",logo: "qwen.svg", modalities: ["过程奖励模型","PyTorch","Safetensors","Transformers"], url:"https://huggingface.co/DianJin/"},
@@ -230,7 +230,7 @@ function renderModels() {
       } else {
         var slug = model.logo.replace(/\.(svg|png|jpg|jpeg|gif|webp)$/i, '');
         logoSrc = 'https://registry.npmmirror.com/@lobehub/icons-static-svg/latest/files/icons/' + slug + '.svg';
-        logoFallback = '/static/assets/images/' + model.logo;
+        logoFallback = '/static/assets/icons/' + model.logo;
       }
     }
     var logoHtml = model.logo
@@ -242,11 +242,11 @@ function renderModels() {
     } else if (model.url && model.url.indexOf('24krmb.com') !== -1) {
       sourceIcon = '<i class="fas fa-check-circle skill-source-icon"></i>';
     } else if (model.url && model.url.indexOf('huggingface.co') !== -1) {
-      sourceIcon = '<img class="skill-source-icon skill-source-img" src="/static/assets/images/huggingface.svg" alt="HuggingFace">';
+      sourceIcon = '<img class="skill-source-icon skill-source-img" src="/static/assets/icons/huggingface.svg" alt="HuggingFace">';
     } else if (model.url && model.url.indexOf('arxiv.org') !== -1) {
-      sourceIcon = '<img class="skill-source-icon skill-source-img" src="/static/assets/images/arxiv.png" alt="arXiv">';
+      sourceIcon = '<img class="skill-source-icon skill-source-img" src="/static/assets/icons/arxiv.png" alt="arXiv">';
     } else if (model.url && model.url.indexOf('aliyun.com') !== -1) {
-      sourceIcon = '<img class="skill-source-icon skill-source-img" src="/static/assets/images/aly.svg" alt="阿里云">';
+      sourceIcon = '<img class="skill-source-icon skill-source-img" src="/static/assets/icons/AlibabaCloud.svg" alt="阿里云">';
     }
     card.innerHTML =
       '<div class="skill-header">' +
