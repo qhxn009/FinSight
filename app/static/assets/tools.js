@@ -4,6 +4,7 @@ const modelData = [
 {name: "a-share-automl-strategy", type: "skill", sub: "stock", logo: "aifinlab.jpeg", modalities: ["A股AutoML策略/自动化量化建模", "上海财经大学"], url:"https://github.com/aifinlab/FinClaw/tree/main/skills/a-share-automl-strategy"},
 {name:"Fin MCP Server",type:"mcp",logo:"zxjt.jpg",modalities:["金融研究","因子计算","图表生成","数据库接口"], url:"https://www.24krmb.com/thread-4344-1-1.html"},
 {name: "TendencyGPT", type: "models", sub: "fin", logo: "tdx.png", modalities: ["A股", "非开源"]},
+{name:"DianJin-SKILLS",type:"skill",sub:["fund","stock","bank"],logo: "qwen.svg", modalities: ["银行","保险","证券/资管"], url:"https://github.com/aliyun/qwen-dianjin/tree/master/DianJin-SKILLS"},
 {name: "大语言模型开源金融评测数据集", type: "Datasets",sub: "fin",logo: "OpenFinData.png", modalities: ["知识","判别","计算","分析","解读","合规"], url:"https://www.24krmb.com/thread-3727-1-1.html"},
 {name: "OpenClaw", type: "agent",logo: "OpenClaw.png", modalities: ["全球首个真正会做事的 Claw"], url:"https://openclaws.io/"},
 {name: "Git", type: "tools",logo: "Git.png", modalities: ["版本控制","分布式","开源"], url:"https://git-scm.com/"},
@@ -160,7 +161,6 @@ const modelData = [
 {name:"FinMCP-Bench",type:"Datasets",sub:"fin",logo: "qwen.svg", modalities: ["评估LLM在金融场景中调用MCP工具的能力"], url:"https://huggingface.co/DianJin/"},
 {name:"DianJin-CSC-Data",type:"Datasets",sub:"fin",logo: "qwen.svg", modalities: ["客户服务对话（CSC）任务"], url:"https://huggingface.co/DianJin/"},
 {name:"DianJin-Fin-PRM-Data",type:"Datasets",sub:"fin",logo: "qwen.svg", modalities: ["中文金融领域的（PRM）训练数据集"], url:"https://huggingface.co/DianJin/"},
-{name:"DianJin-SKILLS",type:"skill",sub:["fund","stock","bank"],logo: "qwen.svg", modalities: ["银行","保险","证券/资管"], url:"https://github.com/aliyun/qwen-dianjin/tree/master/DianJin-SKILLS"},
 ];
 let currentFilter = {type: 'all', sub: null};
 function filterSkills(type, btn, sub) {
@@ -248,13 +248,23 @@ function renderModels() {
     } else if (model.url && model.url.indexOf('aliyun.com') !== -1) {
       sourceIcon = '<img class="skill-source-icon skill-source-img" src="/static/assets/icons/AlibabaCloud.svg" alt="阿里云">';
     }
+    var subHtml = '';
+    if (model.sub) {
+      if (Array.isArray(model.sub)) {
+        subHtml = model.sub.map(function(s) {
+          return skillSubTypes[s] ? '<span class="skill-sub type-' + s + '">' + skillSubTypes[s] + '</span>' : '';
+        }).join('');
+      } else if (skillSubTypes[model.sub]) {
+        subHtml = '<span class="skill-sub type-' + model.sub + '">' + skillSubTypes[model.sub] + '</span>';
+      }
+    }
     card.innerHTML =
       '<div class="skill-header">' +
         '<div class="skill-name-wrapper">' +
           logoHtml +
           '<h2 class="skill-name">' + model.name + '</h2>' +
         '</div>' +
-        (model.sub && skillSubTypes[model.sub] ? '<span class="skill-sub type-' + model.sub + '">' + skillSubTypes[model.sub] + '</span>' : '') +
+        subHtml +
         '<span class="skill-type type-' + typeClass + '">' + modelTypeText + '</span>' +
       '</div>' +
       '<div class="skill-tags">' + modalityTags + sourceIcon + '</div>';

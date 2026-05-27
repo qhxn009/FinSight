@@ -48,8 +48,8 @@ tr:nth-child(even) {background-color:var(--bg-card)}
 .skill-logo{width:32px;height:32px;border-radius:4px;margin-right:10px;flex-shrink:0;object-fit:contain}
 .skill-name{font-size:14px;font-weight:600;color:var(--text-primary);margin:0;line-height:1.4}
 /**  Tools type classes **/
-.skill-type,.skill-sub{padding:3px 8px;border-radius:10px;font-size:10px;font-weight:500;white-space:nowrap;flex-shrink:0;border:none}
-.skill-type{color:var(--bg-main);margin-left:8px}
+.skill-type,.skill-sub{padding:3px 8px;border-radius:10px;font-size:10px;font-weight:500;margin-left:8px;white-space:nowrap;flex-shrink:0;border:none}
+.skill-type{color:var(--bg-main)}
 .skill-type.type-skill{background-color:rgba(153, 102, 255,0.8)}
 .skill-type.type-mcp{background-color:rgba(0, 204, 153,0.8)}
 .skill-type.type-models{background-color:rgba(255, 51, 102,0.8)}
