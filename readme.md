@@ -279,6 +279,7 @@ data: [DONE]
 
 - [智谱 AI](https://www.bigmodel.cn/invite?icode=%2F7GW43rLVlqOKpBa8XiSvGczbXFgPRGIalpycrEwJ28%3D) — GLM 大模型与 zai-sdk
 - [广发证券](https://www.gf.com.cn/) — MCP 金融数据服务
+- [npmmirror](https://registry.npmmirror.com/) — npm 包加速镜像源
 - [24KRMB.COM](https://www.24krmb.com/) — 技术支持与社区
 
 ## 许可证

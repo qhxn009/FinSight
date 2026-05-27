@@ -8,7 +8,7 @@ const modelData = [
 {name: "大语言模型开源金融评测数据集", type: "Datasets",sub: "fin",logo: "OpenFinData.png", modalities: ["知识","判别","计算","分析","解读","合规"], url:"https://www.24krmb.com/thread-3727-1-1.html"},
 {name: "OpenClaw", type: "agent",logo: "OpenClaw.png", modalities: ["全球首个真正会做事的 Claw"], url:"https://openclaws.io/"},
 {name: "Git", type: "tools",logo: "Git.png", modalities: ["版本控制","分布式","开源"], url:"https://git-scm.com/"},
-{name: "股票分析与涨跌预测分析", type: "skill", sub: "stock", logo: "z.png", modalities: ["需要多模态主模型支持", "智谱官方"], url: "https://www.24krmb.com/thread-4562-1-2.html"},
+{name: "股票分析与涨跌预测分析", type: "skill", sub: "stock", logo: "zhipu.png", modalities: ["需要多模态主模型支持", "智谱官方"], url: "https://www.24krmb.com/thread-4562-1-2.html"},
 {name:"广发证券MCP",type:"mcp",logo:"gfzq.svg",modalities:["财务分析","龙虎榜分析","热门ETF","指数估值"], url:"https://www.24krmb.com/thread-4337-1-1.html"},
 {name: "FinBERT", type: "models", sub: "fin", logo: "alphaengine.png", modalities: ["MIT","金融情感分析"], url:"https://www.24krmb.com/thread-4623-1-1.html"},
 {name:"DianJin-R1-Data",type:"Datasets",sub:"fin",logo: "qwen.svg", modalities: ["英文基准","8,281 个需要对财务报告进行数值推理"], url:"https://huggingface.co/DianJin/"},
