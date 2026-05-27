@@ -1,16 +1,16 @@
 const modelTypes = {skill: '技能', mcp: 'MCP',models: '模型', Datasets: '数据集',tools: '工具',agent: 'Agent'};
-const skillSubTypes = {stock: '股票', futures: '期货', news: '资讯', risk: '风控', fund: '基金',office: '办公', fintech: '金融科技', frontend: '开发'};
+const skillSubTypes = {stock: '股票', futures: '期货', news: '资讯', risk: '风控', fund: '基金',office: '办公', fintech: '金融科技', frontend: '开发', fin: '金融', math: '数学', medicine: '医疗', bank: '银行', embedding: '向量', sound: '语音', video: '视频', image: '图像', visual: '视觉'};
 const modelData = [
 {name: "a-share-automl-strategy", type: "skill", sub: "stock", logo: "aifinlab.jpeg", modalities: ["A股AutoML策略/自动化量化建模", "上海财经大学"], url:"https://github.com/aifinlab/FinClaw/tree/main/skills/a-share-automl-strategy"},
 {name:"Fin MCP Server",type:"mcp",logo:"zxjt.jpg",modalities:["金融研究","因子计算","图表生成","数据库接口"], url:"https://www.24krmb.com/thread-4344-1-1.html"},
 {name: "TendencyGPT", type: "models", sub: "fin", logo: "tdx.png", modalities: ["A股", "非开源"]},
-{name: "大语言模型开源金融评测数据集", type: "Datasets",logo: "OpenFinData.png", modalities: ["知识","判别","计算","分析","解读","合规"], url:"https://www.24krmb.com/thread-3727-1-1.html"},
+{name: "大语言模型开源金融评测数据集", type: "Datasets",sub: "fin",logo: "OpenFinData.png", modalities: ["知识","判别","计算","分析","解读","合规"], url:"https://www.24krmb.com/thread-3727-1-1.html"},
 {name: "OpenClaw", type: "agent",logo: "OpenClaw.png", modalities: ["全球首个真正会做事的 Claw"], url:"https://openclaws.io/"},
 {name: "Git", type: "tools",logo: "Git.png", modalities: ["版本控制","分布式","开源"], url:"https://git-scm.com/"},
 {name: "股票分析与涨跌预测分析", type: "skill", sub: "stock", logo: "z.png", modalities: ["需要多模态主模型支持", "智谱官方"], url: "https://www.24krmb.com/thread-4562-1-2.html"},
 {name:"广发证券MCP",type:"mcp",logo:"gfzq.svg",modalities:["财务分析","龙虎榜分析","热门ETF","指数估值"], url:"https://www.24krmb.com/thread-4337-1-1.html"},
 {name: "FinBERT", type: "models", sub: "fin", logo: "alphaengine.png", modalities: ["MIT","金融情感分析"], url:"https://www.24krmb.com/thread-4623-1-1.html"},
-{name:"DianJin-R1-Data",type:"Datasets",logo: "qwen.svg", modalities: ["英文基准","8,281 个需要对财务报告进行数值推理"], url:"https://huggingface.co/DianJin/"},
+{name:"DianJin-R1-Data",type:"Datasets",sub:"fin",logo: "qwen.svg", modalities: ["英文基准","8,281 个需要对财务报告进行数值推理"], url:"https://huggingface.co/DianJin/"},
 {name: "航运行业专业知识评测集", type: "Datasets",logo: "mhdt.jpg", modalities: ["知识","判别","计算","分析","解读","合规"], url:"https://www.24krmb.com/thread-3726-1-1.html"},
 {name: "QwenPaw", type: "agent",logo: "QwenPaw.gif", modalities: ["开源","阿里Qwen的智能龙虾","国内最强最好"], url:"https://qwenpaw.agentscope.io/"},
 {name: "Python", type: "tools",logo: "Python.svg", modalities: ["通用编程","AI/ML首选","开源"], url:"https://www.python.org/"},
@@ -156,10 +156,10 @@ const modelData = [
 {name:"GLM-Realtime",type:"models",sub:"sound",logo: "zhipu.png", modalities: ["音视频通话"], url:"/static/models/glm.html"},
 {name:"CogView-4",type:"models",sub:"image",logo: "zhipu.png", modalities: ["文生图"], url:"/static/models/glm.html"},
 {name:"GLM-5V-Turbo",type:"models",sub:"visual",logo: "zhipu.svg", modalities: ["视觉编程","Agent","上下文:200K","最大输出:128K"], url:"/static/models/glm.html"},
-{name:"金融领域中文语言理解评测数据集",type:"Datasets",logo: "qwen.svg", modalities: ["中文金融语境中的理解和处理能力"], url:"https://huggingface.co/DianJin/"},
-{name:"FinMCP-Bench",type:"Datasets",logo: "qwen.svg", modalities: ["评估LLM在金融场景中调用MCP工具的能力"], url:"https://huggingface.co/DianJin/"},
-{name:"DianJin-CSC-Data",type:"Datasets",logo: "qwen.svg", modalities: ["客户服务对话（CSC）任务"], url:"https://huggingface.co/DianJin/"},
-{name:"DianJin-Fin-PRM-Data",type:"Datasets",logo: "qwen.svg", modalities: ["中文金融领域的（PRM）训练数据集"], url:"https://huggingface.co/DianJin/"},
+{name:"金融领域中文语言理解评测数据集",type:"Datasets",sub:"fin",logo: "qwen.svg", modalities: ["中文金融语境中的理解和处理能力"], url:"https://huggingface.co/DianJin/"},
+{name:"FinMCP-Bench",type:"Datasets",sub:"fin",logo: "qwen.svg", modalities: ["评估LLM在金融场景中调用MCP工具的能力"], url:"https://huggingface.co/DianJin/"},
+{name:"DianJin-CSC-Data",type:"Datasets",sub:"fin",logo: "qwen.svg", modalities: ["客户服务对话（CSC）任务"], url:"https://huggingface.co/DianJin/"},
+{name:"DianJin-Fin-PRM-Data",type:"Datasets",sub:"fin",logo: "qwen.svg", modalities: ["中文金融领域的（PRM）训练数据集"], url:"https://huggingface.co/DianJin/"},
 {name:"DianJin-SKILLS",type:"skill",sub:["fund","stock","bank"],logo: "qwen.svg", modalities: ["银行","保险","证券/资管"], url:"https://github.com/aliyun/qwen-dianjin/tree/master/DianJin-SKILLS"},
 ];
 let currentFilter = {type: 'all', sub: null};
@@ -254,6 +254,7 @@ function renderModels() {
           logoHtml +
           '<h2 class="skill-name">' + model.name + '</h2>' +
         '</div>' +
+        (model.sub && skillSubTypes[model.sub] ? '<span class="skill-sub type-' + model.sub + '">' + skillSubTypes[model.sub] + '</span>' : '') +
         '<span class="skill-type type-' + typeClass + '">' + modelTypeText + '</span>' +
       '</div>' +
       '<div class="skill-tags">' + modalityTags + sourceIcon + '</div>';
