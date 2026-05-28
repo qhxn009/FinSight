@@ -192,9 +192,8 @@ const modelData = [
 
 {name:"longcat-flash-thinking",type:"models",sub:"text",logo:"LongCat.svg",modalities:["异步弹性共卡","智能体推理","形式化推理"],url:"https://huggingface.co/meituan-longcat/LongCat-Flash-Thinking"},
 {name:"longcat-flash-thinking",type:"models",sub:"text",logo:"LongCat.svg",modalities:["异步弹性共卡","智能体推理","形式化推理"],url:"https://github.com/meituan-longcat/LongCat-Flash-Thinking"},
-{name:"LongCat-Video-Avatar 1.5",type:"models",sub:"video",logo:"LongCat.svg",modalities:["数字人视频","八步生成","音视频协调"],url:"https://github.com/meituan-longcat/LongCat-Flash-Thinking"},
-
-
+{name:"LongCat-Video-Avatar 1.5",type:"models",sub:"video",logo:"LongCat.svg",modalities:["数字人视频","八步生成","音视频协调"],url:"https://huggingface.co/meituan-longcat/LongCat-Video-Avatar-1.5"},
+{name:"LongCat-Video-Avatar 1.5",type:"models",sub:"video",logo:"LongCat.svg",modalities:["数字人视频","八步生成","音视频协调"],url:"https://github.com/meituan-longcat/LongCat-Video"},
 ];
 let currentFilter = {type:'all',sub:null};
 function filterSkills(type,btn,sub) {
