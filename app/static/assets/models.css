@@ -57,20 +57,18 @@ tr:nth-child(even) {background-color:var(--bg-card)}
 .skill-type.type-agent{background-color:rgba(102, 51, 255,0.8)}
 .skill-type.type-Datasets{background-color:rgba(255, 51, 245,0.8)}
 .skill-sub{color:var(--text-primary);background:var(--bg-secondary)}
+.skill-sub.type-fund,.skill-sub.type-ide{background:rgba(0,204,153,0.15);color:#0c9}
+.skill-sub.type-medicine,.skill-sub.type-quant{background:rgba(102,102,204,0.15);color:#66c}
+.skill-sub.type-bank,.skill-sub.type-futures{background:rgba(255,165,0,0.15);color:#ffa500}
+.skill-sub.type-fintech,.skill-sub.type-db{background:rgba(0,204,204,0.15);color:#0cc}
+.skill-sub.type-risk,.skill-sub.type-fin{background:rgba(255,51,102,0.15);color:#f36}
 .skill-sub.type-stock{background:rgba(255,107,53,0.15);color:#ff6b35}
-.skill-sub.type-futures{background:rgba(255,165,0,0.15);color:#ffa500}
 .skill-sub.type-news{background:rgba(0,150,255,0.15);color:#0096ff}
-.skill-sub.type-risk{background:rgba(255,51,51,0.15);color:#ff3333}
-.skill-sub.type-fund{background:rgba(0,204,153,0.15);color:#00cc99}
 .skill-sub.type-office{background:rgba(153,102,255,0.15);color:#9966ff}
-.skill-sub.type-fintech{background:rgba(0,204,204,0.15);color:#00cccc}
-.skill-sub.type-frontend{background:rgba(102,153,255,0.15);color:#6699ff}
-.skill-sub.type-fin{background:rgba(255,51,102,0.15);color:#ff3366}
+.skill-sub.type-frontend{background:rgba(102,153,255,0.15);color:#69f}
 .skill-sub.type-math{background:rgba(0,153,204,0.15);color:#0099cc}
-.skill-sub.type-medicine{background:rgba(0,204,102,0.15);color:#0c6}
-.skill-sub.type-bank{background:rgba(204,153,0,0.15);color:#cc9900;}
 .skill-sub.type-embedding{background:rgba(153,51,255,0.15);color:#9933ff}
-.skill-sub.type-sound{background:rgba(255,102,153,0.15);color:#ff6699;}
+.skill-sub.type-sound{background:rgba(255,102,153,0.15);color:#ff6699}
 .skill-sub.type-video{background:rgba(255,153,0,0.15);color:#f90}
 .skill-sub.type-image{background:rgba(51,204,153,0.15);color: #3c9}
 .skill-sub.type-visual{background:rgba(102,51,255,0.15);color: #63f}
