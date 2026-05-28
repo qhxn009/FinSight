@@ -1,6 +1,6 @@
 const modelTypes = {skill:'技能',mcp:'MCP',models:'模型',Datasets:'数据集',tools:'工具',agent:'Agent'};
 const skillSubTypes = {stock:'股票',futures:'期货',news:'资讯',risk:'风控',fund:'基金',office:'办公',fintech:'金融科技',frontend:'开发',fin:'金融',math:'数学',medicine:'医疗',
-  bank:'银行',embedding:'向量',sound:'语音',video:'视频',image:'图像',visual:'视觉',char:'角色',text:'文本',text:'编程'};
+  bank:'银行',embedding:'向量',sound:'语音',video:'视频',image:'图像',visual:'视觉',char:'角色',text:'文本',code:'编程'};
 const modelData = [
 {name:"a-share-automl-strategy",type:"skill",sub:"stock",logo:"aifinlab.jpeg",modalities:["A股AutoML策略/自动化量化建模","上海财经大学"],url:"https://github.com/aifinlab/FinClaw/tree/main/skills/a-share-automl-strategy"},
 {name:"Fin MCP Server",type:"mcp",logo:"zxjt.jpg",modalities:["金融研究","因子计算","图表生成","数据库接口"],url:"https://www.24krmb.com/thread-4344-1-1.html"},
@@ -26,6 +26,7 @@ const modelData = [
 {name:"一招（YiZhao)",type:"models",sub:"fin",logo:"zsyh.png",modalities:["Apache-2.0","银行"],url:"https://www.24krmb.com/thread-4610-1-1.html"},
 {name:" TradingAgents部署与应用",type:"agent",logo:"fzzq.jpg",modalities:["分析师","研究员","交易员"],url:"https://www.24krmb.com/thread-4104-1-1.html"},
 {name:"React",type:"tools",logo:"React.svg",modalities:["前端框架","组件化","开源"],url:"https://react.dev/"},
+{name:"Claude Opus 4.7",type:"models",sub:"code",logo:"Claude.svg",modalities:["编程模型","目前最强"],url:"https://www.anthropic.com/claude/opus"},
 {name:"glmv-doc-based-writing",type:"skill",sub:"office",logo:"z.png",modalities:["使用智谱 GLM-V 多模态模型撰写文本内容"],url:"https://github.com/zai-org/GLM-skills/tree/main/skills/glmv-doc-based-writing"},
 {name:"沪深股票数据 MCP ",type:"mcp",logo:"jyj.jpg",modalities:["基本信息","行情数据","财务数据","技术指标"],url:"https://www.24krmb.com/thread-3838-1-1.html"},
 {name:"BloombergGPT",type:"models",sub:"fin",logo:"bloomberg.png",modalities:["美股","BLLOOM","彭博"],url:"https://arxiv.org/abs/2303.17564"},
@@ -196,10 +197,10 @@ const modelData = [
 {name:"LongCat-Video-Avatar 1.5",type:"models",sub:"video",logo:"LongCat.svg",modalities:["数字人视频","八步生成","音视频协调"],url:"https://huggingface.co/meituan-longcat/LongCat-Video-Avatar-1.5"},
 {name:"LongCat-Video-Avatar 1.5",type:"models",sub:"video",logo:"LongCat.svg",modalities:["数字人视频","八步生成","音视频协调"],url:"https://github.com/meituan-longcat/LongCat-Video"},
 {name:"General 365",type:"models",sub:"text",logo:"LongCat.svg",modalities:["复杂约束","时空推理","语义干扰"],url:"https://github.com/meituan-longcat/General365"},
-
-{name:"Claude Opus 4.6",type:"models",sub:"code",logo:"LongCat.svg",modalities:["编程模型","目前最强","语义干扰"],url:"https://www.anthropic.com/news/claude-opus-4-6"},
-
-
+{name:"Claude Opus 4.6",type:"models",sub:"code",logo:"Claude.svg",modalities:["编程模型"],url:"https://www.anthropic.com/news/claude-opus-4-6"},
+{name:"Claude Sonnet 4.6",type:"models",sub:"code",logo:"Claude.svg",modalities:["编程模型"],url:"https://www.anthropic.com/claude/sonnet"},
+{name:"Claude Sonnet 4.5",type:"models",sub:"code",logo:"Claude.svg",modalities:["编程模型"],url:"https://www.anthropic.com/news/claude-sonnet-4-5"},
+{name:"Claude Haiku 4.5",type:"models",sub:"code",logo:"Claude.svg",modalities:["编程模型"],url:"https://www.anthropic.com/claude/haiku"},
 ];
 let currentFilter = {type:'all',sub:null};
 function filterSkills(type,btn,sub) {
