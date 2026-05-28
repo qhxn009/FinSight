@@ -1,6 +1,6 @@
 const modelTypes = {skill:'技能',mcp:'MCP',models:'模型',Datasets:'数据集',tools:'工具',agent:'Agent'};
-const skillSubTypes = {stock:'股票',futures:'期货',news:'资讯',risk:'风控',fund:'基金',office:'办公',fintech:'金融科技',frontend:'开发',fin:'金融',math:'数学',
-  medicine:'医疗',bank:'银行',embedding:'向量',sound:'语音',video:'视频',image:'图像',visual:'视觉',char:'角色'};
+const skillSubTypes = {stock:'股票',futures:'期货',news:'资讯',risk:'风控',fund:'基金',office:'办公',fintech:'金融科技',frontend:'开发',fin:'金融',math:'数学',medicine:'医疗',
+  bank:'银行',embedding:'向量',sound:'语音',video:'视频',image:'图像',visual:'视觉',char:'角色',text:'文本',text:'编程'};
 const modelData = [
 {name:"a-share-automl-strategy",type:"skill",sub:"stock",logo:"aifinlab.jpeg",modalities:["A股AutoML策略/自动化量化建模","上海财经大学"],url:"https://github.com/aifinlab/FinClaw/tree/main/skills/a-share-automl-strategy"},
 {name:"Fin MCP Server",type:"mcp",logo:"zxjt.jpg",modalities:["金融研究","因子计算","图表生成","数据库接口"],url:"https://www.24krmb.com/thread-4344-1-1.html"},
@@ -28,9 +28,10 @@ const modelData = [
 {name:"React",type:"tools",logo:"React.svg",modalities:["前端框架","组件化","开源"],url:"https://react.dev/"},
 {name:"glmv-doc-based-writing",type:"skill",sub:"office",logo:"z.png",modalities:["使用智谱 GLM-V 多模态模型撰写文本内容"],url:"https://github.com/zai-org/GLM-skills/tree/main/skills/glmv-doc-based-writing"},
 {name:"沪深股票数据 MCP ",type:"mcp",logo:"jyj.jpg",modalities:["基本信息","行情数据","财务数据","技术指标"],url:"https://www.24krmb.com/thread-3838-1-1.html"},
-{name:"BloombergGPT",type:"models",sub:"fin",logo:"bloomberg.svg",modalities:["美股","BLLOOM","彭博"],url:"https://arxiv.org/abs/2303.17564"},
+{name:"BloombergGPT",type:"models",sub:"fin",logo:"bloomberg.png",modalities:["美股","BLLOOM","彭博"],url:"https://arxiv.org/abs/2303.17564"},
 {name:"WindClaw",type:"agent",logo:"wind.png",modalities:["零代码","免部署","需要积分"],url:"https://www.24krmb.com/thread-4525-1-1.html"},
 {name:"Nodejs",type:"tools",logo:"Nodejs.svg",modalities:["服务端JS","事件驱动","开源"],url:"https://nodejs.org/"},
+{name:"Z-Image",type:"models",sub:"image",logo:"LongCat.svg",modalities:["写实","八步生成","6B 参数"],url:"https://github.com/Tongyi-MAI/Z-Image"},
 {name:"期货品种深度分析报告",type:"skill",sub:"futures",logo:"dwane.png",modalities:["无需KEY","可生成HTML到电脑桌面"],url:"https://www.24krmb.com/thread-4599-1-1.html"},
 {name:"迅投(xtquant)量化交易平台MCP",type:"mcp",logo:"dfkai.jpeg",modalities:["基础数据查询","行情数据","图表和可视化"],url:"https://www.24krmb.com/thread-3856-1-1.html"},
 {name:"Fin-R1",type:"models",sub:"fin",logo:"aifinlab.jpeg",modalities:["Apache-2.0","复杂推理"],url:"https://www.24krmb.com/misc.php?mod=tag&id=700"},
@@ -38,7 +39,7 @@ const modelData = [
 {name:"Webpack",type:"tools",logo:"Webpack.svg",modalities:["模块打包","代码分割","开源"],url:"https://webpack.js.org/"},
 {name:"东方财富智能选股工具",type:"skill",sub:"stock",logo:"dfcf.png",modalities:["需要KEY","限每日50次调用"],url:"https://www.24krmb.com/thread-4591-1-1.html"},
 {name:"MCP 服务器开发组件",type:"mcp",logo:"88_avatar.jpg",modalities:["提示","工具","资源","采样"],url:"https://www.24krmb.com/thread-3841-1-1.html"},
-{name:"KeyBART",type:"models",sub:"fin",logo:"bloomberg.svg",modalities:["彭博","Apache-2.0"],url:"https://huggingface.co/bloomberg/KeyBART"},
+{name:"KeyBART",type:"models",sub:"fin",logo:"bloomberg.png",modalities:["彭博","Apache-2.0"],url:"https://huggingface.co/bloomberg/KeyBART"},
 {name:"AutoClaw",type:"agent",logo:"autoglm.png",modalities:["GLM出品"],url:"https://autoglm.zhipuai.cn/autoclaw/"},
 {name:"VsCode",type:"tools",logo:"VsCode.svg",modalities:["代码编辑器","插件生态","免费"],url:"https://code.visualstudio.com/"},
 {name:"stock-question-refiner",type:"skill",sub:"stock",logo:"liangdabiao.jpeg",modalities:["股票投资调研问题细化技能"],url:"https://github.com/liangdabiao/Claude-Code-Stock-Deep-Research-Agent/blob/main/1.claude/skills/stock-question-refiner/examples.md"},
@@ -56,15 +57,15 @@ const modelData = [
 {name:"Agent A_Share_investment_Agent 教程",type:"agent",logo:"22.jpg",modalities:["教程","使用 AI 辅助投资决策"],url:"https://www.24krmb.com/thread-4592-1-1.html"},
 {name:"TypeScript",type:"tools",logo:"TypeScript.svg",modalities:["类型安全","JS超集","开源"],url:"https://www.typescriptlang.org/"},
 {name:"glm-image-gen",type:"skill",sub:"office",logo:"z.png",modalities:["使用智谱GLM-Image API从文本提示生成高质量图像"],url:"https://github.com/zai-org/GLM-skills/tree/main/skills/glm-image-gen"},
-{name:"kbir_keybart",type:"models",sub:"fin",logo:"bloomberg.svg",modalities:["Apache-2.0","彭博"],url:"https://github.com/bloomberg/kbir_keybart"},
+{name:"kbir_keybart",type:"models",sub:"fin",logo:"bloomberg.png",modalities:["Apache-2.0","彭博"],url:"https://github.com/bloomberg/kbir_keybart"},
 {name:"QClaw",type:"agent",logo:"QClaw.png",modalities:["腾讯(电脑管家)出品"],url:"https://qclaw.qq.com/"},
 {name:"MySQL",type:"tools",logo:"MySQL.svg",modalities:["关系数据库","SQL","开源"],url:"https://www.mysql.com/"},
 {name:"期货每日深度分析总结",type:"skill",sub:"futures",logo:"dwane.png",modalities:["无需KEY","可生成HTML到电脑桌面"],url:"https://www.24krmb.com/thread-4597-1-1.html"},
-{name:"FinGPT",type:"models",sub:"fin",logo:"AI4Finance.jpeg",modalities:["MIT","AI4Finance"],url:"https://github.com/AI4Finance-Foundation/FinGPT"},
+{name:"FinGPT",type:"models",sub:"fin",logo:"FinGPT.png",modalities:["MIT","AI4Finance"],url:"https://github.com/AI4Finance-Foundation/FinGPT"},
+{name:"FinGPT",type:"models",sub:"fin",logo:"FinGPT.png",modalities:["MIT","AI4Finance"],url:"https://huggingface.co/FinGPT"},
 {name:"LLM 辅助编程指南- AKQuant策略",type:"agent",logo:"57.jpg",modalities:["教程","Prompt","进阶技巧与排错"],url:"https://www.24krmb.com/thread-4574-1-1.html"},
 {name:"Github",type:"tools",logo:"Github.svg",modalities:["代码托管","协作开发","免费"],url:"https://github.com/"},
 {name:"股票筛选器",type:"skill",sub:"stock",logo:"majiayu000.png",modalities:["根据可自定义的量化标准筛选并选择股票"],url:"https://github.com/majiayu000/claude-skill-registry/tree/main/skills/data/stock-picker"},
-{name:"FinGPT",type:"models",sub:"fin",logo:"AI4Finance.jpeg",modalities:["MIT","AI4Finance"],url:"https://huggingface.co/FinGPT"},
 {name:"WorkBuddy",type:"agent",logo:"WorkBuddy.svg",modalities:["腾讯云出品的Claw"],url:"https://www.codebuddy.cn/work/"},
 {name:"Laravel",type:"tools",logo:"Laravel.svg",modalities:["PHP框架","MVC","开源"],url:"https://laravel.com/"},
 {name:"minervini-swing-trading",type:"skill",sub:"stock",logo:"copyleftdev.png",modalities:["以 Mark Minervini 的风格进行波段交易"],url:"https://github.com/copyleftdev/sk1llz/tree/main/domains/trading/swing-trading"},
@@ -95,6 +96,7 @@ const modelData = [
 {name:"TxGemma",type:"models",sub:"medicine",logo:"google.svg",modalities:["治疗药物开发​","HAI-DEF"],url:"https://huggingface.co/collections/google/txgemma-release-67dd92e931c857d15e4d1e87"},
 {name:"JVS Claw",type:"agent",logo:"JVS.png",modalities:["阿里云","云端 ClawSpace"],url:"https://jvsclaw.aliyun.com/"},
 {name:"PHP",type:"tools",logo:"PHP.svg",modalities:["服务端语言","Web开发","开源"],url:"https://www.php.net/"},
+{name:"Transformers",type:"models",sub:"text",logo:"huggingface.svg",modalities:["推理与训练的先进预训练模型"],url:"https://github.com/huggingface/transformers"},
 {name:"credit-risk-explanation",type:"skill",sub:"risk",logo:"404kidwiz.jpg",modalities:["解释信贷风险驱动因素、评分方法及贷款组合的损失估算"],url:"https://github.com/goldenzero/skills/tree/main/skills/credit-risk-explanation"},
 {name:"TxGemma",type:"models",sub:"medicine",logo:"google.svg",modalities:["治疗药物开发​","HAI-DEF"],url:"https://github.com/google-gemini/gemma-cookbook/tree/main/TxGemma"},
 {name:"RedClaw",type:"agent",logo:"RedClaw.png",modalities:["百度智能云"],url:"https://operator.gc.com.cn/"},
@@ -189,11 +191,15 @@ const modelData = [
 {name:"Doubao-Seedream-5.0-lite",type:"models",sub:"image",logo:"Doubao.svg",modalities:["视觉模型","图片生成"],url:"https://seed.bytedance.com/zh/seedream5_0_lite"},
 {name:"Doubao-Seedream-4.5",type:"models",sub:"image",logo:"Doubao.svg",modalities:["视觉模型","图片生成"],url:"https://seed.bytedance.com/zh/seedream4_5"},
 {name:"Doubao-Seedream-4.0",type:"models",sub:"image",logo:"Doubao.svg",modalities:["视觉模型","图片生成"],url:"https://seed.bytedance.com/zh/seedream4_0"},
-
 {name:"longcat-flash-thinking",type:"models",sub:"text",logo:"LongCat.svg",modalities:["异步弹性共卡","智能体推理","形式化推理"],url:"https://huggingface.co/meituan-longcat/LongCat-Flash-Thinking"},
 {name:"longcat-flash-thinking",type:"models",sub:"text",logo:"LongCat.svg",modalities:["异步弹性共卡","智能体推理","形式化推理"],url:"https://github.com/meituan-longcat/LongCat-Flash-Thinking"},
 {name:"LongCat-Video-Avatar 1.5",type:"models",sub:"video",logo:"LongCat.svg",modalities:["数字人视频","八步生成","音视频协调"],url:"https://huggingface.co/meituan-longcat/LongCat-Video-Avatar-1.5"},
 {name:"LongCat-Video-Avatar 1.5",type:"models",sub:"video",logo:"LongCat.svg",modalities:["数字人视频","八步生成","音视频协调"],url:"https://github.com/meituan-longcat/LongCat-Video"},
+{name:"General 365",type:"models",sub:"text",logo:"LongCat.svg",modalities:["复杂约束","时空推理","语义干扰"],url:"https://github.com/meituan-longcat/General365"},
+
+{name:"Claude Opus 4.6",type:"models",sub:"code",logo:"LongCat.svg",modalities:["编程模型","目前最强","语义干扰"],url:"https://www.anthropic.com/news/claude-opus-4-6"},
+
+
 ];
 let currentFilter = {type:'all',sub:null};
 function filterSkills(type,btn,sub) {
