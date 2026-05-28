@@ -205,6 +205,17 @@ const modelData = [
 {name:"DeepSeek-Prover-V2",type:"models",sub:["math","text"],logo:"deepseek.svg",modalities:["MIT","PyTorch","Safetensors"],url:"https://api-docs.deepseek.com/zh-cn/"},
 {name:"DeepSeek V4 Pro",type:"models",sub:["code","text"],logo:"deepseek.svg",modalities:["MIT","编程模型","编程模型"],url:"https://api-docs.deepseek.com/zh-cn/"},
 {name:"DeepSeek-V4-Flash",type:"models",sub:["text"],logo:"deepseek.svg",modalities:["MIT","PyTorch","Safetensors"],url:"https://api-docs.deepseek.com/zh-cn/"},
+{name:"GPT-5.3-Codex",type:"models",sub:["text","code"],logo:"OpenAI.svg",modalities:["输入$1.75/百万token","输入$14/百万token","闭源"]},
+{name:"GPT-5-Codex",type:"models",sub:["text","code"],logo:"OpenAI.svg",modalities:["输入$1.25/百万token","输入$10/百万token","闭源"]},
+{name:"GPT-Image-2",type:"models",sub:["text","image"],logo:"OpenAI.svg",modalities:["输入$5/百万token","闭源"]},
+{name:"GPT-Image-1.5",type:"models",sub:["text","image"],logo:"OpenAI.svg",modalities:["输入$5/百万token","输入$10/百万token","闭源"]},
+{name:"GPT-5.5",type:"models",sub:["text"],logo:"OpenAI.svg",modalities:["输入$5-10/百万token","输入$30-45/百万token","闭源"]},
+{name:"GPT-5.2-Codex",type:"models",sub:["text","code"],logo:"OpenAI.svg",modalities:["输入$1.75/百万token","输入$14/百万token","闭源"]},
+{name:"GPT-5.2-Pro",type:"models",sub:["text","code"],logo:"OpenAI.svg",modalities:["输入$21/百万token","输入$168/百万token","闭源"]},
+{name:"GPT-5.2-Chat",type:"models",sub:"text",logo:"OpenAI.svg",modalities:["输入$1.75/百万token","输入$14/百万token","闭源"]},
+{name:"GPT-5.4",type:"models",sub:["text"],logo:"OpenAI.svg",modalities:["输入$2.5-5/百万token","输入$15-22.5/百万token","闭源"]},
+{name:"Text Embedding 3 Large",type:"models",sub:"embedding",logo:"OpenAI.svg",modalities:["输入$0.13/百万token","上下文8.19K","闭源"]},
+{name:"Text Embedding 3 Small",type:"models",sub:"embedding",logo:"OpenAI.svg",modalities:["输入$0.02/百万token","上下文8.19K","闭源"]},
 ];
 let currentFilter = {type:'all',sub:null};
 function filterSkills(type,btn,sub) {
