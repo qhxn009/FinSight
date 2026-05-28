@@ -61,7 +61,13 @@
 </div>
 <div class="skill-filter-btn" data-filter="agent" onclick="filterSkills('agent', this)"><i class="fa-solid fa-robot"></i><span>Agent</span></div>
 <div class="skill-filter-btn" data-filter="Datasets" onclick="filterSkills('Datasets', this)"><i class="fa-solid fa-database"></i><span>Datasets</span></div>
+
 <div class="skill-filter-btn" data-filter="tools" onclick="filterSkills('tools', this)"><i class="fa-solid fa-language"></i><span>tools</span></div>
+<div class="skill-sub-menu" id="modelsSubMenu" style="display:none">
+    <div class="skill-sub-btn" data-sub="ide" onclick="filterSubSkills('ide', this)"><span>IDE</span></div>
+    <div class="skill-sub-btn" data-sub="aigc" onclick="filterSubSkills('aigc', this)"><span>AIGC</span></div>
+    <div class="skill-sub-btn" data-sub="db" onclick="filterSubSkills('db', this)"><span>数据库</span></div>
+</div>
 </div>
 </div>
 <div class="sidebar-footer">
