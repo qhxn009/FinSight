@@ -1,5 +1,6 @@
 const modelTypes = {skill:'技能',mcp:'MCP',models:'模型',Datasets:'数据集',tools:'工具',agent:'Agent'};
-const skillSubTypes = {stock:'股票',futures:'期货',news:'资讯',risk:'风控',fund:'基金',office:'办公',fintech:'金融科技',frontend:'开发',fin:'金融',math:'数学',medicine:'医疗',bank:'银行',embedding:'向量',sound:'语音',video:'视频',image:'图像',visual:'视觉',char:'角色'};
+const skillSubTypes = {stock:'股票',futures:'期货',news:'资讯',risk:'风控',fund:'基金',office:'办公',fintech:'金融科技',frontend:'开发',fin:'金融',math:'数学',
+  medicine:'医疗',bank:'银行',embedding:'向量',sound:'语音',video:'视频',image:'图像',visual:'视觉',char:'角色'};
 const modelData = [
 {name:"a-share-automl-strategy",type:"skill",sub:"stock",logo:"aifinlab.jpeg",modalities:["A股AutoML策略/自动化量化建模","上海财经大学"],url:"https://github.com/aifinlab/FinClaw/tree/main/skills/a-share-automl-strategy"},
 {name:"Fin MCP Server",type:"mcp",logo:"zxjt.jpg",modalities:["金融研究","因子计算","图表生成","数据库接口"],url:"https://www.24krmb.com/thread-4344-1-1.html"},
@@ -146,6 +147,7 @@ const modelData = [
 {name:"DianJin-R1-7B",type:"models",sub:"fin",logo:"qwen.svg",modalities:["MIT","PyTorch","Safetensors","Transformers"],url:"https://huggingface.co/DianJin/"},
 {name:"Embedding-3",type:"models",sub:"embedding",logo:"zhipu.svg",modalities:["0.5元/百万Tokens","8K上下文","256-2048维度"],url:"/static/models/glm.html"},
 {name:"Embedding-2",type:"models",sub:"embedding",logo:"zhipu.svg",modalities:["0.5元/百万Tokens","8K上下文","1024维度"],url:"/static/models/glm.html"},
+{name:"Doubao-embedding-vision",type:"models",sub:"embedding",logo:"Doubao.svg",modalities:["0.7元/百万Tokens","在线推理"],url:"https://www.doubao.com/chat/"},
 {name:"GLM-4-Voice",type:"models",sub:"sound",logo:"zhipu.svg",modalities:["端到端语音","上下文8K","最大输出4K"],url:"/static/models/glm.html"},
 {name:"CogVideoX-3",type:"models",sub:"video",logo:"zhipu.svg",modalities:["时长:5s,10s","最高4K","图像、文本、首尾帧"],url:"/static/models/glm.html"},
 {name:"Vidu Q1",type:"models",sub:"video",logo:"zhipu.svg",modalities:["时长:5s","最高1080P","图像、文本、首尾帧"],url:"/static/models/glm.html"},
@@ -163,26 +165,34 @@ const modelData = [
 {name:"DianJin-Fin-PRM-Data",type:"Datasets",sub:"fin",logo:"qwen.svg",modalities:["中文金融领域的（PRM）训练数据集"],url:"https://huggingface.co/DianJin/"},
 {name:"CharGLM-4",type:"models",sub:"char",logo:"zhipu.svg",modalities:["角色扮演","超长记忆","千人千面","情感表达"],url:"/static/models/glm.html"},
 {name:"Emohaa",type:"models",sub:"char",logo:"zhipu.svg",modalities:["专业倾听","情感映射","共情能力","Hill 助人理论"],url:"/static/models/glm.html"},
-
 {name:"Claude Code",type:"agent",sub:"ide",logo:"Claude.svg",modalities:["全代码库级理解","端到端自主执行","多环境无缝接入","精细权限控制"],url:"https://claude.com/product/claude-code"},
 {name:"Codex",type:"agent",sub:"ide",logo:"Codex.svg",modalities:["多智能体并行工作","端到端自主执行","多环境无缝接入","精细权限控制"],url:"https://openai.com/zh-Hans-CN/codex/"},
-
 {name:"Hermes Agent",type:"agent",logo:"hermesagent.svg",modalities:["经验驱动的技能进化","全平台无缝衔接","多智能体协同并行"],url:"https://hermes-agent.nousresearch.com/"},
 {name:"Notion",type:"agent",logo:"Notion.svg",modalities:["团队协作","企业运营","个人效率提升","教育与学习"],url:"https://www.notion.com/zh-cn"},
 {name:"万小智 AI 员工",type:"agent",logo:"AlibabaCloud.svg",modalities:["多角色协作","自带运营级后台与智能问答客服","全链路合规上线"],url:"https://wanxiaozhi.aliyun.com/"},
 {name:"Lovart",type:"agent",logo:"Lovart.svg",modalities:["自主智能系统思维","精准点选与局部编辑","智能文字分层可控","教育与学习"],url:"https://www.lovart.ai/"},
-
-{name:"aion-2.0",type:"models",sub:"thar",logo:"aionlabs.svg",modalities:["沉浸式角色扮演","最大输出：32K","推理"],url:"https://www.aionlabs.ai/"},
-{name:"Aion-1.0",type:"models",sub:"thar",logo:"aionlabs.svg",modalities:["DeepSeek-R1的变体","最大输出：32K","角色扮演"],url:"https://www.aionlabs.ai/"},
-{name:"Aion-1.0-mini",type:"models",sub:"thar",logo:"aionlabs.svg",modalities:["沉浸式角色扮演","最大输出：32K","推理"],url:"https://www.aionlabs.ai/"},
-{name:"aion-rp-llama-3.1-8b",type:"models",sub:"thar",logo:"aionlabs.svg",modalities:["角色扮演","最大输出：32K","LLama3.1 8B 的变体"],url:"https://www.aionlabs.ai/"},
+{name:"aion-2.0",type:"models",sub:"char",logo:"aionlabs.svg",modalities:["沉浸式角色扮演","最大输出：32K","推理"],url:"https://www.aionlabs.ai/"},
+{name:"Aion-1.0",type:"models",sub:"char",logo:"aionlabs.svg",modalities:["DeepSeek-R1的变体","最大输出：32K","角色扮演"],url:"https://www.aionlabs.ai/"},
+{name:"Aion-1.0-mini",type:"models",sub:"char",logo:"aionlabs.svg",modalities:["沉浸式角色扮演","最大输出：32K","推理"],url:"https://www.aionlabs.ai/"},
+{name:"aion-rp-llama-3.1-8b",type:"models",sub:"char",logo:"aionlabs.svg",modalities:["角色扮演","最大输出：32K","LLama3.1 8B 的变体"],url:"https://www.aionlabs.ai/"},
 {name:"aion-1.0-mini",type:"models",sub:"math",logo:"aionlabs.svg",modalities:["DeepSeek-R1的精炼版","最大输出：32K","数学推理"],url:"https://www.aionlabs.ai/"},
-
 {name:"YouMind",type:"agent",logo:"YouMind.svg",modalities:["多维素材全量捕捉","个性化 AI 逻辑学习","沉浸式动态创作流"],url:"https://youmind.com/"},
 {name:"Atoms",type:"agent",logo:"Atoms.ico",modalities:["AI 多智能体团队协作","生产级全栈开发能力","竞速模式"],url:"https://atoms.dev/zh"},
 {name:"腾讯 Marvis",type:"agent",logo:"marvis.avif",modalities:["腾讯推出的操作系统级 AI 助手"],url:"https://marvis.qq.com/"},
 {name:"StoreClaw",type:"agent",logo:"StoreClaw.avif",modalities:["电商自主运营平台"],url:"https://www.storeclaw.ai/"},
 {name:"Tycoon AI",type:"agent",logo:"Tycoon.svg",modalities:["单人公司（OPC）管理平台"],url:"https://tycoon.us/"},
+{name:"Doubao-Seed-Character",type:"models",sub:"char",logo:"Doubao.svg",modalities:["角色扮演","故事叙事"],url:"https://www.doubao.com/chat/"},
+{name:"doubao-seedance-2.0",type:"models",sub:"video",logo:"Doubao.svg",modalities:["多模态模型","深度思考","视觉理解"],url:"https://research.doubao.com/zh/seedance2_0"},
+{name:"Doubao-Seedance-1.5-pro",type:"models",sub:"video",logo:"Doubao.svg",modalities:["多模态模型","深度思考","视觉理解"],url:"https://research.doubao.com/zh/seedance1_5_pro"},
+{name:"Doubao-Seedance-1.0-pro-fast",type:"models",sub:"video",logo:"Doubao.svg",modalities:["视频生成","视觉理解"],url:"https://research.doubao.com/zh/seedance1_0_pro_fast"},
+{name:"Doubao-Seedance-2.0-fast",type:"models",sub:"video",logo:"Doubao.svg",modalities:["视频生成","视觉理解"],url:"https://research.doubao.com/zh/seedance2_0_fast"},
+{name:"Doubao-Seedream-5.0-lite",type:"models",sub:"image",logo:"Doubao.svg",modalities:["视觉模型","图片生成"],url:"https://seed.bytedance.com/zh/seedream5_0_lite"},
+{name:"Doubao-Seedream-4.5",type:"models",sub:"image",logo:"Doubao.svg",modalities:["视觉模型","图片生成"],url:"https://seed.bytedance.com/zh/seedream4_5"},
+{name:"Doubao-Seedream-4.0",type:"models",sub:"image",logo:"Doubao.svg",modalities:["视觉模型","图片生成"],url:"https://seed.bytedance.com/zh/seedream4_0"},
+
+{name:"longcat-flash-thinking",type:"models",sub:"text",logo:"LongCat.svg",modalities:["异步弹性共卡","智能体推理","形式化推理"],url:"https://huggingface.co/meituan-longcat/LongCat-Flash-Thinking"},
+{name:"longcat-flash-thinking",type:"models",sub:"text",logo:"LongCat.svg",modalities:["异步弹性共卡","智能体推理","形式化推理"],url:"https://github.com/meituan-longcat/LongCat-Flash-Thinking"},
+{name:"LongCat-Video-Avatar 1.5",type:"models",sub:"video",logo:"LongCat.svg",modalities:["数字人视频","八步生成","音视频协调"],url:"https://github.com/meituan-longcat/LongCat-Flash-Thinking"},
 
 
 ];
