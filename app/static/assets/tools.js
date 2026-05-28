@@ -151,6 +151,7 @@ const modelData = [
 {name:"Embedding-3",type:"models",sub:"embedding",logo:"zhipu.svg",modalities:["0.5元/百万Tokens","8K上下文","256-2048维度"],url:"/static/models/glm.html"},
 {name:"Embedding-2",type:"models",sub:"embedding",logo:"zhipu.svg",modalities:["0.5元/百万Tokens","8K上下文","1024维度"],url:"/static/models/glm.html"},
 {name:"Doubao-embedding-vision",type:"models",sub:"embedding",logo:"Doubao.svg",modalities:["0.7元/百万Tokens","在线推理"],url:"https://www.doubao.com/chat/"},
+{name:"Glm-5.1",type:"models",sub:"code",logo:"zhipu.svg",modalities:["国内编程最强","编程模型"],url:"/static/models/glm.html"},
 {name:"GLM-4-Voice",type:"models",sub:"sound",logo:"zhipu.svg",modalities:["端到端语音","上下文8K","最大输出4K"],url:"/static/models/glm.html"},
 {name:"CogVideoX-3",type:"models",sub:"video",logo:"zhipu.svg",modalities:["时长:5s,10s","最高4K","图像、文本、首尾帧"],url:"/static/models/glm.html"},
 {name:"Vidu Q1",type:"models",sub:"video",logo:"zhipu.svg",modalities:["时长:5s","最高1080P","图像、文本、首尾帧"],url:"/static/models/glm.html"},
@@ -201,6 +202,9 @@ const modelData = [
 {name:"Claude Sonnet 4.6",type:"models",sub:"code",logo:"Claude.svg",modalities:["编程模型"],url:"https://www.anthropic.com/claude/sonnet"},
 {name:"Claude Sonnet 4.5",type:"models",sub:"code",logo:"Claude.svg",modalities:["编程模型"],url:"https://www.anthropic.com/news/claude-sonnet-4-5"},
 {name:"Claude Haiku 4.5",type:"models",sub:"code",logo:"Claude.svg",modalities:["编程模型"],url:"https://www.anthropic.com/claude/haiku"},
+{name:"DeepSeek-Prover-V2",type:"models",sub:["math","text"],logo:"deepseek.svg",modalities:["MIT","PyTorch","Safetensors"],url:"https://api-docs.deepseek.com/zh-cn/"},
+{name:"DeepSeek V4 Pro",type:"models",sub:["code","text"],logo:"deepseek.svg",modalities:["MIT","编程模型","编程模型"],url:"https://api-docs.deepseek.com/zh-cn/"},
+{name:"DeepSeek-V4-Flash",type:"models",sub:["text"],logo:"deepseek.svg",modalities:["MIT","PyTorch","Safetensors"],url:"https://api-docs.deepseek.com/zh-cn/"},
 ];
 let currentFilter = {type:'all',sub:null};
 function filterSkills(type,btn,sub) {
