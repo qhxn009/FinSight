@@ -53,9 +53,10 @@ tr:nth-child(even) {background-color:var(--bg-card)}
 .skill-type.type-skill{background-color:rgba(153, 102, 255,0.8)}
 .skill-type.type-mcp,.skill-type.type-ide{background-color:rgba(0, 204, 153,0.8)}
 .skill-type.type-models{background-color:rgba(255, 51, 102,0.8)}
-.skill-type.type-tools{background-color:rgba(255, 204, 102,0.8)}
+.skill-type.type-tools,.skill-type.type-aigc{background-color:rgba(255, 204, 102,0.8)}
 .skill-type.type-agent,.skill-type.type-run{background-color:rgba(102, 51, 255,0.8)}
 .skill-type.type-Datasets{background-color:rgba(255, 51, 245,0.8)}
+
 .skill-sub{color:var(--text-primary);background:var(--bg-secondary)}
 .skill-sub.type-fund,.skill-sub.type-ide{background:rgba(0,204,153,0.15);color:#0c9}
 .skill-sub.type-medicine,.skill-sub.type-quant{background:rgba(102,102,204,0.15);color:#66c}
