@@ -51,7 +51,7 @@ tr:nth-child(even) {background-color:var(--bg-card)}
 .skill-type,.skill-sub{padding:3px 8px;border-radius:10px;font-size:10px;font-weight:500;margin-left:8px;white-space:nowrap;flex-shrink:0;border:none}
 .skill-type{color:var(--bg-main)}
 .skill-type.type-skill{background-color:rgba(153, 102, 255,0.8)}
-.skill-type.type-mcp{background-color:rgba(0, 204, 153,0.8)}
+.skill-type.type-mcp,.skill-type.type-ide{background-color:rgba(0, 204, 153,0.8)}
 .skill-type.type-models{background-color:rgba(255, 51, 102,0.8)}
 .skill-type.type-tools{background-color:rgba(255, 204, 102,0.8)}
 .skill-type.type-agent{background-color:rgba(102, 51, 255,0.8)}
