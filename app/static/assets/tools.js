@@ -1,6 +1,5 @@
-const modelTypes = {skill:'技能',mcp:'MCP',models:'模型',Datasets:'数据集',tools:'工具',agent:'Agent',ide:'IDE'};
-const skillSubTypes = {stock:'股票',futures:'期货',news:'资讯',risk:'风控',fund:'基金',office:'办公',fintech:'金融科技',frontend:'开发',fin:'金融',math:'数学',
-  medicine:'医疗',bank:'银行',embedding:'向量',sound:'语音',video:'视频',image:'图像',visual:'视觉',char:'角色',text:'文本',code:'编程',quant:'量化',
+const modelTypes = {skill:'技能',mcp:'MCP',models:'模型',Datasets:'数据集',tools:'工具',agent:'Agent',ide:'IDE',run:'环境'};
+const skillSubTypes = {stock:'股票',futures:'期货',news:'资讯',risk:'风控',fund:'基金',office:'办公',fintech:'金融科技',frontend:'开发',fin:'金融',math:'数学',medicine:'医疗',bank:'银行',embedding:'向量',sound:'语音',video:'视频',image:'图像',visual:'视觉',char:'角色',text:'文本',code:'编程',quant:'量化',
   db:'数据库',web:'WEB',aigc:'AIGC',chat:'对话',agent:'Agent'};
 const modelData = [
 {name:"DianJin",type:"skill",sub:["fund","stock","bank"],logo:"qwen.svg",modalities:["银行","保险","证券/资管"],url:"https://github.com/aliyun/qwen-dianjin/tree/master/DianJin-SKILLS"},
@@ -9,7 +8,7 @@ const modelData = [
 {name:"一招（YiZhao)",type:"models",sub:["fund","stock","bank"],logo:"zsyh.png",modalities:["Apache-2.0","银行"],url:"https://www.24krmb.com/thread-4610-1-1.html"},
 {name:"Github",type:"tools",logo:"Github.svg",modalities:["代码托管","协作开发","免费"],url:"https://github.com/"},
 {name:"Glm-5.1",type:"models",sub:["code","text"],logo:"zhipu.svg",modalities:["国内编程最强","编程模型"],url:"/static/models/glm.html"},
-{name:"Python",type:"tools",sub:"frontend",logo:"Python.svg",modalities:["通用编程","AI/ML首选","开源"],url:"https://www.python.org/"},
+{name:"Python",type:"run",sub:"frontend",logo:"Python.svg",modalities:["通用编程","AI/ML首选","开源"],url:"https://www.python.org/"},
 {name:"DeepSeek V4 Pro",type:"models",sub:["code","text"],logo:"deepseek.svg",modalities:["MIT","编程模型","编程模型"],url:"https://api-docs.deepseek.com/zh-cn/"},
 {name:"ComfyUI",type:"tools",sub:["aigc"],logo:"ComfyUI.svg",modalities:["MIT","工作流","图片","视频"],url:"https://www.comfy.org/"},
 {name:"DeepSeek-Prover-V2",type:"models",sub:["math","text"],logo:"deepseek.svg",modalities:["MIT","PyTorch","Safetensors"],url:"https://api-docs.deepseek.com/zh-cn/"},
@@ -42,7 +41,7 @@ const modelData = [
 {name:"沪深股票数据 MCP ",type:"mcp",sub:"stock",logo:"jyj.jpg",modalities:["基本信息","行情数据","财务数据","技术指标"],url:"https://www.24krmb.com/thread-3838-1-1.html"},
 {name:"BloombergGPT",type:"models",sub:"fin",logo:"bloomberg.png",modalities:["美股","BLLOOM","彭博"],url:"https://arxiv.org/abs/2303.17564"},
 {name:"WindClaw",type:"agent",logo:"wind.png",modalities:["零代码","免部署","需要积分"],url:"https://www.24krmb.com/thread-4525-1-1.html"},
-{name:"Nodejs",type:"tools",logo:"Nodejs.svg",modalities:["服务端JS","事件驱动","开源"],url:"https://nodejs.org/"},
+
 {name:"期货品种深度分析报告",type:"skill",sub:"futures",logo:"dwane.png",modalities:["无需KEY","可生成HTML到电脑桌面"],url:"https://www.24krmb.com/thread-4599-1-1.html"},
 {name:"迅投(xtquant)量化交易平台MCP",type:"mcp",sub:"quant",logo:"dfkai.jpeg",modalities:["基础数据查询","行情数据","图表和可视化"],url:"https://www.24krmb.com/thread-3856-1-1.html"},
 {name:"Fin-R1",type:"models",sub:"fin",logo:"aifinlab.jpeg",modalities:["Apache-2.0","复杂推理"],url:"https://www.24krmb.com/misc.php?mod=tag&id=700"},
@@ -104,7 +103,7 @@ const modelData = [
 {name:"risk-analyzer",type:"skill",sub:"risk",logo:"CoWork-OS.jpeg",modalities:["投资组合风险分析"],url:"https://github.com/cowork-os/cowork-os/tree/main/resources/skills/risk-analyzer"},
 {name:"TxGemma",type:"models",sub:"medicine",logo:"google.svg",modalities:["治疗药物开发​","HAI-DEF"],url:"https://huggingface.co/collections/google/txgemma-release-67dd92e931c857d15e4d1e87"},
 {name:"JVS Claw",type:"agent",logo:"JVS.png",modalities:["阿里云","云端 ClawSpace"],url:"https://jvsclaw.aliyun.com/"},
-{name:"PHP",type:"tools",sub:"frontend",logo:"PHP.svg",modalities:["服务端语言","Web开发","开源"],url:"https://www.php.net/"},
+
 {name:"credit-risk-explanation",type:"skill",sub:"risk",logo:"404kidwiz.jpg",modalities:["解释信贷风险驱动因素、评分方法及贷款组合的损失估算"],url:"https://github.com/goldenzero/skills/tree/main/skills/credit-risk-explanation"},
 {name:"TxGemma",type:"models",sub:"medicine",logo:"google.svg",modalities:["治疗药物开发​","HAI-DEF"],url:"https://github.com/google-gemini/gemma-cookbook/tree/main/TxGemma"},
 {name:"RedClaw",type:"agent",logo:"RedClaw.png",modalities:["百度智能云"],url:"https://operator.gc.com.cn/"},
@@ -182,7 +181,7 @@ const modelData = [
 {name:"DianJin-CSC-Data",type:"Datasets",sub:"fin",logo:"qwen.svg",modalities:["客户服务对话（CSC）任务"],url:"https://huggingface.co/DianJin/"},
 {name:"DianJin-Fin-PRM-Data",type:"Datasets",sub:"fin",logo:"qwen.svg",modalities:["中文金融领域的（PRM）训练数据集"],url:"https://huggingface.co/DianJin/"},
 {name:"CharGLM-4",type:"models",sub:"char",logo:"zhipu.svg",modalities:["角色扮演","超长记忆","千人千面","情感表达"],url:"/static/models/glm.html"},
-{name:"GithubCopilot",type:"tools",sub:"code",logo:"GithubCopilot.svg",modalities:["AI 只能编程助手"],url:"https://github.com/features/copilot"},
+
 {name:"Emohaa",type:"models",sub:"char",logo:"zhipu.svg",modalities:["专业倾听","情感映射","共情能力","Hill 助人理论"],url:"/static/models/glm.html"},
 {name:"Notion",type:"agent",logo:"Notion.svg",modalities:["团队协作","企业运营","个人效率提升","教育与学习"],url:"https://www.notion.com/zh-cn"},
 {name:"万小智 AI 员工",type:"agent",logo:"AlibabaCloud.svg",modalities:["多角色协作","自带运营级后台与智能问答客服","全链路合规上线"],url:"https://wanxiaozhi.aliyun.com/"},
@@ -232,16 +231,24 @@ const modelData = [
 {name:"Claude Code",type:"ide",sub:"agent",logo:"Claude.svg",modalities:["全代码库级理解","端到端自主执行","多环境无缝接入","精细权限控制"],url:"https://claude.com/product/claude-code"},
 {name:"opencode",type:"ide",sub:"agent",logo:"opencode.svg",modalities:["开源 AI 编程代理"],url:"https://opencode.ai/zh"},
 {name:"Zencoder",type:"ide",sub:"agent",logo:"Zencoder.svg",modalities:["集成多智能体编排与 IDE 深度协作的 AI 编程平台"],url:"https://zencoder.ai/"},
-{name:"CodeGeeX",type:"ide",sub:"agent",logo:"CodeGeeX.svg",modalities:["代码翻译","自动添加注释","自动生成和补全"],url:"https://codegeex.cn/"},
+{name:"CodeGeeX",type:"ide",sub:"agent",logo:"CodeGeeX.svg",modalities:["智谱出品","代码翻译","自动添加注释","自动生成和补全"],url:"https://codegeex.cn/"},
 {name:"Codex",type:"ide",sub:"agent",logo:"Codex.svg",modalities:["多智能体并行工作","端到端自主执行","多环境无缝接入","精细权限控制"],url:"https://openai.com/zh-Hans-CN/codex/"},
 {name:"CodeFlicker",type:"ide",sub:"agent",logo:"CodeFlicker.svg",modalities:["AI 驱动的代码编辑器"],url:"https://www.codeflicker.ai/"},
 {name:"Kilo Code",type:"ide",sub:"agent",logo:"KiloCode.svg",modalities:["开源编码智能体"],url:"https://kilo.org.cn/"},
+{name:"Cursor",type:"ide",sub:"agent",logo:"Cursor.svg",modalities:["AI IDE","Composer","Chat","代码补全"],url:"https://cursor.com/"},
 {name:"TRAE",type:"ide",sub:"agent",logo:"TRAE.svg",modalities:["字节跳动出品","的编码智能体"],url:"https://www.trae.cn/"},
 {name:"Qoder",type:"ide",sub:"agent",logo:"Qoder.svg",modalities:["阿里出品","面向真实软件的智能体编程平台"],url:"https://qoder.com/"},
+{name:"RooCode",type:"ide",sub:"agent",logo:"RooCode.svg",modalities:["在 IDE 中互动","在云端自主运行"],url:"https://roocode.org.cn/"},
+{name:"GithubCopilot",type:"ide",sub:"agent",logo:"GithubCopilot.svg",modalities:["AI 只能编程助手"],url:"https://github.com/features/copilot"},
+{name:"Cline",type:"ide",sub:"agent",logo:"Cline.svg",modalities:["开源的 VS Code 扩展"],url:"https://github.com/cline/cline"},
+{name:"Windsurf",type:"ide",sub:"agent",logo:"Windsurf.svg",modalities:["强调“流”式编程"],url:"https://windsurf.com/editor"},
+{name:"Replit Agent",type:"ide",sub:"agent",logo:"Replit.svg",modalities:["Replit 平台内置的 AI 代理"],url:"https://replit.com/"},
+
 
 {name:"CodeBuddy",type:"ide",sub:"agent",logo:"CodeBuddy.svg",modalities:["腾讯云出品的IDE"],url:"https://www.codebuddy.cn/ide/"},
-{name:"VsCode",type:"ide",logo:"VsCode.svg",modalities:["代码编辑器","插件生态","免费","开源"],url:"https://code.visualstudio.com/"},
-
+{name:"VsCode",type:"ide",sub:"code",logo:"VsCode.svg",modalities:["代码编辑器","插件生态","免费","开源"],url:"https://code.visualstudio.com/"},
+{name:"Nodejs",type:"run",sub:"frontend",logo:"Nodejs.svg",modalities:["服务端JS","事件驱动","开源"],url:"https://nodejs.org/"},
+{name:"PHP",type:"run",sub:"frontend",logo:"PHP.svg",modalities:["服务端语言","Web开发","开源"],url:"https://www.php.net/"},
 ];
 let currentFilter = {type:'all',sub:null};
 function filterSkills(type,btn,sub) {

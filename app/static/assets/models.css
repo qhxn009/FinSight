@@ -54,7 +54,7 @@ tr:nth-child(even) {background-color:var(--bg-card)}
 .skill-type.type-mcp,.skill-type.type-ide{background-color:rgba(0, 204, 153,0.8)}
 .skill-type.type-models{background-color:rgba(255, 51, 102,0.8)}
 .skill-type.type-tools{background-color:rgba(255, 204, 102,0.8)}
-.skill-type.type-agent{background-color:rgba(102, 51, 255,0.8)}
+.skill-type.type-agent,.skill-type.type-run{background-color:rgba(102, 51, 255,0.8)}
 .skill-type.type-Datasets{background-color:rgba(255, 51, 245,0.8)}
 .skill-sub{color:var(--text-primary);background:var(--bg-secondary)}
 .skill-sub.type-fund,.skill-sub.type-ide{background:rgba(0,204,153,0.15);color:#0c9}
@@ -62,9 +62,9 @@ tr:nth-child(even) {background-color:var(--bg-card)}
 .skill-sub.type-bank,.skill-sub.type-futures{background:rgba(255,165,0,0.15);color:#ffa500}
 .skill-sub.type-fintech,.skill-sub.type-db{background:rgba(0,204,204,0.15);color:#0cc}
 .skill-sub.type-risk,.skill-sub.type-fin{background:rgba(255,51,102,0.15);color:#f36}
-.skill-sub.type-stock{background:rgba(255,107,53,0.15);color:#ff6b35}
-.skill-sub.type-news{background:rgba(0,150,255,0.15);color:#0096ff}
+.skill-sub.type-news,.skill-sub.type-agent{background:rgba(0,150,255,0.15);color:#0096ff}
 .skill-sub.type-office{background:rgba(153,102,255,0.15);color:#9966ff}
+.skill-sub.type-stock{background:rgba(255,107,53,0.15);color:#ff6b35}
 .skill-sub.type-frontend{background:rgba(102,153,255,0.15);color:#69f}
 .skill-sub.type-math{background:rgba(0,153,204,0.15);color:#0099cc}
 .skill-sub.type-embedding{background:rgba(153,51,255,0.15);color:#9933ff}
