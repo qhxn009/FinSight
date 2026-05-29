@@ -241,6 +241,25 @@ const modelData = [
 {name:"Sass",type:"run",logo:"Sass.svg",modalities:["CSS预处理器","变量/嵌套","开源"],url:"https://sass-lang.com/"},
 {name:"Vue",type:"run",sub:"frontend",logo:"Vue.svg",modalities:["前端框架","渐进式","开源"],url:"https://vuejs.org/"},
 {name:"WordPress",type:"run",logo:"WordPress.svg",modalities:["CMS","博客系统","开源"],url:"https://wordpress.org/"},
+
+{name:"Midjourney",type:"aigc",sub:"image",logo:"Midjourney.svg",modalities:["AI绘画","图像生成"],url:"https://www.midjourney.com/home"},
+{name:"Stable Diffusion WebUI",type:"aigc",sub:["image","video"],logo:"Stable.svg",modalities:["开源","图像/视频生成"],url:"https://github.com/AUTOMATIC1111/stable-diffusion-webui"},
+{name:"DALL·E 3",type:"aigc",sub:"image",logo:"openai",modalities:["OpenAI","图像生成"],url:"https://openai.com/dall-e-3"},
+{name:"Flux",type:"aigc",sub:"image",logo:"Flux.svg",modalities:["Black Forest Labs","开源图像生成"],url:"https://blackforestlabs.ai/"},
+{name:"Ideogram",type:"aigc",sub:"image",logo:"Ideogram.svg",modalities:["AI绘画","文字渲染强"],url:"https://ideogram.ai/"},
+{name:"Leonardo AI",type:"aigc",sub:"image",logo:"Leonardo.svg",modalities:["AI绘画","游戏资产生成"],url:"https://leonardo.ai/"},
+{name:"Civitai",type:"aigc",sub:"image",logo:"Civitai.svg",modalities:["模型社区","LoRA/Checkpoint分享"],url:"https://civitai.com/"},
+{name:"Runway",type:"aigc",sub:"video",logo:"Runway.svg",modalities:["AI视频生成","视频编辑"],url:"https://runwayml.com/"},
+{name:"Pika",type:"aigc",sub:"video",logo:"Pika.svg",modalities:["AI视频生成","特效"],url:"https://pika.art/"},
+{name:"Kling",type:"aigc",sub:"video",logo:"Kling.svg",modalities:["快手可灵","AI视频生成"],url:"https://klingai.com/"},
+{name:"Vidu",type:"aigc",sub:"video",logo:"Vidu.svg",modalities:["生数科技","AI视频生成"],url:"https://www.vidu.studio/"},
+{name:"Luma Dream Machine",type:"aigc",sub:"video",logo:"Luma.svg",modalities:["AI视频生成","3D"],url:"https://lumalabs.ai/dream-machine"},
+{name:"Suno",type:"aigc",sub:"sound",logo:"Suno.svg",modalities:["AI音乐生成","歌词创作"],url:"https://suno.com/"},
+{name:"Udio",type:"aigc",sub:"sound",logo:"Udio.svg",modalities:["AI音乐生成","音色丰富"],url:"https://www.udio.com/"},
+{name:"ElevenLabs",type:"aigc",sub:"sound",logo:"ElevenLabs.svg",modalities:["AI语音合成","语音克隆"],url:"https://elevenlabs.io/"},
+{name:"Fish Audio",type:"aigc",sub:"sound",logo:"FishAudio.svg",modalities:["开源语音合成","语音克隆"],url:"https://fish.audio/"},
+{name:"Tripo3D",type:"aigc",sub:"3d",logo:"Tripo.svg",modalities:["AI 3D模型生成","快速建模"],url:"https://www.tripo3d.ai/"},
+
 ];
 let currentFilter = {type:'all',sub:null};
 function filterSkills(type,btn,sub) {
