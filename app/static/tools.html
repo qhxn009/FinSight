@@ -33,6 +33,13 @@
 <div class="skill-filter-list" id="skillFilterList">
 <div class="skill-filter-btn active" data-filter="all" onclick="filterSkills('all', this)"><i class="fa-solid fa-border-all"></i><span>全部</span></div>
 <div class="skill-filter-btn" data-filter="mcp" onclick="filterSkills('mcp', this)"><i class="fa-solid fa-plug"></i><span>MCP</span></div>
+<div class="skill-sub-menu" id="mcpSubMenu" style="display:none">
+    <div class="skill-sub-btn" data-sub="stock" onclick="filterSubSkills('stock', this)"><span>股票</span></div>
+    <div class="skill-sub-btn" data-sub="fund" onclick="filterSubSkills('fund', this)"><span>基金</span></div>
+    <div class="skill-sub-btn" data-sub="quant" onclick="filterSubSkills('quant', this)"><span>量化</span></div>
+    <div class="skill-sub-btn" data-sub="macro" onclick="filterSubSkills('macro', this)"><span>宏观经济</span></div>
+    <div class="skill-sub-btn" data-sub="crypto" onclick="filterSubSkills('crypto', this)"><span>加密货币</span></div>
+</div>
 <div class="skill-filter-btn" data-filter="skill" onclick="filterSkills('skill', this)"><i class="fa-solid fa-puzzle-piece"></i><span>SKILL</span></div>
 <div class="skill-sub-menu" id="skillSubMenu" style="display:none">
 <div class="skill-sub-btn" data-sub="stock" onclick="filterSubSkills('stock', this)"><span>股票</span></div>
