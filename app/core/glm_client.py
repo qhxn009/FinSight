@@ -113,7 +113,7 @@ ERROR_CODE_MAP = {
     "1301": "输入或生成内容可能包含不安全或敏感内容，请调整提问方式",
     "1302": "请求频率过高，请稍后再试",
     "1304": "今日调用次数已达上限，请明天再试或联系客服扩容",
-    "1305": "模型当前访问量过大，请稍后再试",
+    "1305": "模型当前访问量过大，请稍后再试，本项目已经开源，可以下载项目源代码后使用",
     "1308": "已达到使用上限，请等待配额重置后重试",
     "1309": "套餐已到期，请前往智谱官网续订",
     "1310": "已达到周/月使用上限，请等待配额重置",
@@ -171,10 +171,9 @@ def stream_finance_chat(messages: list, thinking_enabled: bool = False, web_sear
 
     try:
         kwargs = dict(
-            model="glm-4.7-flash",
+            model="glm-4.5-flash",
             messages=full_messages,
             stream=True,
-            max_tokens=128000,
         )
         if thinking_enabled:
             kwargs["thinking"] = {"type": "enabled"}
