@@ -9,11 +9,11 @@
 table {width: 100%;font-size: 14px;border-collapse: collapse;margin-bottom:16px}
 td, th {border: 1px solid var(--border-color);text-align: left;padding: 8px}
 th{background-color:var(--bg-card);font-weight:600}
-tr:nth-child(even) {background-color:var(--bg-card)}
+tr:nth-child(even) {background-color:var(--bg-card);backdrop-filter: blur(3px)}
 .toggle-btn{background-color: var(--bg-main)!important}
-.chat-topbar{background-color: transparent;backdrop-filter: blur(5px);-webkit-backdrop-filter: blur(5px);}
+.chat-topbar{background-color: transparent;backdrop-filter: blur(5px)}
 .container-center{margin-top: 30px;width:100%}
-.hero-card{text-align:center;margin-bottom:40px;padding:40px 20px;background:var(--bg-card);border-radius:var(--radius-lg);border:none}
+.hero-card{text-align:center;margin-bottom:40px;padding:40px 20px;background:var(--bg-card);backdrop-filter:blur(3px);border-radius:var(--radius-lg);border:none}
 .hero-title{font-size:1.8rem;font-weight:600;color:var(--text-primary);margin-bottom:8px;font-family:Georgia,Constantia,Constantia}
 .hero-desc{font-size:1rem;color:var(--text-secondary);line-height:1.6}
 .section{margin-bottom:32px}
@@ -55,7 +55,7 @@ tr:nth-child(even) {background-color:var(--bg-card)}
 .skill-type.type-models{background-color:rgba(255, 51, 102,0.8)}
 .skill-type.type-tools,.skill-type.type-aigc{background-color:rgba(255, 204, 102,0.8)}
 .skill-type.type-agent,.skill-type.type-run{background-color:rgba(102, 51, 255,0.8)}
-.skill-type.type-chat,.skill-type.type-Datasets{background-color:rgba(102, 255, 102,0.8)}
+.skill-type.type-chat,.skill-type.type-Datasets{background-color:rgb(153, 102, 255)}
 .skill-sub{color:var(--text-primary);background:var(--bg-secondary)}
 .skill-sub.type-fund,.skill-sub.type-ide{background:rgba(0,204,153,0.15);color:#0c9}
 .skill-sub.type-medicine,.skill-sub.type-quant{background:rgba(102,102,204,0.15);color:#66c}
