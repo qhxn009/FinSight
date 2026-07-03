@@ -20,7 +20,7 @@
 --code-bg:rgba(0,204,153,0.3);--codetext:rgb(0, 204, 153);
 }
 [data-theme="dark"]{--theme: rgb(255, 90, 80);--theme-bs:rgba(255, 90, 80, 0.4);--bg-main:rgb(5, 7, 10);
---bg-card:rgba(255, 90, 80, 0.051);--bg-secondary:var(--bg-card);--bg-hover:var(--bg-card);
+--bg-card:rgba(255,255,255,.05);--bg-secondary:var(--bg-card);--bg-hover:var(--bg-card);
 --text-primary:rgb(148, 163, 184);--text-secondary:rgb(148, 163, 184);--text-hover:rgb(0, 0,0);
 --border-subtle:rgba(57, 57, 57,.5);
 --border-light:rgba(255,255,255,.1);
